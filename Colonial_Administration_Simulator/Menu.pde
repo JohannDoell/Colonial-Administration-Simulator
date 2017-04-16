@@ -81,6 +81,8 @@ class menu {
         }
         line((width*5/100)-5, height*5/100, (width*5/100)+10, height*5/100);
         triangle((width*5/100)-5, (height*5/100)-5, (width*5/100)-10, (height*5/100), (width*5/100)-5, (height*5/100)+5);
+      } else if (menuState == 2) {
+        
       }
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
