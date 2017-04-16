@@ -7,6 +7,8 @@ class gameManager {
   void handleGameState() {
     if (state == 0) {
      titleMenu.displayMenu(); 
+    } else if (state == 1) {
+      gmf.displayMenu();
     }
   }
   
@@ -17,10 +19,8 @@ class gameManager {
   }
   
   void handleKeyPress() {
-    if (state == 0) {
-     if (titleMenu.menuState == 2) {
-       
-     }
+    if (state == 1) {
+
     }
   }
   
