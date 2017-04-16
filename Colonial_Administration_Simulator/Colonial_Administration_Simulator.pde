@@ -1,4 +1,5 @@
 int state = 0;
+String nationName, playerName;
 
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
@@ -16,4 +17,8 @@ void draw() {
 
 void mouseClicked() {
   game.handleMouseClick();
+}
+
+void keyPressed() {
+ game.handleKeyPress(); 
 }

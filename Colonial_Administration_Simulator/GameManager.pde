@@ -16,4 +16,12 @@ class gameManager {
     }
   }
   
+  void handleKeyPress() {
+    if (state == 0) {
+     if (titleMenu.menuState == 2) {
+       
+     }
+    }
+  }
+  
 }

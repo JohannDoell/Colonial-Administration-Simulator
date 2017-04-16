@@ -91,7 +91,7 @@ class menu {
       if (menuState == 0) {
         // Play
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*2/5)-40 && mouseY < (height*2/5)+40) {
-          state = 1;
+          menuState = 2;
         }
         // Options 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {
