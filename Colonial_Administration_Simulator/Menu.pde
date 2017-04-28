@@ -1,6 +1,7 @@
 class menu {
   String menuType;
   int menuState;
+  boolean displayInGameMenu = false;
 
   menu(String _menuType) {
     menuType = _menuType;
@@ -85,6 +86,7 @@ class menu {
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
     } else if (menuType == "Game Menu Frame") {
+      // Resource Menus
       stroke(0); 
       line(0, height*1/16, width, height*1/16);
       fill(0);
@@ -94,6 +96,21 @@ class menu {
       text("Minerals " + minerals, width*11/48, height*2/64);
       text("EUs " + energy, width*19/48, height*2/64);
       text("Food " + food, width*25/48, height*2/64);
+
+      // InGame Option Menu
+      stroke(0); 
+      fill(0);
+      textAlign(CENTER, CENTER);
+      textSize(16);
+      if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
+        fill(155);
+      } else {
+        fill(0);
+      }
+      rect((width)-((height*1/16)/2), (height*1/16)/2, height*1/16, height*1/16);
+      
+      
+      
     }
   }
 
@@ -122,6 +139,10 @@ class menu {
       }
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
+    } else if (menuType == "Game Menu Frame") {
+      if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
+        displayInGameMenu = !displayInGameMenu;
+      }
     }
   }
 }
