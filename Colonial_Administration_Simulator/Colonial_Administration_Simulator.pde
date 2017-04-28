@@ -1,6 +1,8 @@
 int state;
 int pops, food, minerals, energy;
+int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
+
 
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");

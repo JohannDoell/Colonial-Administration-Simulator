@@ -2,6 +2,8 @@ class menu {
   String menuType;
   int menuState;
   boolean displayInGameMenu = false;
+  String[] igmOptions = {};
+
 
   menu(String _menuType) {
     menuType = _menuType;
@@ -109,7 +111,9 @@ class menu {
       }
       rect((width)-((height*1/16)/2), (height*1/16)/2, height*1/16, height*1/16);
       
-      
+      if (displayInGameMenu == true) {
+        
+      }
       
     }
   }
