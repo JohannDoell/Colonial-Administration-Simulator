@@ -114,6 +114,11 @@ class menu {
         if (mouseX > ((width*95/100)-15) && mouseX < ((width*95/100)+15) && mouseY > (height*5/100)-15 && mouseY < (height*5/100)+15) {
           exit();
         }
+      } else if (menuState == 1) {
+        // Back Button
+        if (mouseX > ((width*5/100)-15) && mouseX < ((width*5/100)+15) && mouseY > (height*5/100)-15 && mouseY < (height*5/100)+15) {
+          menuState = 0;
+        }
       }
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
