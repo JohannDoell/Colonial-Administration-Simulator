@@ -104,17 +104,54 @@ class menu {
       fill(0);
       textAlign(CENTER, CENTER);
       textSize(16);
-      if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
+      if (mouseX > (width)-(width*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16) || displayInGameMenu == true) {
         fill(155);
       } else {
         fill(0);
       }
-      rect((width)-((height*1/16)/2), (height*1/16)/2, height*1/16, height*1/16);
-      
+      rect((width)-((width*1/16)/2), (height*1/16)/2, width*1/16, height*1/16);
+
       if (displayInGameMenu == true) {
-        
+        // Options
+        stroke(0); 
+        fill(0);
+        textAlign(CENTER, CENTER);
+        textSize(16);
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8) ) {
+          fill(0);
+        } else {
+          fill(155);
+        }
+        rect((width)-((width*1/8)/2), (height*1/8)-height*1/32, width*1/4, height*1/16);
+        fill(255);
+        text("Options", (width)-((width*1/8)/2), (height*1/8)-height*1/32);
+        // Save
+        stroke(0); 
+        fill(0);
+        textAlign(CENTER, CENTER);
+        textSize(16);
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16 ) {
+          fill(0);
+        } else {
+          fill(155);
+        }
+        rect((width)-((width*1/8)/2), (height*1/8)+height*1/32, width*1/4, height*1/16);
+        fill(255);
+        text("Save", (width)-((width*1/8)/2), (height*1/8)+height*1/32);
+        // Quit
+        stroke(0); 
+        fill(0);
+        textAlign(CENTER, CENTER);
+        textSize(16);
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
+          fill(0);
+        } else {
+          fill(155);
+        }
+        rect((width)-((width*1/8)/2), (height*1/8)+height*3/32, width*1/4, height*1/16);
+        fill(255);
+        text("Quit", (width)-((width*1/8)/2), (height*1/8)+height*3/32);
       }
-      
     }
   }
 
@@ -146,6 +183,17 @@ class menu {
     } else if (menuType == "Game Menu Frame") {
       if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
         displayInGameMenu = !displayInGameMenu;
+      }
+
+      if (displayInGameMenu == true) {
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
+          state = 0;
+          displayInGameMenu = false;
+        }
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8) ) {
+          state = 0;
+          titleMenu.menuState = 1;
+        }
       }
     }
   }

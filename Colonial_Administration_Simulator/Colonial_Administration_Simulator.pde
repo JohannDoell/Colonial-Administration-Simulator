@@ -1,4 +1,5 @@
 int state;
+int turn;
 int pops, food, minerals, energy;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
