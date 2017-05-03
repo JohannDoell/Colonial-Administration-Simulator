@@ -39,7 +39,7 @@ class menu {
         textSize(23);
         text("Play", width*1/2, height*2/5);
 
-        // Options 
+        // Load 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {
           fill(255);
         } else {
@@ -54,7 +54,25 @@ class menu {
         }
         textAlign(CENTER, CENTER);
         textSize(23);
-        text("Options", width*1/2, height*3/5);
+        text("Load", width*1/2, height*3/5);
+
+        // Options 
+        if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*4/5)-40 && mouseY < (height*4/5)+40) {
+          fill(255);
+        } else {
+          fill(0);
+        }
+        rectMode(CENTER);
+        rect(width*1/2, height*4/5, 300, 80);
+        if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*4/5)-40 && mouseY < (height*4/5)+40) {
+          fill(0);
+        } else {
+          fill(255);
+        }
+        textAlign(CENTER, CENTER);
+        textSize(23);
+        text("Options", width*1/2, height*4/5);
+
 
         // Exit
         rectMode(CENTER);
@@ -94,10 +112,10 @@ class menu {
       fill(0);
       textAlign(CENTER, CENTER);
       textSize(16);
-      text("Pops " + pops, width*4/48, height*2/64);
-      text("Minerals " + minerals, width*11/48, height*2/64);
-      text("EUs " + energy, width*19/48, height*2/64);
-      text("Food " + food, width*25/48, height*2/64);
+      text("Pops " + pops + "+" + popIncrease, width*4/48, height*4/128);
+      text("Minerals " + minerals + "+" + mineralIncrease, width*13/48, height*4/128);
+      text("EUs " + energy + "+" + energyIncrease, width*23/48, height*4/128);
+      text("Food " + food + "+" + foodIncrease, width*31/48, height*4/128);
 
       // InGame Option Menu
       stroke(0); 
@@ -162,10 +180,15 @@ class menu {
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*2/5)-40 && mouseY < (height*2/5)+40) {
           state = 1;
         }
-        // Options 
+        // Load 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {
+          // Load Functionality
+        }
+        // Options
+        if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*4/5)-40 && mouseY < (height*4/5)+40) {
           menuState = 1;
         }
+
 
         // Exit
         rectMode(CENTER);
