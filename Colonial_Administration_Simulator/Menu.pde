@@ -2,6 +2,8 @@ class menu {
   String menuType;
   int menuState;
   boolean displayInGameMenu = false;
+  boolean displayResearchMenu = false;
+  boolean displayConstructionMenu = false;
   String[] igmOptions = {};
 
 
@@ -173,8 +175,9 @@ class menu {
       //Tabs
       line(0, height*14/16, width, height*14/16);
 
+      // Research
       rectMode(CORNER);
-      if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height ) {
+      if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height || gmf.displayResearchMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
@@ -182,8 +185,9 @@ class menu {
       rect(0, height*14/16, 300, 75);
       rectMode(CENTER);
 
+      // Construction
       rectMode(CORNER);
-      if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height ) {
+      if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height || gmf.displayConstructionMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
@@ -246,12 +250,14 @@ class menu {
         }
       }
       if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height ) {
-        
+        gmf.displayResearchMenu = !gmf.displayResearchMenu;
+        gmf.displayConstructionMenu = false;
       } 
 
       rectMode(CORNER);
       if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height ) {
-       
+        gmf.displayConstructionMenu = !gmf.displayConstructionMenu;
+        gmf.displayResearchMenu = false;
       }
     }
   }

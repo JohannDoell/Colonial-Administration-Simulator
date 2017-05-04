@@ -8,8 +8,12 @@ class gameManager {
       titleMenu.displayMenu();
     } else if (state == 1) {
       gmf.displayMenu();
-      researchMenu.displayMenu();
-      constructionMenu.displayMenu();
+      if (gmf.displayResearchMenu == true) {
+        researchMenu.displayMenu();
+      }
+      if (gmf.displayConstructionMenu == true) {   
+        constructionMenu.displayMenu();
+      }
     }
   }
 
