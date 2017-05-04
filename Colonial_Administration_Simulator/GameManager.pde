@@ -8,6 +8,8 @@ class gameManager {
       titleMenu.displayMenu();
     } else if (state == 1) {
       gmf.displayMenu();
+      researchMenu.displayMenu();
+      constructionMenu.displayMenu();
     }
   }
 

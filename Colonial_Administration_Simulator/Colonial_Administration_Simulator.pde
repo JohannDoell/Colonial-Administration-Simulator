@@ -3,7 +3,7 @@ int turn;
 int pops, food, minerals, energy;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
-
+color WHITE, GREY, BLACK;
 
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
@@ -15,7 +15,9 @@ resourceManager resMan = new resourceManager();
 void setup() {
   size(600, 600);
   state = 0;
-
+  WHITE = color(255);
+  GREY = color(155);
+  BLACK = color(0);
 }
 
 void draw() {
