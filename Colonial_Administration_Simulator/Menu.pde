@@ -176,23 +176,23 @@ class menu {
       line(0, height*14/16, width, height*14/16);
 
       // Research
-      rectMode(CORNER);
+      rectMode(CENTER);
       if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height || gmf.displayResearchMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(0, height*14/16, 300, 75);
+      rect(width*1/4, height*15/16, 300, 75);
       rectMode(CENTER);
 
       // Construction
-      rectMode(CORNER);
+      rectMode(CENTER);
       if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height || gmf.displayConstructionMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(300, height*14/16, 300, 75);
+      rect(width*3/4, height*15/16, 300, 75);
       rectMode(CENTER);
 
       fill(WHITE);
