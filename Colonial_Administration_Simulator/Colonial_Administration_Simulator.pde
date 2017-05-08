@@ -10,7 +10,7 @@ menu researchMenu = new menu("Research");
 menu constructionMenu = new menu("Construction");
 menu gmf = new menu("Game Menu Frame");
 gameManager game = new gameManager();
-resourceManager resMan = new resourceManager();
+turnManager turMan = new turnManager();
 
 void setup() {
   size(600, 600);

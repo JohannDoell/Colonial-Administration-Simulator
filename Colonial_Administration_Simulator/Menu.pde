@@ -120,16 +120,22 @@ class menu {
       text("Food " + food + "+" + foodIncrease, width*31/48, height*4/128);
 
       // InGame Option Menu
+      rectMode(CENTER);
       stroke(BLACK); 
       fill(BLACK);
       textAlign(CENTER, CENTER);
       textSize(16);
       if (mouseX > (width)-(width*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16) || displayInGameMenu == true) {
-        fill(GREY);
-      } else {
         fill(BLACK);
+      } else {
+        fill(GREY);
       }
       rect((width)-((width*1/16)/2), (height*1/16)/2, width*1/16, height*1/16);
+      fill(WHITE);
+      textSize(32);
+      textAlign(CENTER, CENTER);
+      text('=', (width)-((width*1/16)/2), ((height*1/16)/2)-5);
+      textAlign(CENTER, CENTER);
 
       if (displayInGameMenu == true) {
         // Options
@@ -199,6 +205,18 @@ class menu {
       textSize(32);
       text("Research", 150, height*15/16);
       text("Construction", 450, height*15/16);
+
+      // Next Turn
+      rectMode(CENTER);
+      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16) {
+        fill(BLACK);
+      } else {
+        fill(GREY);
+      }
+      rect(width*54/64, height*1/32, width*3/16, height*1/16);
+      fill(WHITE);
+      textSize(16);
+      text("TURN: " + turn, width*54/64, height*1/32);
     }
   }
 
@@ -254,7 +272,10 @@ class menu {
         gmf.displayConstructionMenu = false;
       } 
 
-      rectMode(CORNER);
+      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16) {
+        turMan.advanceTurn();
+      }
+
       if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height ) {
         gmf.displayConstructionMenu = !gmf.displayConstructionMenu;
         gmf.displayResearchMenu = false;
