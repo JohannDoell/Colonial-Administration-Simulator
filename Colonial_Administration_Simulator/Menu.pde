@@ -16,7 +16,7 @@ class menu {
       if (menuState == 0) {
         stroke(0);
         // Title
-        fill(BLACK);
+        fill(GREY);
         rectMode(CENTER);
         rect(width*1/2, height*1/5, width*4/6, height*1/6);
         fill(WHITE);
@@ -26,51 +26,39 @@ class menu {
 
         // Play
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*2/5)-40 && mouseY < (height*2/5)+40) {
-          fill(WHITE);
-        } else {
           fill(BLACK);
+        } else {
+          fill(GREY);
         }
         rectMode(CENTER);
         rect(width*1/2, height*2/5, 300, 80);
-        if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*2/5)-40 && mouseY < (height*2/5)+40) {
-          fill(BLACK);
-        } else {
-          fill(WHITE);
-        }
+        fill(WHITE);
         textAlign(CENTER, CENTER);
         textSize(23);
         text("Play", width*1/2, height*2/5);
 
         // Load 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {
-          fill(WHITE);
-        } else {
           fill(BLACK);
+        } else {
+          fill(GREY);
         }
         rectMode(CENTER);
         rect(width*1/2, height*3/5, 300, 80);
-        if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {
-          fill(BLACK);
-        } else {
-          fill(WHITE);
-        }
+        fill(WHITE);
         textAlign(CENTER, CENTER);
         textSize(23);
         text("Load", width*1/2, height*3/5);
 
         // Options 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*4/5)-40 && mouseY < (height*4/5)+40) {
-          fill(WHITE);
-        } else {
           fill(BLACK);
+        } else {
+          fill(GREY);
         }
         rectMode(CENTER);
         rect(width*1/2, height*4/5, 300, 80);
-        if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*4/5)-40 && mouseY < (height*4/5)+40) {
-          fill(BLACK);
-        } else {
-          fill(WHITE);
-        }
+        fill(WHITE);
         textAlign(CENTER, CENTER);
         textSize(23);
         text("Options", width*1/2, height*4/5);
@@ -208,7 +196,7 @@ class menu {
 
       // Next Turn
       rectMode(CENTER);
-      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16) {
+      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-10) {
         fill(BLACK);
       } else {
         fill(GREY);
@@ -251,34 +239,38 @@ class menu {
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
     } else if (menuType == "Game Menu Frame") {
+      // In Game Menu
       if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
         displayInGameMenu = !displayInGameMenu;
       }
 
       if (displayInGameMenu == true) {
+        // Main Menu
         if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
           state = 0;
           titleMenu.menuState = 0;
           displayInGameMenu = false;
         }
+        // Options
         if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8) ) {
           state = 0;
           titleMenu.menuState = 1;
           displayInGameMenu = false;
         }
+        //Research
       }
       if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height ) {
         gmf.displayResearchMenu = !gmf.displayResearchMenu;
         gmf.displayConstructionMenu = false;
       } 
-
-      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16) {
-        turMan.advanceTurn();
-      }
-
+      // Construction
       if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height ) {
         gmf.displayConstructionMenu = !gmf.displayConstructionMenu;
         gmf.displayResearchMenu = false;
+      }
+      // Advance Turn
+      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-10) {
+        turMan.advanceTurn();
       }
     }
   }
