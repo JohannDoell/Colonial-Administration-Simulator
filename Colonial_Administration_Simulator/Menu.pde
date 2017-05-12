@@ -233,7 +233,12 @@ class menu {
       } else if (menuState == 1) {
         // Back Button
         if (mouseX > ((width*5/100)-15) && mouseX < ((width*5/100)+15) && mouseY > (height*5/100)-15 && mouseY < (height*5/100)+15) {
-          menuState = 0;
+          if (turn == 0) {
+            menuState = 0;
+          } else {
+           menuState = 0;
+           state = 1;
+          }
         }
       }
     } else if (menuType == "Research") {
