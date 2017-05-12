@@ -9,11 +9,10 @@ class turnManager {
     food = food + foodIncrease;
     minerals = minerals + mineralIncrease;
     energy = energy + energyIncrease;
-    
+
     if (food < 1) {
-     state = 2; 
+      state = 2;
     }
-    
   }
 
   void updateResourceIncreases() {
@@ -37,9 +36,20 @@ class turnManager {
     foodIncrease -= pops;
   }
 
+  void processConstruction() {
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].buildTime > 0) {
+          buildingGrid[i][j].buildTime--;
+        }
+      }
+    }
+  }
+
   void advanceTurn() {
     turn++;
     updateResources();
+    processConstruction();
   }
 
   void setupBaseGame() {
