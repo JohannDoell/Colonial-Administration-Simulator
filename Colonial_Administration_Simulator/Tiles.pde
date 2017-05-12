@@ -92,8 +92,38 @@ class tiles {
     }
   }
 
+  void upgradeTile() {
+    // Farms
+    if (tileType == 1) {
+      if (tileLevel == 1) {
+      } else if (tileLevel == 2) {
+      } else if (tileLevel == 3) {
+      }
+    }
+    // Mines
+    if (tileType == 2) {
+      if (tileLevel == 1) {
+      } else if (tileLevel == 2) {
+      } else if (tileLevel == 3) {
+      }
+    }
+    // Power Stations
+    if (tileType == 3) {
+      if (tileLevel == 1) {
+      } else if (tileLevel == 2) {
+      } else if (tileLevel == 3) {
+      }
+    }
+    // Research Stations
+    if (tileType == 4) {
+      if (tileLevel == 1) {
+      } else if (tileLevel == 2) {
+      } else if (tileLevel == 3) {
+      }
+    }
+  }
+
   int getUpgradeCost() {
-    // Blank/Deconstructed Tile
     // Farms
     if (tileType == 1) {
       if (tileLevel == 1) {
@@ -134,6 +164,7 @@ class tiles {
         return 0;
       }
     }
+    // Blank/Deconstructed Tile
     return 0;
   }
 }

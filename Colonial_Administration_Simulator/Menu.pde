@@ -119,7 +119,7 @@ class menu {
       }
       // Construction Options
       // Build
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16)) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
         fill(GREY);
       } else {
         fill(WHITE);
@@ -128,7 +128,7 @@ class menu {
       fill(BLACK);
       text("BUILD", width*1/2, (height*11/16)-15);
       // Upgrade
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
         if (upgradeGate == false) {
           fill(GREY);
         } else {
@@ -145,7 +145,7 @@ class menu {
       fill(BLACK);
       text("UPGRADE", width*1/2, (height*11/16)+20);
       //Demolish
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
         if (demolishGate == false) {
           fill(GREY);
         } else {
