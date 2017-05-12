@@ -94,7 +94,15 @@ class menu {
         triangle((width*5/100)-5, (height*5/100)-5, (width*5/100)-10, (height*5/100), (width*5/100)-5, (height*5/100)+5);
       }
     } else if (menuType == "Research") {
+      if (gmf.displayResearchMenu == true) {
+        fill(BLACK);
+        text("Research", width/2, height/2);
+      }
     } else if (menuType == "Construction") {
+      if (gmf.displayConstructionMenu == true) {
+        fill(BLACK);
+        text("Construction", width/2, height/2);
+      }
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
       stroke(BLACK); 
