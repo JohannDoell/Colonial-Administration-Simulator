@@ -107,10 +107,14 @@ class menu {
           }
         }
       }
+      // Display Selected Tiles
       fill(WHITE);
-      rect(width/2, height*11/16, 100,100);
+      rect(width*1/4, (height*11/16)+20, 100,100);
       fill(BLACK);
-      text(buildingGrid[selectedGridX][selectedGridY].tileChar, width/2,(height*11/16)-5);
+      textSize(40);
+      text(buildingGrid[selectedGridX][selectedGridY].tileChar, width*1/4,(height*11/16)+15);
+      textSize(20);
+      text(buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-30,(height*11/16)+40);
       
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
