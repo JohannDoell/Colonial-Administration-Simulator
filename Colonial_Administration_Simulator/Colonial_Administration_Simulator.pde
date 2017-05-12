@@ -3,6 +3,7 @@ int turn;
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 int foodTax, mineralTax, energyTax;
+int foodMax, mineralMax, energyMax;
 String nationName, playerName;
 color WHITE, GREY, BLACK, GREEN, DARKGREEN;
 int selectedGridX, selectedGridY;
