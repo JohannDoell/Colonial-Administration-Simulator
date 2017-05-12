@@ -5,6 +5,9 @@ int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
 color WHITE, GREY, BLACK;
 
+int tilesWide = 5;
+int tilesHigh = 3;
+
 tiles[][] buildingGrid = new tiles[5][3];
 
 menu titleMenu = new menu("Title");
