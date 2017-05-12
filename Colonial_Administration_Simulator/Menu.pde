@@ -102,6 +102,11 @@ class menu {
       if (gmf.displayConstructionMenu == true) {
         fill(BLACK);
         text("Construction", width/2, height/2);
+        for (int i=0; i<tilesWide; i++) {
+          for (int j=0; j<tilesHigh; j++) {
+            buildingGrid[i][j].displayTile();
+          }
+        }
       }
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus

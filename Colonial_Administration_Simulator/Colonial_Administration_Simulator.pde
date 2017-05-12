@@ -1,6 +1,6 @@
 int state;
 int turn;
-int pops, food, minerals, energy;
+int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
 color WHITE, GREY, BLACK;
