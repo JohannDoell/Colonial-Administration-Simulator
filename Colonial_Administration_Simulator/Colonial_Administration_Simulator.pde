@@ -5,6 +5,8 @@ int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
 color WHITE, GREY, BLACK;
 
+tiles[][] buildingGrid = new tiles[5][3];
+
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
 menu constructionMenu = new menu("Construction");
@@ -18,6 +20,13 @@ void setup() {
   WHITE = color(255);
   GREY = color(155);
   BLACK = color(0);
+  
+  for (int i=0;i<5;i++) {
+   for (int j=0;j<3;j++) {
+     buildingGrid[i][j] = new tiles(i,j);
+   }
+  }
+  
 }
 
 void draw() {
