@@ -127,35 +127,42 @@ class menu {
       rect(width*1/2, (height*11/16)-15, 150, 30);
       fill(BLACK);
       text("BUILD", width*1/2, (height*11/16)-15);
+
       // Upgrade
+      fill(WHITE);
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
-        if (upgradeGate == false) {
-          fill(GREY);
+        if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+          if (upgradeGate == false) {
+            fill(GREY);
+          } else {
+            fill(DARKGREEN);
+          }
         } else {
-          fill(DARKGREEN);
-        }
-      } else {
-        if (upgradeGate == false) {
-          fill(WHITE);
-        } else {
-          fill(GREEN);
+          if (upgradeGate == false) {
+            fill(WHITE);
+          } else {
+            fill(GREEN);
+          }
         }
       }
       rect(width*1/2, (height*11/16)+20, 150, 30);
       fill(BLACK);
       text("UPGRADE", width*1/2, (height*11/16)+20);
       //Demolish
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
-        if (demolishGate == false) {
-          fill(GREY);
+      fill(WHITE);
+      if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+        if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
+          if (demolishGate == false) {
+            fill(GREY);
+          } else {
+            fill(DARKGREEN);
+          }
         } else {
-          fill(DARKGREEN);
-        }
-      } else {
-        if (demolishGate == false) {
-          fill(WHITE);
-        } else {
-          fill(GREEN);
+          if (demolishGate == false) {
+            fill(WHITE);
+          } else {
+            fill(GREEN);
+          }
         }
       }
       rect(width*1/2, (height*11/16)+55, 150, 30);
@@ -163,7 +170,7 @@ class menu {
       text("DEMOLISH", width*1/2, (height*11/16)+55);
       //Hover Text
       //Upgrade
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0 && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) { 
         rectMode(CORNER);
         fill(WHITE);
         rect(mouseX+10, mouseY, 150, 20);
@@ -334,7 +341,7 @@ class menu {
       }
       // Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) {
-        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost()) {
+        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
           upgradeGate = true;
         } else if (upgradeGate == true) {
           upgradeGate = false;
@@ -343,7 +350,7 @@ class menu {
       }
       //Demolish
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) {
-        if (demolishGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
+        if (demolishGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
           demolishGate = true;
         } else if (demolishGate == true) {
           buildingGrid[selectedGridX][selectedGridY].tileType = 0;
