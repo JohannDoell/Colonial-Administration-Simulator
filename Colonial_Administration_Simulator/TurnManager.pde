@@ -10,7 +10,12 @@ class turnManager {
     minerals = minerals + mineralIncrease;
     energy = energy + energyIncrease;
 
-    if (food < 1) {
+    if (food > 100) {
+      pops++;
+      food = food - 100;
+    }
+
+    if (food < 0 || energy < 0 || minerals < 0) {
       state = 2;
     }
   }
@@ -33,7 +38,30 @@ class turnManager {
         foodIncrease += buildingGrid[i][j].foodValue;
       }
     }
-    foodIncrease -= pops;
+
+    mineralTax = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType != 0) {
+          mineralTax++;
+        }
+      }
+    }
+
+    energyTax = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType != 0) {
+          energyTax++;
+        }
+      }
+    }
+
+    foodTax = pops;
+
+    mineralIncrease = mineralIncrease - mineralTax;
+    energyIncrease = energyIncrease - energyTax;
+    foodIncrease = foodIncrease - foodTax;
   }
 
   void processConstruction() {

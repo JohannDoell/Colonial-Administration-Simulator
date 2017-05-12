@@ -6,6 +6,7 @@ class tiles {
   int tileLocationX, tileLocationY;
   char tileChar;
   int buildTime = 0;
+  boolean isBuilding = false;
   tiles (int _x, int _y) {
     x = _x;
     y = _y;
@@ -70,6 +71,10 @@ class tiles {
         researchValue = 20;
       }
     }
+    if (this.buildTime == 0 && this.isBuilding == true) {
+     tileLevel++;
+     isBuilding = false;
+    }
   }
 
   void displayTile() {
@@ -96,6 +101,7 @@ class tiles {
   void upgradeTile() {
     minerals = minerals - this.getUpgradeCost();
     this.buildTime = (this.getUpgradeCost())/10;
+    this.isBuilding = true;
   }
 
   int getUpgradeCost() {

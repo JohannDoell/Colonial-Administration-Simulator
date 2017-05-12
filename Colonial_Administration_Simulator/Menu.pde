@@ -117,6 +117,11 @@ class menu {
       if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
         text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-25, (height*11/16)+55);
       }
+      textSize(12);
+      if (buildingGrid[selectedGridX][selectedGridY].buildTime != 0) {
+        text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (width*1/4), (height*11/16)-20);
+      }
+      textSize(20);
       // Construction Options
       // Build
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) { 
@@ -421,6 +426,8 @@ class menu {
     fill(BLACK);
     textSize(64);
     text("YOU LOSE", width/2, height/2);
+    textSize(20);
+    text("You ran out of a resource", width/2, (height/2)+60);
   }
 
   void resetGates() {
