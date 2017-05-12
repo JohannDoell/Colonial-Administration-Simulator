@@ -236,8 +236,8 @@ class menu {
           if (turn == 0) {
             menuState = 0;
           } else {
-           menuState = 0;
-           state = 1;
+            menuState = 0;
+            state = 1;
           }
         }
       }
@@ -275,6 +275,18 @@ class menu {
       }
       // Advance Turn
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-10) {
+        turMan.advanceTurn();
+      }
+    }
+  }
+
+  void menuPress() {
+    if (menuType == "Title") {
+    } else if (menuType == "Research") {
+    } else if (menuType == "Construction") {
+    } else if (menuType == "Game Menu Frame") {
+      // Press Spacebar to Advance Turn
+      if (key == ' ') {
         turMan.advanceTurn();
       }
     }

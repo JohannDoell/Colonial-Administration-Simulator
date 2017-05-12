@@ -27,6 +27,7 @@ class gameManager {
 
   void handleKeyPress() {
     if (state == 1) {
+      gmf.menuPress();
     }
   }
 }
