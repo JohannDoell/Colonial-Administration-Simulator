@@ -1,9 +1,5 @@
 class turnManager {
   turnManager() {
-    pops = 1;
-    food = 10;
-    minerals = 100;
-    energy = 100;
   }
 
   void updateResources() {
@@ -22,9 +18,9 @@ class turnManager {
       }
     }
 
-mineralIncrease = 0;
-energyIncrease = 0;
-foodIncrease = 0;
+    mineralIncrease = 0;
+    energyIncrease = 0;
+    foodIncrease = 0;
 
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
@@ -33,6 +29,7 @@ foodIncrease = 0;
         foodIncrease += buildingGrid[i][j].foodValue;
       }
     }
+    foodIncrease -= pops;
   }
 
   void advanceTurn() {
@@ -41,7 +38,7 @@ foodIncrease = 0;
   }
 
   void setupBaseGame() {
-    pops = 1;
+    pops = 3;
     food = 10;
     minerals = 100;
     energy = 100;

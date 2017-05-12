@@ -29,7 +29,7 @@ class tiles {
     if (tileType == 1) {
       tileChar = 'F';
       if (tileLevel == 1) {
-        foodValue = 3;
+        foodValue = 2;
       } else if (tileLevel == 2) {
         foodValue = 5;
       } else if (tileLevel == 3) {

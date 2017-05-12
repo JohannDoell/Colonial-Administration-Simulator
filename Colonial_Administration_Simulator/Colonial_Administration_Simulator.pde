@@ -23,13 +23,12 @@ void setup() {
   WHITE = color(255);
   GREY = color(155);
   BLACK = color(0);
-  
-  for (int i=0;i<tilesWide;i++) {
-   for (int j=0;j<tilesHigh;j++) {
-     buildingGrid[i][j] = new tiles(i,j);
-   }
+
+  for (int i=0; i<tilesWide; i++) {
+    for (int j=0; j<tilesHigh; j++) {
+      buildingGrid[i][j] = new tiles(i, j);
+    }
   }
-  
 }
 
 void draw() {
@@ -42,5 +41,5 @@ void mouseClicked() {
 }
 
 void keyPressed() {
- game.handleKeyPress(); 
+  game.handleKeyPress();
 }
