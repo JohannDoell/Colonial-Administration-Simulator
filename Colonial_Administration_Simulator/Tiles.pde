@@ -5,6 +5,7 @@ class tiles {
   int tileWidth, tileHeight;
   int tileLocationX, tileLocationY;
   char tileChar;
+  int buildTime = 0;
   tiles (int _x, int _y) {
     x = _x;
     y = _y;
@@ -93,34 +94,8 @@ class tiles {
   }
 
   void upgradeTile() {
-    // Farms
-    if (tileType == 1) {
-      if (tileLevel == 1) {
-      } else if (tileLevel == 2) {
-      } else if (tileLevel == 3) {
-      }
-    }
-    // Mines
-    if (tileType == 2) {
-      if (tileLevel == 1) {
-      } else if (tileLevel == 2) {
-      } else if (tileLevel == 3) {
-      }
-    }
-    // Power Stations
-    if (tileType == 3) {
-      if (tileLevel == 1) {
-      } else if (tileLevel == 2) {
-      } else if (tileLevel == 3) {
-      }
-    }
-    // Research Stations
-    if (tileType == 4) {
-      if (tileLevel == 1) {
-      } else if (tileLevel == 2) {
-      } else if (tileLevel == 3) {
-      }
-    }
+    minerals = minerals - this.getUpgradeCost();
+    this.buildTime = (this.getUpgradeCost())/10;
   }
 
   int getUpgradeCost() {

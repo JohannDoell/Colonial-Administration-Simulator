@@ -119,7 +119,7 @@ class menu {
       }
       // Construction Options
       // Build
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) { 
         fill(GREY);
       } else {
         fill(WHITE);
@@ -334,10 +334,11 @@ class menu {
       }
       // Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) {
-        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
+        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost()) {
           upgradeGate = true;
         } else if (upgradeGate == true) {
           upgradeGate = false;
+          buildingGrid[selectedGridX][selectedGridY].upgradeTile();
         }
       }
       //Demolish
