@@ -4,8 +4,6 @@ class menu {
   boolean displayInGameMenu = false;
   boolean displayResearchMenu = false;
   boolean displayConstructionMenu = false;
-  String[] igmOptions = {};
-
 
   menu(String _menuType) {
     menuType = _menuType;
@@ -99,6 +97,7 @@ class menu {
         text("Research", width/2, height/2);
       }
     } else if (menuType == "Construction") {
+      // Display Tiles
       if (gmf.displayConstructionMenu == true) {
         fill(BLACK);
         text("Construction", width/2, height/2);
@@ -108,6 +107,11 @@ class menu {
           }
         }
       }
+      fill(WHITE);
+      rect(width/2, height*11/16, 100,100);
+      fill(BLACK);
+      text(buildingGrid[selectedGridX][selectedGridY].tileChar, width/2,(height*11/16)-5);
+      
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
       stroke(BLACK); 
@@ -257,6 +261,11 @@ class menu {
       }
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
+      for (int i=0; i<tilesWide; i++) {
+        for (int j=0; j<tilesHigh; j++) {
+          buildingGrid[i][j].selectTile();
+        }
+      }
     } else if (menuType == "Game Menu Frame") {
       // In Game Menu
       if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {

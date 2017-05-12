@@ -83,4 +83,11 @@ class tiles {
     textAlign(CENTER, CENTER);
     text(tileChar, tileLocationX, tileLocationY-5);
   }
+
+  void selectTile() {
+    if (mouseX > tileLocationX-(tileWidth/2) && mouseX < tileLocationX+(tileWidth/2) && mouseY > tileLocationY-(tileHeight/2) && mouseY < tileLocationY+(tileHeight/2)) {
+      selectedGridX = x;
+      selectedGridY = y;
+    }
+  }
 }

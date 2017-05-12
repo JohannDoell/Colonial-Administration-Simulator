@@ -25,6 +25,7 @@ class gameManager {
       titleMenu.menuClick();
     } else if (state == 1) {
       gmf.menuClick();
+      constructionMenu.menuClick();
     }
   }
 
