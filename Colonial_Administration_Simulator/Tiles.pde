@@ -3,6 +3,7 @@ class tiles {
   int tileType, tileLevel;
   int x, y;
   int tileWidth, tileHeight;
+  int tileLocationX, tileLocationY;
   char tileChar;
   tiles (int _x, int _y) {
     x = _x;
@@ -10,6 +11,8 @@ class tiles {
     tileWidth = 100;
     tileHeight = tileWidth;
     tileLevel = 1;
+    tileLocationX = 100+(x*tileWidth);
+    tileLocationY = 100+(y*tileHeight);
   }
 
   void tileUpdate() {
@@ -69,11 +72,15 @@ class tiles {
   }
 
   void displayTile() {
-    fill(WHITE);
-    rect(100+(x*tileWidth), 100+(y*tileHeight), tileWidth, tileHeight);
+    if (mouseX > tileLocationX-(tileWidth/2) && mouseX < tileLocationX+(tileWidth/2) && mouseY > tileLocationY-(tileHeight/2) && mouseY < tileLocationY+(tileHeight/2)) {
+      fill(GREY);
+    } else {
+      fill(WHITE);
+    }
+    rect(tileLocationX, tileLocationY, tileWidth, tileHeight);
     fill(BLACK);
     textSize(64);
     textAlign(CENTER, CENTER);
-    text(tileChar, 100+(x*tileWidth), 95+(y*tileHeight));
+    text(tileChar, tileLocationX, tileLocationY-5);
   }
 }
