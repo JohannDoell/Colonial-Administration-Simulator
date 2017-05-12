@@ -114,7 +114,9 @@ class menu {
       textSize(40);
       text(buildingGrid[selectedGridX][selectedGridY].tileChar, width*1/4,(height*11/16)+15);
       textSize(20);
-      text(buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-30,(height*11/16)+40);
+      if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
+      text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-25,(height*11/16)+55);
+      }
       
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
@@ -273,7 +275,13 @@ class menu {
     } else if (menuType == "Game Menu Frame") {
       // In Game Menu
       if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
-        displayInGameMenu = !displayInGameMenu;
+        if (displayInGameMenu == true) {
+          displayInGameMenu = false;
+        } else {
+        displayInGameMenu = true;
+        displayResearchMenu = false;
+        displayConstructionMenu = false;
+        }
       }
 
       if (displayInGameMenu == true) {
