@@ -125,13 +125,25 @@ class menu {
         fill(WHITE);
       }
       rect(width*1/2, (height*11/16)-15, 150, 30);
+      fill(BLACK);
+      text("BUILD", width*1/2, (height*11/16)-15);
       // Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) { 
-        fill(GREY);
+        if (upgradeGate == false) {
+          fill(GREY);
+        } else {
+          fill(DARKGREEN);
+        }
       } else {
-        fill(WHITE);
+        if (upgradeGate == false) {
+          fill(WHITE);
+        } else {
+          fill(GREEN);
+        }
       }
       rect(width*1/2, (height*11/16)+20, 150, 30);
+      fill(BLACK);
+      text("UPGRADE", width*1/2, (height*11/16)+20);
       //Demolish
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) { 
         if (demolishGate == false) {
@@ -149,6 +161,19 @@ class menu {
       rect(width*1/2, (height*11/16)+55, 150, 30);
       fill(BLACK);
       text("DEMOLISH", width*1/2, (height*11/16)+55);
+      //Hover Text
+      //Upgrade
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0) { 
+        rectMode(CORNER);
+        fill(WHITE);
+        rect(mouseX+10, mouseY, 150, 20);
+        fill(BLACK);
+        textAlign(LEFT);
+        textSize(16);
+        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() + " Minerals", mouseX+10, mouseY+15);
+        rectMode(CENTER);
+        textAlign(CENTER);
+      }
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
       stroke(BLACK); 
@@ -309,6 +334,11 @@ class menu {
       }
       // Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) {
+        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
+          upgradeGate = true;
+        } else if (upgradeGate == true) {
+          upgradeGate = false;
+        }
       }
       //Demolish
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) {

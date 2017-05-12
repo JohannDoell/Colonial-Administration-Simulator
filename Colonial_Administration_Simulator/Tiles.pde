@@ -91,4 +91,49 @@ class tiles {
       constructionMenu.resetGates();
     }
   }
+
+  int getUpgradeCost() {
+    // Blank/Deconstructed Tile
+    // Farms
+    if (tileType == 1) {
+      if (tileLevel == 1) {
+        return 20;
+      } else if (tileLevel == 2) {
+        return 100;
+      } else if (tileLevel == 3) {
+        return 0;
+      }
+    }
+    // Mines
+    if (tileType == 2) {
+      if (tileLevel == 1) {
+        return 20;
+      } else if (tileLevel == 2) {
+        return 100;
+      } else if (tileLevel == 3) {
+        return 0;
+      }
+    }
+    // Power Stations
+    if (tileType == 3) {
+      if (tileLevel == 1) {
+        return 50;
+      } else if (tileLevel == 2) {
+        return 150;
+      } else if (tileLevel == 3) {
+        return 0;
+      }
+    }
+    // Research Stations
+    if (tileType == 4) {
+      if (tileLevel == 1) {
+        return 50;
+      } else if (tileLevel == 2) {
+        return 200;
+      } else if (tileLevel == 3) {
+        return 0;
+      }
+    }
+    return 0;
+  }
 }
