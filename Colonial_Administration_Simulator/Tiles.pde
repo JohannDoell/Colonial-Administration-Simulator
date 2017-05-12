@@ -4,8 +4,4 @@ class tiles {
   tiles (int x, int y) {
     
   }
-  
-  void display() {
-    
-  }
 }
