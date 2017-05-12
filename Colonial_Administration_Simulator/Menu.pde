@@ -4,9 +4,6 @@ class menu {
   boolean displayInGameMenu = false;
   boolean displayResearchMenu = false;
   boolean displayConstructionMenu = false;
-  boolean demolishGate = false;
-  boolean buildGate = false;
-  boolean upgradeGate = false;
 
   menu(String _menuType) {
     menuType = _menuType;
@@ -150,6 +147,8 @@ class menu {
         }
       }
       rect(width*1/2, (height*11/16)+55, 150, 30);
+      fill(BLACK);
+      text("DEMOLISH", width*1/2, (height*11/16)+55);
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
       stroke(BLACK); 
@@ -315,7 +314,7 @@ class menu {
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) {
         if (demolishGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
           demolishGate = true;
-        } else if (demolishGate == true){
+        } else if (demolishGate == true) {
           buildingGrid[selectedGridX][selectedGridY].tileType = 0;
           demolishGate = false;
         }
@@ -329,6 +328,9 @@ class menu {
           displayInGameMenu = true;
           displayResearchMenu = false;
           displayConstructionMenu = false;
+          demolishGate = false;
+          buildGate = false;
+          upgradeGate = false;
         }
       }
 
@@ -350,11 +352,17 @@ class menu {
       if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height ) {
         gmf.displayResearchMenu = !gmf.displayResearchMenu;
         gmf.displayConstructionMenu = false;
+        demolishGate = false;
+        buildGate = false;
+        upgradeGate = false;
       } 
       // Construction
       if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height ) {
         gmf.displayConstructionMenu = !gmf.displayConstructionMenu;
         gmf.displayResearchMenu = false;
+        demolishGate = false;
+        buildGate = false;
+        upgradeGate = false;
       }
       // Advance Turn
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-10) {

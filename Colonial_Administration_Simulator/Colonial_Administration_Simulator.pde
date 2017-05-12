@@ -5,6 +5,9 @@ int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
 color WHITE, GREY, BLACK, GREEN, DARKGREEN;
 int selectedGridX, selectedGridY;
+boolean demolishGate = false;
+boolean buildGate = false;
+boolean upgradeGate = false;
 
 int tilesWide = 5;
 int tilesHigh = 3;
