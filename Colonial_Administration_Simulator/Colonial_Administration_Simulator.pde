@@ -3,7 +3,7 @@ int turn;
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 String nationName, playerName;
-color WHITE, GREY, BLACK;
+color WHITE, GREY, BLACK, GREEN, DARKGREEN;
 int selectedGridX, selectedGridY;
 
 int tilesWide = 5;
@@ -24,6 +24,8 @@ void setup() {
   WHITE = color(255);
   GREY = color(155);
   BLACK = color(0);
+  GREEN = color(#23E831);
+  DARKGREEN = color(#178E1F);
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {
