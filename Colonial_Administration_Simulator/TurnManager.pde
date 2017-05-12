@@ -9,6 +9,11 @@ class turnManager {
     food = food + foodIncrease;
     minerals = minerals + mineralIncrease;
     energy = energy + energyIncrease;
+    
+    if (food < 1) {
+     state = 2; 
+    }
+    
   }
 
   void updateResourceIncreases() {

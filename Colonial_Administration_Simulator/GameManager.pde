@@ -15,6 +15,8 @@ class gameManager {
       if (gmf.displayConstructionMenu == true) {   
         constructionMenu.displayMenu();
       }
+    } else if (state == 2) {
+    gmf.loseScreen();
     }
   }
 

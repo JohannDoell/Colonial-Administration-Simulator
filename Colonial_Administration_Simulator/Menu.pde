@@ -305,4 +305,10 @@ class menu {
       }
     }
   }
+
+  void loseScreen() {
+    fill(BLACK);
+    textSize(64);
+    text("YOU LOSE", width/2, height/2);
+  }
 }
