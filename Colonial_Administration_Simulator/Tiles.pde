@@ -88,9 +88,7 @@ class tiles {
     if (mouseX > tileLocationX-(tileWidth/2) && mouseX < tileLocationX+(tileWidth/2) && mouseY > tileLocationY-(tileHeight/2) && mouseY < tileLocationY+(tileHeight/2)) {
       selectedGridX = x;
       selectedGridY = y;
-      demolishGate = false;
-      buildGate = false;
-      upgradeGate = false;
+      constructionMenu.resetGates();
     }
   }
 }

@@ -328,9 +328,7 @@ class menu {
           displayInGameMenu = true;
           displayResearchMenu = false;
           displayConstructionMenu = false;
-          demolishGate = false;
-          buildGate = false;
-          upgradeGate = false;
+          resetGates();
         }
       }
 
@@ -352,9 +350,7 @@ class menu {
       if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height ) {
         gmf.displayResearchMenu = !gmf.displayResearchMenu;
         gmf.displayConstructionMenu = false;
-        demolishGate = false;
-        buildGate = false;
-        upgradeGate = false;
+        resetGates();
       } 
       // Construction
       if (mouseX > 300 && mouseX < 600 && mouseY > height*14/16 && mouseY < height ) {
@@ -387,5 +383,11 @@ class menu {
     fill(BLACK);
     textSize(64);
     text("YOU LOSE", width/2, height/2);
+  }
+
+  void resetGates() {
+    demolishGate = false;
+    buildGate = false;
+    upgradeGate = false;
   }
 }
