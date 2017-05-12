@@ -8,7 +8,7 @@ color WHITE, GREY, BLACK;
 int tilesWide = 5;
 int tilesHigh = 3;
 
-tiles[][] buildingGrid = new tiles[5][3];
+tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
 
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
@@ -24,8 +24,8 @@ void setup() {
   GREY = color(155);
   BLACK = color(0);
   
-  for (int i=0;i<5;i++) {
-   for (int j=0;j<3;j++) {
+  for (int i=0;i<tilesWide;i++) {
+   for (int j=0;j<tilesHigh;j++) {
      buildingGrid[i][j] = new tiles(i,j);
    }
   }
