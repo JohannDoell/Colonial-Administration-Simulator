@@ -227,6 +227,7 @@ class menu {
         // Play
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*2/5)-40 && mouseY < (height*2/5)+40) {
           state = 1;
+          turMan.setupBaseGame();
         }
         // Load 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {

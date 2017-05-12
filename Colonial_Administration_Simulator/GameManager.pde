@@ -8,6 +8,7 @@ class gameManager {
       titleMenu.displayMenu();
     } else if (state == 1) {
       gmf.displayMenu();
+      turMan.updateResourceIncreases();
       if (gmf.displayResearchMenu == true) {
         researchMenu.displayMenu();
       }
