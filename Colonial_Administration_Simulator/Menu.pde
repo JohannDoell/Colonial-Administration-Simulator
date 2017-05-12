@@ -107,17 +107,38 @@ class menu {
           }
         }
       }
-      // Display Selected Tiles
+      // Display Selected Tile
       fill(WHITE);
-      rect(width*1/4, (height*11/16)+20, 100,100);
+      rect(width*1/4, (height*11/16)+20, 100, 100);
       fill(BLACK);
       textSize(40);
-      text(buildingGrid[selectedGridX][selectedGridY].tileChar, width*1/4,(height*11/16)+15);
+      text(buildingGrid[selectedGridX][selectedGridY].tileChar, width*1/4, (height*11/16)+15);
       textSize(20);
       if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
-      text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-25,(height*11/16)+55);
+        text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-25, (height*11/16)+55);
       }
-      
+      // Construction Options
+      // Build
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16)) { 
+        fill(GREY);
+      } else {
+        fill(WHITE);
+      }
+      rect(width*1/2, (height*11/16)-15, 150, 30);
+      // Upgrade
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) { 
+        fill(GREY);
+      } else {
+        fill(WHITE);
+      }
+      rect(width*1/2, (height*11/16)+20, 150, 30);
+      //Demolish
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) { 
+        fill(GREY);
+      } else {
+        fill(WHITE);
+      }
+      rect(width*1/2, (height*11/16)+55, 150, 30);
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
       stroke(BLACK); 
@@ -278,9 +299,9 @@ class menu {
         if (displayInGameMenu == true) {
           displayInGameMenu = false;
         } else {
-        displayInGameMenu = true;
-        displayResearchMenu = false;
-        displayConstructionMenu = false;
+          displayInGameMenu = true;
+          displayResearchMenu = false;
+          displayConstructionMenu = false;
         }
       }
 
@@ -319,6 +340,16 @@ class menu {
     if (menuType == "Title") {
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
+      // Construction Options
+      // Build
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16)) {
+      }
+      // Upgrade
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) {
+      }
+      //Demolish
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) {
+      }
     } else if (menuType == "Game Menu Frame") {
       // Press Spacebar to Advance Turn
       if (key == ' ') {
