@@ -119,6 +119,9 @@ class menu {
         text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-25, (height*11/16)+55);
       }
       textSize(12);
+      if (buildingGrid[selectedGridX][selectedGridY].upgradeTime != 0) {
+        text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].upgradeTime, (width*1/4), (height*11/16)-20);
+      }
       if (buildingGrid[selectedGridX][selectedGridY].buildTime != 0) {
         text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (width*1/4), (height*11/16)-20);
       }
@@ -127,12 +130,14 @@ class menu {
       // Construction Options
       // Build
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
-        if (buildGate == false) {
-          fill(GREY);
-        } else if (buildGate == true && desiredBuilding == 'N') {
-          fill(RED);
-        } else {
-          fill(DARKGREEN);
+        if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+          if (buildGate == false) {
+            fill(GREY);
+          } else if (buildGate == true && desiredBuilding == 'N') {
+            fill(RED);
+          } else {
+            fill(DARKGREEN);
+          }
         }
       } else {
         if (buildGate == false) {
@@ -148,7 +153,7 @@ class menu {
       // Upgrade
       fill(WHITE);
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
-        if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0 && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
+        if (buildingGrid[selectedGridX][selectedGridY].isConstructing() == false && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
           if (upgradeGate == false) {
             fill(GREY);
           } else {
@@ -168,7 +173,7 @@ class menu {
 
       //Demolish
       fill(WHITE);
-      if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+      if (buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) {
         if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
           if (demolishGate == false) {
             fill(GREY);
@@ -223,11 +228,59 @@ class menu {
           fill(WHITE);
         }
         rect((width*11/16)+40, (height*5/8)+58, 50, 50);
+
+        fill(BLACK);
+
+        text('F', (width*11/16)+15, (height*5/8)+33);
+        text('R', (width*11/16)+65, (height*5/8)+33);
+        text('P', (width*11/16)+15, (height*5/8)+83);
+        text('M', (width*11/16)+65, (height*5/8)+83);
       }
 
       //Hover Text
+      //Build
+      rectMode(CORNER);
+      fill(WHITE);
+      //Food
+      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 && buildGate == true) {
+        rect(mouseX+10, mouseY, 150, 20);
+        fill(BLACK);
+        textAlign(LEFT);
+        textSize(16);
+        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('F') + " Minerals", mouseX+10, mouseY+15);
+      }
+
+      //Research
+      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 && buildGate == true) {
+        rect(mouseX+10, mouseY, 150, 20);
+        fill(BLACK);
+        textAlign(LEFT);
+        textSize(16);
+        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('R') + " Minerals", mouseX+10, mouseY+15);
+      }
+
+      //Power
+      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 && buildGate == true) {
+        rect(mouseX+10, mouseY, 150, 20);
+        fill(BLACK);
+        textAlign(LEFT);
+        textSize(16);
+        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('P') + " Minerals", mouseX+10, mouseY+15);
+      }
+
+      //Mineral
+      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 && buildGate == true) {
+        rect(mouseX+10, mouseY, 150, 20);
+        fill(BLACK);
+        textAlign(LEFT);
+        textSize(16);
+        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('M') + " Minerals", mouseX+10, mouseY+15);
+      }
+      rectMode(CENTER);
+      textAlign(CENTER);
+
       //Upgrade
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0 && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0 && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) { 
         rectMode(CORNER);
         fill(WHITE);
         rect(mouseX+10, mouseY, 150, 20);
@@ -413,15 +466,18 @@ class menu {
       // Construction Options
       // Build
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16)) {
-        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
+        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType == 0 && desiredBuilding == 'N') {
           resetGates();
           buildGate = true;
-        } else if (buildGate == true) {
+        } else if (buildGate == true && desiredBuilding != 'N') {
+          buildingGrid[selectedGridX][selectedGridY].buildTile(desiredBuilding);
+          desiredBuilding = 'N';
+          resetGates();
         }
       }
       // Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) {
-        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() && buildingGrid[selectedGridX][selectedGridY].buildTime == 0 && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
+        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
           resetGates();
           upgradeGate = true;
         } else if (upgradeGate == true) {
@@ -431,7 +487,7 @@ class menu {
       }
       //Demolish
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+40 && mouseY < (height*11/16)+70) {
-        if (demolishGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+        if (demolishGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) {
           resetGates();
           demolishGate = true;
         } else if (demolishGate == true) {
@@ -442,7 +498,7 @@ class menu {
 
       //Building Menu
       //Food
-      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 ) {
+      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 && buildGate == true) {
         if (desiredBuilding != 'F') {
           desiredBuilding = 'F';
         } else {
@@ -451,15 +507,30 @@ class menu {
       }
 
       //Research
-      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 ) {
+      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 && buildGate == true) {
+        if (desiredBuilding != 'R') {
+          desiredBuilding = 'R';
+        } else {
+          desiredBuilding = 'N';
+        }
       }
 
       //Power
-      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 ) {
+      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 && buildGate == true) {
+        if (desiredBuilding != 'P') {
+          desiredBuilding = 'P';
+        } else {
+          desiredBuilding = 'N';
+        }
       }
 
       //Mineral
-      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 ) {
+      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 && buildGate == true) {
+        if (desiredBuilding != 'M') {
+          desiredBuilding = 'M';
+        } else {
+          desiredBuilding = 'N';
+        }
       }
     } else if (menuType == "Game Menu Frame") {
       // In Game Menu
