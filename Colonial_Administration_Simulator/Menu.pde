@@ -299,22 +299,26 @@ class menu {
       textAlign(CENTER, CENTER);
       textSize(16);
       text("Pops " + pops + "+" + popIncrease, width*4/48, height*4/128);
-      if (minerals == mineralMax) {
+      if (mineralIncrease < 0) {
+        fill(RED);
+      } else if (minerals == mineralMax) {
         fill(GREEN);
       } else {
         fill(BLACK);
       }
       text("Minerals " + minerals + "+" + mineralIncrease, width*13/48, height*4/128);
-      if (energy == energyMax) {
+      if (energyIncrease < 0) {
+        fill(RED);
+      } else if (energy == energyMax) {
         fill(GREEN);
       } else {
         fill(BLACK);
       }
       text("EUs " + energy + "+" + energyIncrease, width*23/48, height*4/128);
-      if (food == foodMax) {
-        fill(GREEN);
-      } else if (food < 10 || food < pops) {
+      if (food < 10 || food < pops || foodIncrease < 0) {
         fill(RED);
+      } else if (food == foodMax) {
+        fill(GREEN);
       } else {
         fill(BLACK);
       }
