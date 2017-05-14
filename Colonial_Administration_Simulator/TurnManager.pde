@@ -3,6 +3,8 @@ class turnManager {
   }
 
   void updateResources() {
+    // Applies increases and checks for a game over.
+    // Also ensures resources do not go over their maxes.
     pops = pops + popIncrease;
 
     food = food + foodIncrease;
@@ -30,7 +32,7 @@ class turnManager {
   }
 
   void updateResourceIncreases() {
-
+    // Checks for the increase and the tax of each resource.
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         buildingGrid[i][j].tileUpdate();
@@ -51,7 +53,7 @@ class turnManager {
 
     mineralIncrease = mineralIncrease * pops/3;
     energyIncrease = energyIncrease * pops/3;
-    
+
     mineralTax = 0;
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
@@ -112,6 +114,7 @@ class turnManager {
   }
 
   void processConstruction() {
+    // Advances each construction time by one.
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         if (buildingGrid[i][j].upgradeTime > 0) {
@@ -129,12 +132,15 @@ class turnManager {
   }
 
   void advanceTurn() {
+    // Self explanatory.
     turn++;
     updateResources();
     processConstruction();
   }
 
   void setupBaseGame() {
+    // Self explanatory.
+    // Default if not loading a game.
     pops = 3;
     food = 10;
     minerals = 100;

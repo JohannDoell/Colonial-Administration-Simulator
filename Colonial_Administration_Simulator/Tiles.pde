@@ -5,12 +5,8 @@ class tiles {
   int tileWidth, tileHeight;
   int tileLocationX, tileLocationY;
   char tileChar;
-  int upgradeTime = 0;
-  int buildTime = 0;
-  int totalUpgradeTime = 0;
-  int totalBuildTime = 0;
-  boolean isUpgrading = false;
-  boolean isBuilding = false;
+  int upgradeTime, buildTime, totalUpgradeTime, totalBuildTime;
+  boolean isUpgrading, isBuilding;
   tiles (int _x, int _y) {
     x = _x;
     y = _y;
@@ -19,9 +15,16 @@ class tiles {
     tileLevel = 1;
     tileLocationX = 100+(x*tileWidth);
     tileLocationY = 100+(y*tileHeight);
+    upgradeTime = 0;
+    buildTime = 0;
+    totalUpgradeTime = 0;
+    totalBuildTime = 0;
+    isUpgrading = false;
+    isBuilding = false;
   }
 
   void tileUpdate() {
+    // Check each tile for its current resource output and update to that.
     // Blank/Deconstructed Tile
     if (tileType == 0) {
       tileLevel = 0;
@@ -83,6 +86,8 @@ class tiles {
         researchValue = 20;
       }
     }
+    // Also check for the current status of construction jobs.
+    // If completed, finish the process and upgrade/update.
     if (this.upgradeTime == 0 && this.isUpgrading == true) {
       tileLevel++;
       isUpgrading = false;
@@ -96,6 +101,7 @@ class tiles {
   }
 
   void displayTile() {
+    // Displays tiles and progress bars.
     if (mouseX > tileLocationX-(tileWidth/2) && mouseX < tileLocationX+(tileWidth/2) && mouseY > tileLocationY-(tileHeight/2) && mouseY < tileLocationY+(tileHeight/2)) {
       fill(GREY);
     } else if (selectedGridX == this.x && selectedGridY == this.y) {
@@ -126,6 +132,8 @@ class tiles {
   }
 
   void selectTile() {
+    // Checks for click and then selects if possible.
+    // Resets some gates to avoid glitches.
     if (mouseX > tileLocationX-(tileWidth/2) && mouseX < tileLocationX+(tileWidth/2) && mouseY > tileLocationY-(tileHeight/2) && mouseY < tileLocationY+(tileHeight/2)) {
       selectedGridX = x;
       selectedGridY = y;
@@ -135,6 +143,7 @@ class tiles {
   }
 
   void upgradeTile() {
+    // Upgrade Process called through the menu.
     minerals = minerals - this.getUpgradeCost();
     this.upgradeTime = (this.getUpgradeCost())/10;
     this.totalUpgradeTime = this.upgradeTime;
@@ -142,6 +151,7 @@ class tiles {
   }
 
   void buildTile(char buildType) {
+    // Build Process called through the menu.
     minerals = minerals - this.getBuildCost(buildType);
     this.buildTime = (this.getBuildCost(buildType))/10;
     this.isBuilding = true;
@@ -162,6 +172,7 @@ class tiles {
   }
 
   int getBuildCost(char buildType) {
+    // Finds the build cost by being called by the menu.
     int noOf = 0;
     // Farms
     if (buildType == 'F') {
@@ -211,6 +222,7 @@ class tiles {
   }
 
   int getUpgradeCost() {
+    // Finds the upgrade cost after being called by the menu.
     // Farms
     if (tileType == 1) {
       if (tileLevel == 1) {
@@ -256,6 +268,11 @@ class tiles {
   }
 
   boolean isConstructing() {
+    /** 
+     Checks if the building is upgrading or building.
+     If it is not building, returns false.
+     Else, returns true.
+     */
     if (buildTime == 0 && upgradeTime == 0) {
       return false;
     } else {
