@@ -194,9 +194,27 @@ class menu {
       textAlign(CENTER, CENTER);
       textSize(16);
       text("Pops " + pops + "+" + popIncrease, width*4/48, height*4/128);
+      if (minerals == mineralMax) {
+        fill(GREEN);
+      } else {
+        fill(BLACK);
+      }
       text("Minerals " + minerals + "+" + mineralIncrease, width*13/48, height*4/128);
+      if (energy == energyMax) {
+        fill(GREEN);
+      } else {
+        fill(BLACK);
+      }
       text("EUs " + energy + "+" + energyIncrease, width*23/48, height*4/128);
+      if (food == foodMax) {
+        fill(GREEN);
+      } else if (food < 10 || food < pops) {
+        fill(RED);
+      } else {
+        fill(BLACK);
+      }
       text("Food " + food + "+" + foodIncrease, width*31/48, height*4/128);
+      fill(BLACK);
 
       // InGame Option Menu
       rectMode(CENTER);

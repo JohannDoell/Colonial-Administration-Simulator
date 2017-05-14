@@ -5,7 +5,7 @@ int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 int foodTax, mineralTax, energyTax;
 int foodMax, mineralMax, energyMax;
 String nationName, playerName;
-color WHITE, GREY, BLACK, GREEN, DARKGREEN;
+color WHITE, GREY, BLACK, GREEN, DARKGREEN, RED;
 int selectedGridX, selectedGridY;
 boolean demolishGate = false;
 boolean buildGate = false;
@@ -31,6 +31,7 @@ void setup() {
   BLACK = color(0);
   GREEN = color(#23E831);
   DARKGREEN = color(#178E1F);
+  RED = color(#CE1717);
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {

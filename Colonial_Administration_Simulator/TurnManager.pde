@@ -18,9 +18,22 @@ class turnManager {
     if (food < 0 || energy < 0 || minerals < 0) {
       state = 2;
     }
+    
+    if (food > foodMax) {
+     food = foodMax; 
+    }
+    if (energy > energyMax) {
+     energy = energyMax; 
+    }
+    if (minerals > mineralMax) {
+     minerals = mineralMax;
+    }
+    
+    
   }
 
   void updateResourceIncreases() {
+    
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         buildingGrid[i][j].tileUpdate();
@@ -62,6 +75,21 @@ class turnManager {
     mineralIncrease = mineralIncrease - mineralTax;
     energyIncrease = energyIncrease - energyTax;
     foodIncrease = foodIncrease - foodTax;
+    
+    foodMax = foodIncrease * 10;
+    energyMax = energyIncrease * 10;
+    mineralMax = mineralIncrease * 10;
+    
+    if (foodMax < 0) {
+     foodMax = 10; 
+    }
+    if (energyMax < 100) {
+     energyMax = 100; 
+    }
+    if (mineralMax < 100) {
+     mineralMax = 100; 
+    }
+    
   }
 
   void processConstruction() {
