@@ -136,7 +136,7 @@ class menu {
       // Upgrade
       fill(WHITE);
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
-        if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+        if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0 && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
           if (upgradeGate == false) {
             fill(GREY);
           } else {
@@ -153,6 +153,7 @@ class menu {
       rect(width*1/2, (height*11/16)+20, 150, 30);
       fill(BLACK);
       text("UPGRADE", width*1/2, (height*11/16)+20);
+      
       //Demolish
       fill(WHITE);
       if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
@@ -364,7 +365,7 @@ class menu {
       }
       // Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35) {
-        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
+        if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() && buildingGrid[selectedGridX][selectedGridY].buildTime == 0 && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
           upgradeGate = true;
         } else if (upgradeGate == true) {
           upgradeGate = false;
