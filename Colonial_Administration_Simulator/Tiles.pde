@@ -109,6 +109,7 @@ class tiles {
       selectedGridX = x;
       selectedGridY = y;
       constructionMenu.resetGates();
+      constructionMenu.desiredBuilding = 'N';
     }
   }
 

@@ -462,6 +462,8 @@ class menu {
       }
     } else if (menuType == "Research") {
     } else if (menuType == "Construction") {
+
+      //Building Grid
       for (int i=0; i<tilesWide; i++) {
         for (int j=0; j<tilesHigh; j++) {
           buildingGrid[i][j].selectTile();
