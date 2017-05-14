@@ -72,8 +72,8 @@ class tiles {
       }
     }
     if (this.buildTime == 0 && this.isBuilding == true) {
-     tileLevel++;
-     isBuilding = false;
+      tileLevel++;
+      isBuilding = false;
     }
   }
 
@@ -102,6 +102,22 @@ class tiles {
     minerals = minerals - this.getUpgradeCost();
     this.buildTime = (this.getUpgradeCost())/10;
     this.isBuilding = true;
+  }
+
+  int getBuildCost(char buildType) {
+    // Farms
+    if (buildType == 'F') {
+    }
+    // Mines
+    if (buildType == 'M') {
+    }
+    // Power Stations
+    if (buildType == 'P') {
+    }
+    // Research Stations
+    if (buildType == 'R') {
+    }
+    return 0;
   }
 
   int getUpgradeCost() {

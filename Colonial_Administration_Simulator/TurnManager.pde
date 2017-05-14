@@ -4,7 +4,6 @@ class turnManager {
 
   void updateResources() {
     pops = pops + popIncrease;
-    popIncrease = 0;
 
     food = food + foodIncrease;
     minerals = minerals + mineralIncrease;
@@ -89,6 +88,14 @@ class turnManager {
     if (mineralMax < 100) {
      mineralMax = 100; 
     }
+    
+    popIncrease = (food/50)-pops/3;
+    if (popIncrease > 1) {
+     popIncrease = 1; 
+    } else if (popIncrease < 0) {
+     popIncrease = 0; 
+    }
+    
     
   }
 

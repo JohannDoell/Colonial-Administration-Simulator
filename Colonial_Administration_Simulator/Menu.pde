@@ -123,15 +123,23 @@ class menu {
         text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (width*1/4), (height*11/16)-20);
       }
       textSize(20);
+
       // Construction Options
       // Build
-      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) { 
+      if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)-30 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
         if (buildGate == false) {
           fill(GREY);
+        } else if (buildGate == true && desiredBuilding == 'N') {
+          fill(RED);
         } else {
-          fill(WHITE);
+          fill(DARKGREEN);
         }
-      } else if (buildGate == true) {
+      } else {
+        if (buildGate == false) {
+          fill(WHITE);
+        } else {
+          fill(GREEN);
+        }
       }
       rect(width*1/2, (height*11/16)-15, 150, 30);
       fill(BLACK);
@@ -178,6 +186,45 @@ class menu {
       rect(width*1/2, (height*11/16)+55, 150, 30);
       fill(BLACK);
       text("DEMOLISH", width*1/2, (height*11/16)+55);
+
+      // Building Menu 
+      rectMode(CORNER);
+      fill(WHITE);
+      rect((width*11/16)-10, (height*5/8)+8, 100, 100);
+      if (buildGate == true || buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
+        //Food
+        if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 && buildGate == true || desiredBuilding == 'F') {
+          fill(GREY);
+        } else {
+          fill(WHITE);
+        }
+        rect((width*11/16)-10, (height*5/8)+8, 50, 50);
+
+        //Research
+        if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 && buildGate == true || desiredBuilding == 'R') {
+          fill(GREY);
+        } else {
+          fill(WHITE);
+        }
+        rect((width*11/16)+40, (height*5/8)+8, 50, 50);
+
+        //Power
+        if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 && buildGate == true || desiredBuilding == 'P') {
+          fill(GREY);
+        } else {
+          fill(WHITE);
+        }
+        rect((width*11/16)-10, (height*5/8)+58, 50, 50);
+
+        //Mineral
+        if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 && buildGate == true || desiredBuilding == 'M') {
+          fill(GREY);
+        } else {
+          fill(WHITE);
+        }
+        rect((width*11/16)+40, (height*5/8)+58, 50, 50);
+      }
+
       //Hover Text
       //Upgrade
       if (mouseX > (width*1/2)-75 && mouseX < (width*1/2)+75 && mouseY > (height*11/16)+5 && mouseY < (height*11/16)+35 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0 && buildingGrid[selectedGridX][selectedGridY].buildTime == 0) { 
@@ -391,6 +438,28 @@ class menu {
           buildingGrid[selectedGridX][selectedGridY].tileType = 0;
           demolishGate = false;
         }
+      }
+
+      //Building Menu
+      //Food
+      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 ) {
+        if (desiredBuilding != 'F') {
+          desiredBuilding = 'F';
+        } else {
+          desiredBuilding = 'N';
+        }
+      }
+
+      //Research
+      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+8 && mouseY < (height*5/8)+58 ) {
+      }
+
+      //Power
+      if (mouseX > (width*11/16)-10 && mouseX <(width*11/16)+40 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 ) {
+      }
+
+      //Mineral
+      if (mouseX > (width*11/16)+40 && mouseX <(width*11/16)+90 && mouseY > (height*5/8)+58 && mouseY < (height*5/8)+108 ) {
       }
     } else if (menuType == "Game Menu Frame") {
       // In Game Menu
