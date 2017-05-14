@@ -1,0 +1,4 @@
+class researchManager {
+  researchManager() {
+  }
+}
