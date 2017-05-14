@@ -469,7 +469,7 @@ class menu {
         if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType == 0 && desiredBuilding == 'N') {
           resetGates();
           buildGate = true;
-        } else if (buildGate == true && desiredBuilding != 'N') {
+        } else if (buildGate == true && desiredBuilding != 'N' && minerals >= buildingGrid[selectedGridX][selectedGridY].getBuildCost(desiredBuilding)) {
           buildingGrid[selectedGridX][selectedGridY].buildTile(desiredBuilding);
           desiredBuilding = 'N';
           resetGates();
