@@ -49,6 +49,9 @@ class turnManager {
       }
     }
 
+    mineralIncrease = mineralIncrease * pops/3;
+    energyIncrease = energyIncrease * pops/3;
+    
     mineralTax = 0;
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
@@ -76,9 +79,19 @@ class turnManager {
     energyIncrease = energyIncrease - energyTax;
     foodIncrease = foodIncrease - foodTax;
 
-    foodMax = foodIncrease * 10 + pops * 10;
+    foodMax = foodIncrease * 10;
     energyMax = energyIncrease * 10;
-    mineralMax = mineralIncrease * 10;
+
+    int noOfBuildings = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType != 0) {
+          noOfBuildings++;
+        }
+      }
+    }
+
+    mineralMax = mineralIncrease * 10 + noOfBuildings * 5;
 
     if (foodMax < 0) {
       foodMax = 10;

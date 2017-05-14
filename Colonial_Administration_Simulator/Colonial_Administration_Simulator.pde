@@ -1,19 +1,26 @@
 int state, turn;
+// Resource related variables
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 int foodTax, mineralTax, energyTax;
 int foodMax, mineralMax, energyMax;
+// Currently unused.
 String nationName, playerName;
-color WHITE, GREY, BLACK, GREEN, DARKGREEN, RED;
+// Standardized colours.
+color WHITE, GREY, LIGHTGREY, BLACK, GREEN, DARKGREEN, RED;
+// Grid variables.
+int tilesWide = 5;
+int tilesHigh = 3;
+// Grid selection variables.
 int selectedGridX, selectedGridY;
+// Confirmation gates for construction actions.
 boolean demolishGate = false;
 boolean buildGate = false;
 boolean upgradeGate = false;
+// Resource images.
 PImage pPop, pFood, pMineral, pEnergy, pResearch;
 
-int tilesWide = 5;
-int tilesHigh = 3;
-
+// Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
 
 menu titleMenu = new menu("Title");
@@ -29,6 +36,7 @@ void setup() {
   state = 0;
   WHITE = color(255);
   GREY = color(155);
+  LIGHTGREY = color(200);
   BLACK = color(0);
   GREEN = color(#23E831);
   DARKGREEN = color(#178E1F);

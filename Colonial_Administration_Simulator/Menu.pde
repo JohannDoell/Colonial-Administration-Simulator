@@ -95,7 +95,7 @@ class menu {
     } else if (menuType == "Research") {
       if (gmf.displayResearchMenu == true) {
         fill(BLACK);
-        text("Research", width/2, height/2);
+        text("Research Coming Soon", width/2, height/2);
       }
     } else if (menuType == "Construction") {
       // Display Tiles
@@ -313,7 +313,11 @@ class menu {
         fill(BLACK);
       }
       image(pMineral, width*10/48, height*2/128, 20, 20);
-      text(minerals + "+" + mineralIncrease, width*14/48, height*4/128);
+      if (minerals < 1000) {
+        text(minerals + "+" + mineralIncrease, width*14/48, height*4/128);
+      } else {
+        text(minerals/1000 + "K+" + mineralIncrease, width*14/48, height*4/128);
+      }
       if (energyIncrease < 0) {
         fill(RED);
       } else if (energy == energyMax) {
@@ -613,6 +617,8 @@ class menu {
     text("You ran out of a resource", width/2, (height/2)+60);
   }
 
+
+  // Resets the confirmation gates for all construction actions.
   void resetGates() {
     demolishGate = false;
     buildGate = false;

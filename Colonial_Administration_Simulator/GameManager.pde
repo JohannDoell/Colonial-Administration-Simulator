@@ -5,9 +5,12 @@ class gameManager {
 
   void handleGameState() {
     background(255);
+    // Title Screen
     if (state == 0) {
       titleMenu.displayMenu();
-    } else if (state == 1) {
+    } 
+    // Game
+    else if (state == 1) {
       gmf.displayMenu();
       turMan.updateResourceIncreases();
       if (gmf.displayResearchMenu == true) {
@@ -16,7 +19,9 @@ class gameManager {
       if (gmf.displayConstructionMenu == true) {   
         constructionMenu.displayMenu();
       }
-    } else if (state == 2) {
+    } 
+    // Loss Screen
+    else if (state == 2) {
       gmf.loseScreen();
     }
   }

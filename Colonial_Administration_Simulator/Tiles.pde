@@ -7,6 +7,8 @@ class tiles {
   char tileChar;
   int upgradeTime = 0;
   int buildTime = 0;
+  int totalUpgradeTime = 0;
+  int totalBuildTime = 0;
   boolean isUpgrading = false;
   boolean isBuilding = false;
   tiles (int _x, int _y) {
@@ -65,7 +67,7 @@ class tiles {
       } else if (tileLevel == 2) {
         powerValue = 5;
       } else if (tileLevel == 3) {
-        powerValue = 15;
+        powerValue = 10;
       }
     }
     // Research Stations
@@ -84,16 +86,20 @@ class tiles {
     if (this.upgradeTime == 0 && this.isUpgrading == true) {
       tileLevel++;
       isUpgrading = false;
+      this.totalUpgradeTime = 0;
     }
     if (this.buildTime == 0 && this.isBuilding == true) {
       tileLevel++;
       isBuilding = false;
+      this.totalBuildTime = 0;
     }
   }
 
   void displayTile() {
     if (mouseX > tileLocationX-(tileWidth/2) && mouseX < tileLocationX+(tileWidth/2) && mouseY > tileLocationY-(tileHeight/2) && mouseY < tileLocationY+(tileHeight/2)) {
       fill(GREY);
+    } else if (selectedGridX == this.x && selectedGridY == this.y) {
+      fill(LIGHTGREY);
     } else {
       fill(WHITE);
     }
@@ -102,6 +108,21 @@ class tiles {
     textSize(64);
     textAlign(CENTER, CENTER);
     text(tileChar, tileLocationX, tileLocationY-5);
+    fill(WHITE);
+    if (this.buildTime != 0 || this.upgradeTime != 0) {
+      rect(tileLocationX, tileLocationY+35, 70, 10);
+    }
+    rectMode(CORNER);
+    if (this.buildTime != 0) {
+      fill(GREEN);
+      rect(tileLocationX-35, tileLocationY+30, 70-70*(buildTime-1)/totalBuildTime, 10);
+    }
+    if (this.upgradeTime != 0) {
+      fill(GREEN);
+      rect(tileLocationX-35, tileLocationY+30, 70-70*(upgradeTime-1)/totalUpgradeTime, 10);
+    }
+    rectMode(CENTER);
+    fill(WHITE);
   }
 
   void selectTile() {
@@ -116,6 +137,7 @@ class tiles {
   void upgradeTile() {
     minerals = minerals - this.getUpgradeCost();
     this.upgradeTime = (this.getUpgradeCost())/10;
+    this.totalUpgradeTime = this.upgradeTime;
     this.isUpgrading = true;
   }
 
@@ -123,6 +145,7 @@ class tiles {
     minerals = minerals - this.getBuildCost(buildType);
     this.buildTime = (this.getBuildCost(buildType))/10;
     this.isBuilding = true;
+    this.totalBuildTime = this.buildTime;
     if (buildType == 'F') {
       tileType = 1;
     }
@@ -171,7 +194,7 @@ class tiles {
           }
         }
       }
-      return noOf * 300;
+      return noOf * 500;
     }
     // Research Stations
     if (buildType == 'R') {
