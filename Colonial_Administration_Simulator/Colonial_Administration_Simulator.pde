@@ -1,3 +1,12 @@
+// ---------------------------------------------------------------------------------------------- //
+// Colonial Administration Simulator by Johann Doell
+// ---------------------------------------------------------------------------------------------- //
+// A Stellaris empire building Clone.
+// There are multiple classes that interact with one another and contribute to the greater system.
+// No object or object in an array is ever "destroyed" but the system is designed for them to change constantly.
+// Each object in the main array indirectly interacts with the other objects in the array through resource values.
+//----------------------------------------------------------------------------------------------- //
+
 int state, turn;
 // Resource related variables
 int pops, food, minerals, energy, research;
