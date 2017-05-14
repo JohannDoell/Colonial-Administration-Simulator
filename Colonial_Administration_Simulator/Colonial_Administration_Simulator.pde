@@ -1,5 +1,4 @@
-int state;
-int turn;
+int state, turn;
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
 int foodTax, mineralTax, energyTax;
@@ -10,6 +9,7 @@ int selectedGridX, selectedGridY;
 boolean demolishGate = false;
 boolean buildGate = false;
 boolean upgradeGate = false;
+PImage pPop, pFood, pMineral, pEnergy, pResearch;
 
 int tilesWide = 5;
 int tilesHigh = 3;
@@ -33,6 +33,12 @@ void setup() {
   GREEN = color(#23E831);
   DARKGREEN = color(#178E1F);
   RED = color(#CE1717);
+
+  pPop = loadImage("pop.jpg");
+  pFood = loadImage("apple.jpg");
+  pMineral = loadImage("cog.jpg");
+  pEnergy = loadImage("lightning.jpg");
+  pResearch = loadImage("testtubes.jpg");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {
