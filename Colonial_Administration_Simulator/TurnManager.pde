@@ -11,7 +11,7 @@ class turnManager {
     minerals = minerals + mineralIncrease;
     energy = energy + energyIncrease;
 
-    if (food > 150) {
+    if (food > 100 && foodIncrease > 0) {
       pops++;
       food = food - 100;
     }

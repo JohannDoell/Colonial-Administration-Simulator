@@ -75,6 +75,9 @@ class menu {
         line((width*95/100)-10, (height*5/100)-10, (width*95/100)+10, (height*5/100)+10);
         line((width*95/100)+10, (height*5/100)-10, (width*95/100)-10, (height*5/100)+10);
       } else if (menuState == 1) {
+        fill(BLACK);
+        text("Options Coming Soon", width/2,height/2);
+        
         // Back Button
         stroke(BLACK);
         rectMode(CENTER);
