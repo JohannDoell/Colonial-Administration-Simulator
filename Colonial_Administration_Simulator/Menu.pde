@@ -247,7 +247,8 @@ class menu {
         fill(BLACK);
         textAlign(LEFT);
         textSize(16);
-        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('F') + " Minerals", mouseX+10, mouseY+15);
+        image(pMineral, mouseX+54, mouseY+3, 15, 15);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('F'), mouseX+10, mouseY+15);
       }
 
       //Research
@@ -256,7 +257,8 @@ class menu {
         fill(BLACK);
         textAlign(LEFT);
         textSize(16);
-        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('R') + " Minerals", mouseX+10, mouseY+15);
+        image(pMineral, mouseX+54, mouseY+3, 15, 15);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('R'), mouseX+10, mouseY+15);
       }
 
       //Power
@@ -265,7 +267,8 @@ class menu {
         fill(BLACK);
         textAlign(LEFT);
         textSize(16);
-        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('P') + " Minerals", mouseX+10, mouseY+15);
+        image(pMineral, mouseX+54, mouseY+3, 15, 15);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('P'), mouseX+10, mouseY+15);
       }
 
       //Mineral
@@ -274,7 +277,8 @@ class menu {
         fill(BLACK);
         textAlign(LEFT);
         textSize(16);
-        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('M') + " Minerals", mouseX+10, mouseY+15);
+        image(pMineral, mouseX+54, mouseY+3, 15, 15);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('M'), mouseX+10, mouseY+15);
       }
       rectMode(CENTER);
       textAlign(CENTER);
@@ -287,7 +291,8 @@ class menu {
         fill(BLACK);
         textAlign(LEFT);
         textSize(16);
-        text("Cost: " + buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() + " Minerals", mouseX+10, mouseY+15);
+        image(pMineral, mouseX+54, mouseY+3, 15, 15);
+        text("Cost:     " + buildingGrid[selectedGridX][selectedGridY].getUpgradeCost(), mouseX+11, mouseY+15);
         rectMode(CENTER);
         textAlign(CENTER);
       }
