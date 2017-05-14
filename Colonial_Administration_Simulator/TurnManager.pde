@@ -9,7 +9,7 @@ class turnManager {
     minerals = minerals + mineralIncrease;
     energy = energy + energyIncrease;
 
-    if (food > 100) {
+    if (food > 150) {
       pops++;
       food = food - 100;
     }
@@ -76,7 +76,7 @@ class turnManager {
     energyIncrease = energyIncrease - energyTax;
     foodIncrease = foodIncrease - foodTax;
 
-    foodMax = foodIncrease * 10;
+    foodMax = foodIncrease * 10 + pops * 10;
     energyMax = energyIncrease * 10;
     mineralMax = mineralIncrease * 10;
 
