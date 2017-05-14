@@ -4,6 +4,7 @@ class gameManager {
   }
 
   void handleGameState() {
+    background(255);
     if (state == 0) {
       titleMenu.displayMenu();
     } else if (state == 1) {
@@ -16,7 +17,7 @@ class gameManager {
         constructionMenu.displayMenu();
       }
     } else if (state == 2) {
-    gmf.loseScreen();
+      gmf.loseScreen();
     }
   }
 
@@ -26,6 +27,7 @@ class gameManager {
     } else if (state == 1) {
       gmf.menuClick();
       constructionMenu.menuClick();
+      researchMenu.menuClick();
     }
   }
 

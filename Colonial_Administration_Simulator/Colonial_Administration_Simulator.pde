@@ -22,6 +22,7 @@ menu constructionMenu = new menu("Construction");
 menu gmf = new menu("Game Menu Frame");
 gameManager game = new gameManager();
 turnManager turMan = new turnManager();
+researchManager resMan = new researchManager();
 
 void setup() {
   size(600, 600);
@@ -41,7 +42,6 @@ void setup() {
 }
 
 void draw() {
-  background(255);
   game.handleGameState();
 }
 
