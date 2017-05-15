@@ -1,26 +1,28 @@
-Hydroponics
-Cryohydroponics
-Atmoshydroponics
+Hydroponics,50
+Cryohydroponics,100
+Pyrohydroponics,150
+Atmoshydroponics,200
 
-Automated_Construction
-Durasteel_Construction
-Plasteel_Construction
+Standardized Construction,20
+Automated Construction,50
+Off World Construction,100
+Nanite Construction,200
 
-Surface_Mining
-Placer_Mining
-Underground_Mining
-Open_Pit_Mining
-Highwall_Mining
-Fracking
-Planetary_Core_Mining
+Durasteel Construction,100
+Plasteel Construction,100
+Nanofibre Construction,200
 
-Fossil_Fuel_Power
-Hydroelectric_Power
-Solar_Power
-Wind_Power
-Geothermal_Power
-Nuclear_Power
+Surface Mining,20
+Underground Mining,30
+Open Pit Mining,50
+Planetary Core Mining,100
 
-Breeding_Program
-Hormone_Therapy
+Fossil Fuel Power,10
+Sustainable Power,50
+Geothermal Power,75
+Nuclear Power,200
 
+Breeding Program,20
+Parental Planning,20
+Hormone Therapy,50
+Genome Diversification,100
