@@ -11,7 +11,7 @@ int state, turn;
 // Resource related variables
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
-int popResearchBonus, foodResearchBonus, mineralResearchBonus, energyResearchBonus;
+int popResearchBonus, foodResearchBonus, buildTimeResearchBonus, buildCostResearchBonus, mineralResearchBonus, energyResearchBonus;
 int foodTax, mineralTax, energyTax;
 int foodMax, mineralMax, energyMax;
 // Currently unused.
@@ -24,9 +24,7 @@ int tilesHigh = 3;
 // Grid selection variables.
 int selectedGridX, selectedGridY;
 // Confirmation gates for construction actions.
-boolean demolishGate = false;
-boolean buildGate = false;
-boolean upgradeGate = false;
+boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
 PImage pPop, pFood, pMineral, pEnergy, pResearch;
 

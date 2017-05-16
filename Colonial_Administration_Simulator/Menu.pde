@@ -76,8 +76,8 @@ class menu {
         line((width*95/100)+10, (height*5/100)-10, (width*95/100)-10, (height*5/100)+10);
       } else if (menuState == 1) {
         fill(BLACK);
-        text("Options Coming Soon", width/2,height/2);
-        
+        text("Options Coming Soon", width/2, height/2);
+
         // Back Button
         stroke(BLACK);
         rectMode(CENTER);
@@ -99,12 +99,27 @@ class menu {
       if (gmf.displayResearchMenu == true) {
         fill(BLACK);
         text("Research Coming Soon", width/2, height/2);
+        fill(WHITE);
+        rectMode(CORNER);
+
+        for (int i = 0; i<3; i++) {
+          fill(WHITE);          
+          rect(30, 70+150*i, 100, 100); 
+          if (mouseX > 150 && mouseX < 550 && mouseY > 70+150*i && mouseY < 170+150*i) {
+            fill(GREY);
+          } else {
+            fill(WHITE);
+          }
+          rect(150, 70+150*i, 400, 100);
+          fill(BLACK);
+          text(resMan.choices[i], 30+50, 70+50+150*i);
+        }
+        textAlign(CENTER, CENTER);
       }
     } else if (menuType == "Construction") {
       // Display Tiles
       if (gmf.displayConstructionMenu == true) {
         fill(BLACK);
-        text("Construction", width/2, height/2);
         for (int i=0; i<tilesWide; i++) {
           for (int j=0; j<tilesHigh; j++) {
             buildingGrid[i][j].displayTile();
@@ -306,6 +321,7 @@ class menu {
       fill(BLACK);
       textAlign(RIGHT, CENTER);
       textSize(16);
+      // Pops
       image(pPop, width*2/48, height*2/128, 20, 20);
       text(pops + "+" + popIncrease, width*7/48, height*4/128);
       if (mineralIncrease < 0) {
@@ -315,11 +331,16 @@ class menu {
       } else {
         fill(BLACK);
       }
+      // Minerals
       image(pMineral, width*11/48, height*2/128, 20, 20);
       if (minerals < 1000) {
-        text(minerals + "+" + mineralIncrease, width*17/48, height*4/128);
-      } else {
-        text(minerals/1000 + "K+" + mineralIncrease , width*17/48, height*4/128);
+        text(minerals + "+" + mineralIncrease, width*18/48, height*4/128);
+      }
+      if (minerals > 1000) {
+        text(minerals/1000 + "K+" + mineralIncrease, width*18/48, height*4/128);
+      }
+      if (minerals > 1000 && mineralIncrease > 1000) {
+        text(minerals/1000 + "K+" + mineralIncrease/1000 + "K", width*18/48, height*4/128);
       }
       if (energyIncrease < 0) {
         fill(RED);
@@ -328,6 +349,7 @@ class menu {
       } else {
         fill(BLACK);
       }
+      // Energy
       image(pEnergy, width*20/48, height*2/128, 20, 20);
       text(energy + "+" + energyIncrease, width*26/48, height*4/128);
       if (food < 10 || food < pops || foodIncrease < 0) {
@@ -337,6 +359,7 @@ class menu {
       } else {
         fill(BLACK);
       }
+      //Food
       image(pFood, width*28/48, height*2/128, 20, 20);
       text(food + "+" + foodIncrease, width*34/48, height*4/128);
       fill(BLACK);

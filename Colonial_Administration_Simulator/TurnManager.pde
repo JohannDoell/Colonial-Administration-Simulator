@@ -111,6 +111,7 @@ class turnManager {
     } else if (popIncrease < 0) {
       popIncrease = 0;
     }
+    resMan.maintainChoices();
   }
 
   void processConstruction() {
@@ -150,5 +151,7 @@ class turnManager {
     buildingGrid[4][2].tileType = 2;
     buildingGrid[0][2].tileType = 3;
     buildingGrid[4][0].tileType = 4;
+
+    resMan.setupBaseResearch();
   }
 }
