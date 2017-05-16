@@ -7,4 +7,6 @@ class researchManager {
     researchTime = 0;
     totalResearchTime = 0;
   }
+  
+  
 }

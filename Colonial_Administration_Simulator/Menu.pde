@@ -304,10 +304,10 @@ class menu {
       stroke(BLACK); 
       line(0, height*1/16, width, height*1/16);
       fill(BLACK);
-      textAlign(CENTER, CENTER);
+      textAlign(RIGHT, CENTER);
       textSize(16);
       image(pPop, width*2/48, height*2/128, 20, 20);
-      text(pops + "+" + popIncrease, width*6/48, height*4/128);
+      text(pops + "+" + popIncrease, width*7/48, height*4/128);
       if (mineralIncrease < 0) {
         fill(RED);
       } else if (minerals == mineralMax) {
@@ -315,11 +315,11 @@ class menu {
       } else {
         fill(BLACK);
       }
-      image(pMineral, width*10/48, height*2/128, 20, 20);
+      image(pMineral, width*11/48, height*2/128, 20, 20);
       if (minerals < 1000) {
-        text(minerals + "+" + mineralIncrease, width*14/48, height*4/128);
+        text(minerals + "+" + mineralIncrease, width*17/48, height*4/128);
       } else {
-        text(minerals/1000 + "K+" + mineralIncrease, width*14/48, height*4/128);
+        text(minerals/1000 + "K+" + mineralIncrease , width*17/48, height*4/128);
       }
       if (energyIncrease < 0) {
         fill(RED);
@@ -328,8 +328,8 @@ class menu {
       } else {
         fill(BLACK);
       }
-      image(pEnergy, width*19/48, height*2/128, 20, 20);
-      text(energy + "+" + energyIncrease, width*23/48, height*4/128);
+      image(pEnergy, width*20/48, height*2/128, 20, 20);
+      text(energy + "+" + energyIncrease, width*26/48, height*4/128);
       if (food < 10 || food < pops || foodIncrease < 0) {
         fill(RED);
       } else if (food == foodMax) {
@@ -337,8 +337,8 @@ class menu {
       } else {
         fill(BLACK);
       }
-      image(pFood, width*27/48, height*2/128, 20, 20);
-      text(food + "+" + foodIncrease, width*31/48, height*4/128);
+      image(pFood, width*28/48, height*2/128, 20, 20);
+      text(food + "+" + foodIncrease, width*34/48, height*4/128);
       fill(BLACK);
 
       // InGame Option Menu

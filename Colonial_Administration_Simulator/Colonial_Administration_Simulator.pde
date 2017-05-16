@@ -11,6 +11,7 @@ int state, turn;
 // Resource related variables
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
+int popResearchBonus, foodResearchBonus, mineralResearchBonus, energyResearchBonus;
 int foodTax, mineralTax, energyTax;
 int foodMax, mineralMax, energyMax;
 // Currently unused.
