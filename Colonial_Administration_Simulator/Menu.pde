@@ -475,7 +475,8 @@ class menu {
         }
         // Load 
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*3/5)-40 && mouseY < (height*3/5)+40) {
-          // Load Functionality
+          gameFileMan.loadSave();
+          state = 1;
         }
         // Options
         if (mouseX > ((width*1/2)-150) && mouseX < ((width*1/2)+150) && mouseY > (height*4/5)-40 && mouseY < (height*4/5)+40) {
@@ -591,6 +592,10 @@ class menu {
       }
 
       if (displayInGameMenu == true) {
+        // Save
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16 ) {
+          gameFileMan.saveSave();
+        }
         // Main Menu
         if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
           state = 0;

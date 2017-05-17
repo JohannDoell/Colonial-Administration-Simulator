@@ -27,6 +27,8 @@ int selectedGridX, selectedGridY;
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
 PImage pPop, pFood, pMineral, pEnergy, pResearch;
+// Save Game.
+JSONObject saveGame;
 
 // Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
@@ -38,6 +40,7 @@ menu gmf = new menu("Game Menu Frame");
 gameManager game = new gameManager();
 turnManager turMan = new turnManager();
 researchManager resMan = new researchManager();
+gameFileManager gameFileMan = new gameFileManager();
 
 void setup() {
   size(600, 600);
@@ -61,6 +64,8 @@ void setup() {
       buildingGrid[i][j] = new tiles(i, j);
     }
   }
+  
+  saveGame = new JSONObject();
 }
 
 void draw() {
