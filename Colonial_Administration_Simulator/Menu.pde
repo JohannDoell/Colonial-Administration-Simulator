@@ -336,7 +336,7 @@ class menu {
       if (minerals < 1000) {
         text(minerals + "+" + mineralIncrease, width*18/48, height*4/128);
       }
-      if (minerals > 1000) {
+      if (minerals > 1000 && mineralIncrease < 1000) {
         text(minerals/1000 + "K+" + mineralIncrease, width*18/48, height*4/128);
       }
       if (minerals > 1000 && mineralIncrease > 1000) {
@@ -351,7 +351,16 @@ class menu {
       }
       // Energy
       image(pEnergy, width*20/48, height*2/128, 20, 20);
-      text(energy + "+" + energyIncrease, width*26/48, height*4/128);
+      if (energy < 1000) {
+        text(energy + "+" + energyIncrease, width*26/48, height*4/128);
+      }
+      if (energy > 1000 && energyIncrease < 1000) {
+        text(energy/1000 + "K+" + energyIncrease, width*26/48, height*4/128);
+      }
+      if (energy > 1000 && energyIncrease > 1000) {
+        text(energy/1000 + "K+" + energyIncrease/1000 + "K", width*26/48, height*4/128);
+      }
+
       if (food < 10 || food < pops || foodIncrease < 0) {
         fill(RED);
       } else if (food == foodMax) {
