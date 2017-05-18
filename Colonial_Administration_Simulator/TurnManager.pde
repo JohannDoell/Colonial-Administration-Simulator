@@ -3,7 +3,7 @@ class turnManager {
   }
 
   void updateResources() {
-    // Applies increases and checks for a game over.
+    // Applies increases and checks for a game over. //<>//
     // Also ensures resources do not go over their maxes.
     pops = pops + popIncrease;
 
@@ -41,6 +41,7 @@ class turnManager {
 
     mineralIncrease = 0;
     energyIncrease = 0;
+    
     foodIncrease = 0;
 
     for (int i=0; i<tilesWide; i++) {
@@ -140,18 +141,6 @@ class turnManager {
   }
 
   void setupBaseGame() {
-    // Self explanatory.
-    // Default if not loading a game.
-    pops = 3;
-    food = 10;
-    minerals = 100;
-    energy = 100;
-
-    buildingGrid[0][0].tileType = 1;
-    buildingGrid[4][2].tileType = 2;
-    buildingGrid[0][2].tileType = 3;
-    buildingGrid[4][0].tileType = 4;
-
-    resMan.setupBaseResearch();
+    gameFileMan.loadBaseFile();
   }
 }

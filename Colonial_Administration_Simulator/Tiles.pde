@@ -24,15 +24,11 @@ class tiles {
   }
 
   void tileUpdate() {
+    resetValues();
     // Check each tile for its current resource output and update to that.
     // Blank/Deconstructed Tile
     if (tileType == 0) {
       tileLevel = 0;
-      tileChar = ' ';
-      researchValue = 0;
-      mineralValue = 0;
-      powerValue = 0;
-      foodValue = 0;
     }
     // Farms
     if (tileType == 1) {
@@ -98,6 +94,14 @@ class tiles {
       isBuilding = false;
       this.totalBuildTime = 0;
     }
+  }
+
+  void resetValues() {
+    tileChar = ' ';
+    researchValue = 0;
+    mineralValue = 0;
+    powerValue = 0;
+    foodValue = 0;
   }
 
   void displayTile() {
