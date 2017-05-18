@@ -10,11 +10,11 @@ class tiles {
   tiles (int _x, int _y) {
     x = _x;
     y = _y;
-    tileWidth = 100;
+    tileWidth = width/6*5/tilesWide;
     tileHeight = tileWidth;
     tileLevel = 1;
-    tileLocationX = 100+(x*tileWidth);
-    tileLocationY = 100+(y*tileHeight);
+    tileLocationX = width/6+(x*tileWidth);
+    tileLocationY = width/6+(y*tileHeight);
     upgradeTime = 0;
     buildTime = 0;
     totalUpgradeTime = 0;
@@ -117,7 +117,9 @@ class tiles {
     fill(BLACK);
     textSize(64);
     textAlign(CENTER, CENTER);
-    text(tileChar, tileLocationX, tileLocationY-5);
+    imageMode(CENTER);
+    image(this.getImage(), tileLocationX, tileLocationY, tileWidth/2, tileWidth/2);
+    imageMode(CORNER);
     fill(WHITE);
     if (this.buildTime != 0 || this.upgradeTime != 0) {
       rect(tileLocationX, tileLocationY+35, 70, 10);
@@ -269,6 +271,20 @@ class tiles {
     }
     // Blank/Deconstructed Tile
     return 0;
+  }
+
+  PImage getImage() {    
+    if (tileChar == 'M') {
+      return pMineral;
+    } else if (tileChar == 'F') {
+      return pFood;
+    } else if (tileChar == 'P') {
+      return pEnergy;
+    } else if (tileChar == 'R') {
+      return pResearch;
+    } else {
+      return pNil;
+    }
   }
 
   boolean isConstructing() {

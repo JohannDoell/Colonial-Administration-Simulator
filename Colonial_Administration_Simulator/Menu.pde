@@ -131,7 +131,9 @@ class menu {
       rect(width*1/4, (height*11/16)+20, 100, 100);
       fill(BLACK);
       textSize(40);
-      text(buildingGrid[selectedGridX][selectedGridY].tileChar, width*1/4, (height*11/16)+15);
+      imageMode(CENTER);
+      image(buildingGrid[selectedGridX][selectedGridY].getImage(), width*1/4, (height*11/16)+20, buildingGrid[0][0].tileWidth/2, buildingGrid[0][0].tileWidth/2);
+      imageMode(CORNER);
       textSize(20);
       if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
         text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-25, (height*11/16)+55);

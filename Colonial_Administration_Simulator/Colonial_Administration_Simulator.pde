@@ -19,14 +19,14 @@ String nationName, playerName;
 // Standardized colours.
 color WHITE, GREY, LIGHTGREY, BLACK, GREEN, DARKGREEN, RED;
 // Grid variables.
-int tilesWide = 5;
-int tilesHigh = 3;
+int tilesWide = 7;
+int tilesHigh = 4;
 // Grid selection variables.
 int selectedGridX, selectedGridY;
 // Confirmation gates for construction actions.
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
-PImage pPop, pFood, pMineral, pEnergy, pResearch;
+PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil;
 // Save Game.
 JSONObject saveGame;
 
@@ -58,6 +58,7 @@ void setup() {
   pMineral = loadImage("cog.jpg");
   pEnergy = loadImage("lightning.jpg");
   pResearch = loadImage("testtubes.jpg");
+  pNil = loadImage("empty.png");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {
