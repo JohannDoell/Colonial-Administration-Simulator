@@ -53,11 +53,11 @@ void setup() {
   DARKGREEN = color(#178E1F);
   RED = color(#CE1717);
 
-  pPop = loadImage("pop.jpg");
-  pFood = loadImage("apple.jpg");
-  pMineral = loadImage("cog.jpg");
-  pEnergy = loadImage("lightning.jpg");
-  pResearch = loadImage("testtubes.jpg");
+  pPop = loadImage("pop.png");
+  pFood = loadImage("apple.png");
+  pMineral = loadImage("cog.png");
+  pEnergy = loadImage("lightning.png");
+  pResearch = loadImage("testtubes.png");
   pNil = loadImage("empty.png");
 
   for (int i=0; i<tilesWide; i++) {
