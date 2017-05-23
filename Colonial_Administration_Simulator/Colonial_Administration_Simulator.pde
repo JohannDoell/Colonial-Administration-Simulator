@@ -44,7 +44,7 @@ gameFileManager gameFileMan = new gameFileManager();
 
 void setup() {
   size(600, 600);
-  state = 0;
+  state = 1;
   WHITE = color(255);
   GREY = color(155);
   LIGHTGREY = color(200);
