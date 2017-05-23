@@ -121,17 +121,18 @@ class tiles {
     image(this.getImage(), tileLocationX, tileLocationY, tileWidth/2, tileWidth/2);
     imageMode(CORNER);
     fill(WHITE);
+    // Progress Bar
     if (this.buildTime != 0 || this.upgradeTime != 0) {
-      rect(tileLocationX, tileLocationY+35, 70, 10);
+      rect(tileLocationX, tileLocationY+25, 70, 5);
     }
     rectMode(CORNER);
     if (this.buildTime != 0) {
       fill(GREEN);
-      rect(tileLocationX-35, tileLocationY+30, 70-70*(buildTime-1)/totalBuildTime, 10);
+      rect(tileLocationX-35, tileLocationY+22, 70-70*(buildTime-1)/totalBuildTime, 5);
     }
     if (this.upgradeTime != 0) {
       fill(GREEN);
-      rect(tileLocationX-35, tileLocationY+30, 70-70*(upgradeTime-1)/totalUpgradeTime, 10);
+      rect(tileLocationX-35, tileLocationY+22, 70-70*(upgradeTime-1)/totalUpgradeTime, 5);
     }
     rectMode(CENTER);
     fill(WHITE);
