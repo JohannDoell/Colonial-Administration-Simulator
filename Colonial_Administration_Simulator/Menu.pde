@@ -338,13 +338,13 @@ class menu {
       }
       // Minerals
       image(pMineral, width*11/48, height*2/128, width/30, width/30);
-      if (minerals < 1000) {
+      if (minerals <= 1000) {
         text(minerals + "+" + mineralIncrease, width*18/48, height*4/128);
       }
-      if (minerals > 1000 && mineralIncrease < 1000) {
+      if (minerals >= 1000 && mineralIncrease <= 1000) {
         text(minerals/1000 + "K+" + mineralIncrease, width*18/48, height*4/128);
       }
-      if (minerals > 1000 && mineralIncrease > 1000) {
+      if (minerals >= 1000 && mineralIncrease >= 1000) {
         text(minerals/1000 + "K+" + mineralIncrease/1000 + "K", width*18/48, height*4/128);
       }
       if (energyIncrease < 0) {
@@ -359,10 +359,10 @@ class menu {
       if (energy < 1000) {
         text(energy + "+" + energyIncrease, width*26/48, height*4/128);
       }
-      if (energy > 1000 && energyIncrease < 1000) {
+      if (energy >= 1000 && energyIncrease <= 1000) {
         text(energy/1000 + "K+" + energyIncrease, width*26/48, height*4/128);
       }
-      if (energy > 1000 && energyIncrease > 1000) {
+      if (energy >= 1000 && energyIncrease >= 1000) {
         text(energy/1000 + "K+" + energyIncrease/1000 + "K", width*26/48, height*4/128);
       }
 

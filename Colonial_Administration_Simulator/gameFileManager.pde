@@ -61,7 +61,7 @@ class gameFileManager {
 
     loadSaveFile("baseGame");
 
-    resMan.randomizeResearchChoices();
+    resMan.setupBaseResearch();
   }
 
   void loadSave() {
