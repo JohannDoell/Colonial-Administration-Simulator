@@ -8,6 +8,7 @@
 //----------------------------------------------------------------------------------------------- //
 
 int state, turn;
+int screenRatio;
 // Resource related variables
 int pops, food, minerals, energy, research;
 int popIncrease, foodIncrease, mineralIncrease, energyIncrease;
@@ -44,6 +45,7 @@ gameFileManager gameFileMan = new gameFileManager();
 
 void setup() {
   size(800, 800);
+  screenRatio = width/2+height/2;
   state = 0;
   WHITE = color(255);
   GREY = color(155);

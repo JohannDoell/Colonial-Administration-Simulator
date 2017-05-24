@@ -17,102 +17,102 @@ class menu {
         // Title
         fill(GREY);
         rectMode(CENTER);
-        rect(width*1/2, height*1/5, width*4/6, height*1/6);
+        rect(screenRatio*1/2, screenRatio*1/5, screenRatio*4/6, screenRatio*1/6);
         fill(WHITE);
         textAlign(CENTER, CENTER);
-        textSize(width/30);
-        text("Colonial Administration Simulator", width*1/2, height*1/5);
+        textSize(screenRatio/30);
+        text("Colonial Administration Simulator", screenRatio*1/2, screenRatio*1/5);
 
         // Play
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*2/5)-width*1/15 && mouseY < (height*2/5)+width*1/15) {
+        if (mouseX > ((screenRatio*1/2)-screenRatio/4) && mouseX < ((width*1/2)+screenRatio/4) && mouseY > (screenRatio*2/5)-screenRatio*1/15 && mouseY < (screenRatio*2/5)+screenRatio*1/15) {
           fill(BLACK);
         } else {
           fill(GREY);
         }
         rectMode(CENTER);
-        rect(width*1/2, height*2/5, width/2, width*2/15);
+        rect(screenRatio*1/2, screenRatio*2/5, screenRatio/2, screenRatio*2/15);
         fill(WHITE);
         textAlign(CENTER, CENTER);
-        textSize(width/24);
-        text("Play", width*1/2, height*2/5);
+        textSize(screenRatio/24);
+        text("Play", screenRatio*1/2, screenRatio*2/5);
 
         // Load 
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*3/5)-width/15 && mouseY < (height*3/5)+width/15) {
+        if (mouseX > ((screenRatio*1/2)-screenRatio/4) && mouseX < ((screenRatio*1/2)+screenRatio/4) && mouseY > (screenRatio*3/5)-screenRatio/15 && mouseY < (screenRatio*3/5)+screenRatio/15) {
           fill(BLACK);
         } else {
           fill(GREY);
         }
         rectMode(CENTER);
-        rect(width*1/2, height*3/5, width/2, width*2/15);
+        rect(screenRatio*1/2, screenRatio*3/5, screenRatio/2, screenRatio*2/15);
         fill(WHITE);
         textAlign(CENTER, CENTER);
-        textSize(width/24);
-        text("Load", width*1/2, height*3/5);
+        textSize(screenRatio/24);
+        text("Load", screenRatio*1/2, screenRatio*3/5);
 
         // Options 
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
+        if (mouseX > ((screenRatio*1/2)-screenRatio/4) && mouseX < ((screenRatio*1/2)+screenRatio/4) && mouseY > (screenRatio*4/5)-screenRatio/15 && mouseY < (screenRatio*4/5)+screenRatio/15) {
           fill(BLACK);
         } else {
           fill(GREY);
         }
         rectMode(CENTER);
-        rect(width*1/2, height*4/5, width/2, width*2/15);
+        rect(screenRatio*1/2, screenRatio*4/5, screenRatio/2, screenRatio*2/15);
         fill(WHITE);
         textAlign(CENTER, CENTER);
-        textSize(width/24);
-        text("Options", width*1/2, height*4/5);
+        textSize(screenRatio/24);
+        text("Options", screenRatio*1/2, screenRatio*4/5);
 
 
         // Exit
         rectMode(CENTER);
-        if (mouseX > ((width*95/100)-width/40) && mouseX < ((width*95/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
+        if (mouseX > ((screenRatio*95/100)-screenRatio/40) && mouseX < ((screenRatio*95/100)+screenRatio/40) && mouseY > (screenRatio*5/100)-screenRatio/40 && mouseY < (screenRatio*5/100)+screenRatio/40) {
           fill(BLACK);
         } else {
           fill(WHITE);
         }
-        rect(width*95/100, height*5/100, width/20, width/20);
+        rect(screenRatio*95/100, screenRatio*5/100, screenRatio/20, screenRatio/20);
         stroke(#FF0505);
-        line((width*95/100)-10, (height*5/100)-width/60, (width*95/100)+width/60, (height*5/100)+width/60);
-        line((width*95/100)+10, (height*5/100)-width/60, (width*95/100)-width/60, (height*5/100)+width/60);
+        line((screenRatio*95/100)-10, (screenRatio*5/100)-screenRatio/60, (screenRatio*95/100)+screenRatio/60, (screenRatio*5/100)+screenRatio/60);
+        line((screenRatio*95/100)+10, (screenRatio*5/100)-screenRatio/60, (screenRatio*95/100)-screenRatio/60, (screenRatio*5/100)+screenRatio/60);
       } else if (menuState == 1) {
         fill(BLACK);
-        text("Options Coming Soon", width/2, height/2);
+        text("Options Coming Soon", screenRatio/2, screenRatio/2);
 
         // Back Button
         stroke(BLACK);
         rectMode(CENTER);
-        if (mouseX > ((width*5/100)-width/40) && mouseX < ((width*5/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
+        if (mouseX > ((screenRatio*5/100)-screenRatio/40) && mouseX < ((screenRatio*5/100)+screenRatio/40) && mouseY > (screenRatio*5/100)-screenRatio/40 && mouseY < (screenRatio*5/100)+screenRatio/40) {
           fill(BLACK);
         } else {
           fill(WHITE);
         }
         rect(width*5/100, height*5/100, width/20, width/20);
-        if (mouseX > ((width*5/100)-width/40) && mouseX < ((width*5/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
+        if (screenRatio > ((screenRatio*5/100)-screenRatio/40) && mouseX < ((screenRatio*5/100)+screenRatio/40) && mouseY > (screenRatio*5/100)-screenRatio/40 && mouseY < (height*5/100)+screenRatio/40) {
           stroke(WHITE);
         } else {
           stroke(BLACK);
         }
-        line((width*5/100)-width/120, height*5/100, (width*5/100)+10, height*5/100);
-        triangle((width*5/100)-width/120, (height*5/100)-width/120, (width*5/100)-width/60, (height*5/100), (width*5/100)-width/120, (height*5/100)+width/120);
+        line((screenRatio*5/100)-screenRatio/120, screenRatio*5/100, (screenRatio*5/100)+10, screenRatio*5/100);
+        triangle((screenRatio*5/100)-screenRatio/120, (screenRatio*5/100)-screenRatio/120, (screenRatio*5/100)-screenRatio/60, (screenRatio*5/100), (screenRatio*5/100)-screenRatio/120, (screenRatio*5/100)+screenRatio/120);
       }
     } else if (menuType == "Research") {
       if (gmf.displayResearchMenu == true) {
         fill(BLACK);
-        text("Research Coming Soon", width/2, height/2);
+        text("Research Coming Soon", screenRatio/2, screenRatio/2);
         fill(WHITE);
         rectMode(CORNER);
 
         for (int i = 0; i<3; i++) {
           fill(WHITE);          
-          rect(width/20, width*7/60+width/4*i, width/6, width/6); 
-          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*7/60+width/4*i && mouseY < width*17/60+width/4*i) {
+          rect(screenRatio/20, screenRatio*7/60+screenRatio/4*i, screenRatio/6, screenRatio/6); 
+          if (mouseX > screenRatio/4 && mouseX < screenRatio*11/12 && mouseY > screenRatio*7/60+screenRatio/4*i && mouseY < screenRatio*17/60+screenRatio/4*i) {
             fill(GREY);
           } else {
             fill(WHITE);
           }
-          rect(width/4, width*7/60+width/4*i, width*2/3, width/6);
+          rect(screenRatio/4, screenRatio*7/60+screenRatio/4*i, screenRatio*2/3, screenRatio/6);
           fill(BLACK);
-          text(resMan.choices[i], width*2/15, width/5+width/4*i);
+          text(resMan.choices[i], screenRatio*2/15, screenRatio/5+screenRatio/4*i);
         }
         textAlign(CENTER, CENTER);
       }
@@ -128,28 +128,28 @@ class menu {
       }
       // Display Selected Tile
       fill(WHITE);
-      rect(width*1/4, (height*11/16)+width/30, width/6, width/6);
+      rect(screenRatio*1/4, (screenRatio*11/16)+screenRatio/30, screenRatio/6, screenRatio/6);
       fill(BLACK);
-      textSize(width/15);
+      textSize(screenRatio/15);
       imageMode(CENTER);
-      image(buildingGrid[selectedGridX][selectedGridY].getImage(), width*1/4, (height*11/16)+width/30, buildingGrid[0][0].tileWidth/2, buildingGrid[0][0].tileWidth/2);
+      image(buildingGrid[selectedGridX][selectedGridY].getImage(), screenRatio*1/4, (screenRatio*11/16)+screenRatio/30, buildingGrid[0][0].tileWidth/2, buildingGrid[0][0].tileWidth/2);
       imageMode(CORNER);
-      textSize(width/30);
+      textSize(screenRatio/30);
       if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
-        text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-width/24, (height*11/16)+width*11/120);
+        text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (screenRatio*1/4)-screenRatio/24, (screenRatio*11/16)+screenRatio*11/120);
       }
-      textSize(width/50);
+      textSize(screenRatio/50);
       if (buildingGrid[selectedGridX][selectedGridY].upgradeTime != 0) {
-        text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].upgradeTime, (width*1/4), (height*11/16)-width/30);
+        text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].upgradeTime, (screenRatio*1/4), (screenRatio*11/16)-screenRatio/30);
       }
       if (buildingGrid[selectedGridX][selectedGridY].buildTime != 0) {
-        text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (width*1/4), (height*11/16)-width/30);
+        text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (screenRatio*1/4), (screenRatio*11/16)-screenRatio/30);
       }
-      textSize(width/30);
+      textSize(screenRatio/30);
 
       // Construction Options
       // Build
-      if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)-width/20 && mouseY < (height*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
+      if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)-screenRatio/20 && mouseY < (screenRatio*11/16) && buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
         if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
           if (buildGate == false) {
             fill(GREY);
@@ -166,13 +166,13 @@ class menu {
           fill(GREEN);
         }
       }
-      rect(width*1/2, (height*11/16)-width/40, width/4, width/20);
+      rect(screenRatio*1/2, (screenRatio*11/16)-screenRatio/40, screenRatio/4, screenRatio/20);
       fill(BLACK);
-      text("BUILD", width*1/2, (height*11/16)-width/40);
+      text("BUILD", screenRatio*1/2, (screenRatio*11/16)-screenRatio/40);
 
       // Upgrade
       fill(WHITE);
-      if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)+width/120 && mouseY < (height*11/16)+width*7/120 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
+      if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)+screenRatio/120 && mouseY < (screenRatio*11/16)+screenRatio*7/120 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
         if (buildingGrid[selectedGridX][selectedGridY].isConstructing() == false && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
           if (upgradeGate == false) {
             fill(GREY);
@@ -187,14 +187,14 @@ class menu {
           fill(GREEN);
         }
       }
-      rect(width*1/2, (height*11/16)+width/30, width/4, width/20);
+      rect(screenRatio*1/2, (screenRatio*11/16)+screenRatio/30, screenRatio/4, screenRatio/20);
       fill(BLACK);
-      text("UPGRADE", width*1/2, (height*11/16)+width/30);
+      text("UPGRADE", screenRatio*1/2, (screenRatio*11/16)+screenRatio/30);
 
       //Demolish
       fill(WHITE);
       if (buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) {
-        if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)+width/15 && mouseY < (height*11/16)+width*7/60 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
+        if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)+screenRatio/15 && mouseY < (screenRatio*11/16)+screenRatio*7/60 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
           if (demolishGate == false) {
             fill(GREY);
           } else {
@@ -208,53 +208,53 @@ class menu {
           }
         }
       }
-      rect(width*1/2, (height*11/16)+width*11/120, width/4, width/20);
+      rect(screenRatio*1/2, (screenRatio*11/16)+screenRatio*11/120, screenRatio/4, screenRatio/20);
       fill(BLACK);
-      text("DEMOLISH", width*1/2, (height*11/16)+width*11/120);
+      text("DEMOLISH", screenRatio*1/2, (screenRatio*11/16)+screenRatio*11/120);
 
       // Building Menu 
       rectMode(CORNER);
       fill(WHITE);
-      rect((width*11/16)-width/60, (height*5/8)+width/75, width/6, width/6);
+      rect((screenRatio*11/16)-screenRatio/60, (screenRatio*5/8)+screenRatio/75, screenRatio/6, screenRatio/6);
       if (buildGate == true || buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
         //Food
-        if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true || desiredBuilding == 'F') {
+        if (mouseX > (screenRatio*11/16)-screenRatio/60 && mouseX <(screenRatio*11/16)+screenRatio/15 && mouseY > (screenRatio*5/8)+screenRatio/75 && mouseY < (screenRatio*5/8)+screenRatio*29/300 && buildGate == true || desiredBuilding == 'F') {
           fill(GREY);
         } else {
           fill(WHITE);
         }
-        rect((width*11/16)-width/60, (height*5/8)+width/75, width/12, width/12);
+        rect((screenRatio*11/16)-screenRatio/60, (screenRatio*5/8)+screenRatio/75, screenRatio/12, screenRatio/12);
 
         //Research
-        if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true || desiredBuilding == 'R') {
+        if (mouseX > (screenRatio*11/16)+screenRatio/15 && mouseX <(screenRatio*11/16)+screenRatio*3/20 && mouseY > (screenRatio*5/8)+screenRatio/75 && mouseY < (screenRatio*5/8)+screenRatio*29/300 && buildGate == true || desiredBuilding == 'R') {
           fill(GREY);
         } else {
           fill(WHITE);
         }
-        rect((width*11/16)+width/15, (height*5/8)+width/75, width/12, width/12);
+        rect((screenRatio*11/16)+screenRatio/15, (screenRatio*5/8)+screenRatio/75, screenRatio/12, screenRatio/12);
 
         //Power
-        if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true || desiredBuilding == 'P') {
+        if (mouseX > (screenRatio*11/16)-screenRatio/60 && mouseX <(screenRatio*11/16)+screenRatio/15 && mouseY > (screenRatio*5/8)+screenRatio*29/300 && mouseY < (screenRatio*5/8)+screenRatio*9/50 && buildGate == true || desiredBuilding == 'P') {
           fill(GREY);
         } else {
           fill(WHITE);
         }
-        rect((width*11/16)-width/60, (height*5/8)+width*29/300, width/12, width/12);
+        rect((screenRatio*11/16)-screenRatio/60, (screenRatio*5/8)+screenRatio*29/300, screenRatio/12, screenRatio/12);
 
         //Mineral
-        if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true || desiredBuilding == 'M') {
+        if (mouseX > (screenRatio*11/16)+screenRatio/15 && mouseX <(screenRatio*11/16)+width*3/20 && mouseY > (screenRatio*5/8)+screenRatio*29/300 && mouseY < (screenRatio*5/8)+screenRatio*9/50 && buildGate == true || desiredBuilding == 'M') {
           fill(GREY);
         } else {
           fill(WHITE);
         }
-        rect((width*11/16)+width/15, (height*5/8)+width*29/300, width/12, width/12);
+        rect((screenRatio*11/16)+screenRatio/15, (screenRatio*5/8)+screenRatio*29/300, screenRatio/12, screenRatio/12);
 
         fill(BLACK);
 
-        text('F', (width*11/16)+width/40, (height*5/8)+width*11/200);
-        text('R', (width*11/16)+width*13/120, (height*5/8)+width*11/200);
-        text('P', (width*11/16)+width/40, (height*5/8)+width*83/600);
-        text('M', (width*11/16)+width*13/120, (height*5/8)+width*83/600);
+        text('F', (screenRatio*11/16)+screenRatio/40, (screenRatio*5/8)+screenRatio*11/200);
+        text('R', (screenRatio*11/16)+screenRatio*13/120, (screenRatio*5/8)+screenRatio*11/200);
+        text('P', (screenRatio*11/16)+screenRatio/40, (screenRatio*5/8)+screenRatio*83/600);
+        text('M', (screenRatio*11/16)+screenRatio*13/120, (screenRatio*5/8)+screenRatio*83/600);
       }
 
       //Hover Text
@@ -265,70 +265,70 @@ class menu {
       rectMode(CORNER);
       fill(WHITE);
       //Food
-      if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
-        rect(mouseX+width/60, mouseY, width/4, width/30);
+      if (mouseX > (screenRatio*11/16)-screenRatio/60 && mouseX <(screenRatio*11/16)+screenRatio/15 && mouseY > (screenRatio*5/8)+screenRatio/75 && mouseY < (screenRatio*5/8)+screenRatio*29/300 && buildGate == true) {
+        rect(mouseX+screenRatio/60, mouseY, screenRatio/4, screenRatio/30);
         fill(BLACK);
         textAlign(LEFT);
         textSize(width*2/75);
-        image(pMineral, mouseX+width*9/100, mouseY+width/200, width/40, width/40);
-        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('F'), mouseX+width/60, mouseY+width/40);
+        image(pMineral, mouseX+screenRatio*9/100, mouseY+screenRatio/200, screenRatio/40, screenRatio/40);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('F'), mouseX+screenRatio/60, mouseY+screenRatio/40);
       }
 
       //Research
-      if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
-        rect(mouseX+width/60, mouseY, width/4, width/30);
+      if (mouseX > (screenRatio*11/16)+screenRatio/15 && mouseX <(screenRatio*11/16)+screenRatio*3/20 && mouseY > (screenRatio*5/8)+screenRatio/75 && mouseY < (screenRatio*5/8)+screenRatio*29/300 && buildGate == true) {
+        rect(mouseX+screenRatio/60, mouseY, screenRatio/4, screenRatio/30);
         fill(BLACK);
         textAlign(LEFT);
         textSize(width*2/75);
-        image(pMineral, mouseX+width*9/100, mouseY+width/200, width/40, width/40);
-        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('R'), mouseX+width/60, mouseY+width/40);
+        image(pMineral, mouseX+screenRatio*9/100, mouseY+screenRatio/200, screenRatio/40, screenRatio/40);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('R'), mouseX+screenRatio/60, mouseY+screenRatio/40);
       }
 
       //Power
-      if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true) {
-        rect(mouseX+width/60, mouseY, width/4, width/30);
+      if (mouseX > (screenRatio*11/16)-screenRatio/60 && mouseX <(screenRatio*11/16)+screenRatio/15 && mouseY > (screenRatio*5/8)+screenRatio*29/300 && mouseY < (screenRatio*5/8)+screenRatio*9/50 && buildGate == true) {
+        rect(mouseX+screenRatio/60, mouseY, screenRatio/4, screenRatio/30);
         fill(BLACK);
         textAlign(LEFT);
         textSize(width*2/75);
-        image(pMineral, mouseX+width*9/100, mouseY+width/200, width/40, width/40);
-        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('P'), mouseX+width/60, mouseY+width/40);
+        image(pMineral, mouseX+screenRatio*9/100, mouseY+screenRatio/200, screenRatio/40, screenRatio/40);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('P'), mouseX+screenRatio/60, mouseY+screenRatio/40);
       }
 
       //Mineral
-      if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true) {
-        rect(mouseX+width/60, mouseY, width/4, width/30);
+      if (mouseX > (screenRatio*11/16)+screenRatio/15 && mouseX <(screenRatio*11/16)+screenRatio*3/20 && mouseY > (screenRatio*5/8)+screenRatio*29/300 && mouseY < (screenRatio*5/8)+screenRatio*9/50 && buildGate == true) {
+        rect(mouseX+screenRatio/60, mouseY, screenRatio/4, screenRatio/30);
         fill(BLACK);
         textAlign(LEFT);
         textSize(width*2/75);
-        image(pMineral, mouseX+width*9/100, mouseY+width/200, width/40, width/40);
-        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('M'), mouseX+width/60, mouseY+width/40);
+        image(pMineral, mouseX+screenRatio*9/100, mouseY+screenRatio/200, screenRatio/40, screenRatio/40);
+        text("Cost:    " + buildingGrid[selectedGridX][selectedGridY].getBuildCost('M'), mouseX+screenRatio/60, mouseY+screenRatio/40);
       }
       rectMode(CENTER);
       textAlign(CENTER);
 
       //Upgrade
-      if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)+width/120 && mouseY < (height*11/16)+width*7/120 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0 && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) { 
+      if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)+screenRatio/120 && mouseY < (screenRatio*11/16)+screenRatio*7/120 && buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() != 0 && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) { 
         rectMode(CORNER);
         fill(WHITE);
-        rect(mouseX+width/60, mouseY, width/4, width/30);
+        rect(mouseX+screenRatio/60, mouseY, screenRatio/4, screenRatio/30);
         fill(BLACK);
         textAlign(LEFT);
         textSize(width*2/75);
-        image(pMineral, mouseX+width*9/100, mouseY+width/200, width/40, width/40);
-        text("Cost:     " + buildingGrid[selectedGridX][selectedGridY].getUpgradeCost(), mouseX+width*11/600, mouseY+width/40);
+        image(pMineral, mouseX+screenRatio*9/100, mouseY+screenRatio/200, screenRatio/40, screenRatio/40);
+        text("Cost:     " + buildingGrid[selectedGridX][selectedGridY].getUpgradeCost(), mouseX+screenRatio*11/600, mouseY+screenRatio/40);
         rectMode(CENTER);
         textAlign(CENTER);
       }
     } else if (menuType == "Game Menu Frame") {
       // Resource Menus
       stroke(BLACK); 
-      line(0, height*1/16, width, height*1/16);
+      line(0, screenRatio*1/16, screenRatio, screenRatio*1/16);
       fill(BLACK);
       textAlign(RIGHT, CENTER);
-      textSize(width*2/75);
+      textSize(screenRatio*2/75);
       // Pops
-      image(pPop, width*2/48, height*2/128, 20, 20);
-      text(pops + "+" + popIncrease, width*7/48, height*4/128);
+      image(pPop, screenRatio*2/48, screenRatio*2/128, 20, 20);
+      text(pops + "+" + popIncrease, screenRatio*7/48, height*4/128);
       if (mineralIncrease < 0) {
         fill(RED);
       } else if (minerals == mineralMax) {
@@ -337,15 +337,15 @@ class menu {
         fill(BLACK);
       }
       // Minerals
-      image(pMineral, width*11/48, height*2/128, width/30, width/30);
+      image(pMineral, screenRatio*11/48, screenRatio*2/128, screenRatio/30, screenRatio/30);
       if (minerals <= 1000) {
-        text(minerals + "+" + mineralIncrease, width*18/48, height*4/128);
+        text(minerals + "+" + mineralIncrease, screenRatio*18/48, screenRatio*4/128);
       }
       if (minerals >= 1000 && mineralIncrease <= 1000) {
-        text(minerals/1000 + "K+" + mineralIncrease, width*18/48, height*4/128);
+        text(minerals/1000 + "K+" + mineralIncrease, screenRatio*18/48, screenRatio*4/128);
       }
       if (minerals >= 1000 && mineralIncrease >= 1000) {
-        text(minerals/1000 + "K+" + mineralIncrease/1000 + "K", width*18/48, height*4/128);
+        text(minerals/1000 + "K+" + mineralIncrease/1000 + "K", screenRatio*18/48, screenRatio*4/128);
       }
       if (energyIncrease < 0) {
         fill(RED);
@@ -355,15 +355,15 @@ class menu {
         fill(BLACK);
       }
       // Energy
-      image(pEnergy, width*20/48, height*2/128, width/30, width/30);
+      image(pEnergy, screenRatio*20/48, screenRatio*2/128, screenRatio/30,screenRatio/30);
       if (energy < 1000) {
-        text(energy + "+" + energyIncrease, width*26/48, height*4/128);
+        text(energy + "+" + energyIncrease, screenRatio*26/48, screenRatio*4/128);
       }
       if (energy >= 1000 && energyIncrease <= 1000) {
-        text(energy/1000 + "K+" + energyIncrease, width*26/48, height*4/128);
+        text(energy/1000 + "K+" + energyIncrease, screenRatio*26/48, screenRatio*4/128);
       }
       if (energy >= 1000 && energyIncrease >= 1000) {
-        text(energy/1000 + "K+" + energyIncrease/1000 + "K", width*26/48, height*4/128);
+        text(energy/1000 + "K+" + energyIncrease/1000 + "K", screenRatio*26/48, screenRatio*4/128);
       }
 
       if (food < 10 || food < pops || foodIncrease < 0) {
@@ -374,8 +374,8 @@ class menu {
         fill(BLACK);
       }
       //Food
-      image(pFood, width*28/48, height*2/128, width/30, width/30);
-      text(food + "+" + foodIncrease, width*34/48, height*4/128);
+      image(pFood, screenRatio*28/48, screenRatio*2/128, screenRatio/30, screenRatio/30);
+      text(food + "+" + foodIncrease, screenRatio*34/48, screenRatio*4/128);
       fill(BLACK);
 
       // InGame Option Menu
@@ -383,17 +383,17 @@ class menu {
       stroke(BLACK); 
       fill(BLACK);
       textAlign(CENTER, CENTER);
-      textSize(16);
-      if (mouseX > (width)-(width*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16) || displayInGameMenu == true) {
+      textSize(screenRatio*2/75);
+      if (mouseX > (screenRatio)-(screenRatio*1/16) && mouseX < (screenRatio) && mouseY > 0 && mouseY < (screenRatio*1/16) || displayInGameMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect((width)-((width*1/16)/2), (height*1/16)/2, width*1/16, height*1/16);
+      rect((screenRatio)-((screenRatio*1/16)/2), (screenRatio*1/16)/2, screenRatio*1/16, screenRatio*1/16);
       fill(WHITE);
       textSize(width*4/75);
       textAlign(CENTER, CENTER);
-      text('=', (width)-((width*1/16)/2), ((height*1/16)/2)-width/120);
+      text('=', (screenRatio)-((screenRatio*1/16)/2), ((screenRatio*1/16)/2)-screenRatio/120);
       textAlign(CENTER, CENTER);
 
       if (displayInGameMenu == true) {
@@ -402,80 +402,80 @@ class menu {
         fill(BLACK);
         textAlign(CENTER, CENTER);
         textSize(width*2/75);
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8) ) {
+        if (mouseX > (screenRatio)-(screenRatio*1/4) && mouseX < screenRatio && mouseY > (screenRatio*1/8)-screenRatio*1/16  && mouseY < (screenRatio*1/8) ) {
           fill(BLACK);
         } else {
           fill(GREY);
         }
-        rect((width)-((width*1/8)/2), (height*1/8)-height*1/32, width*1/4, height*1/16);
+        rect((screenRatio)-((screenRatio*1/8)/2), (screenRatio*1/8)-screenRatio*1/32, screenRatio*1/4, screenRatio*1/16);
         fill(WHITE);
-        text("Options", (width)-((width*1/8)/2), (height*1/8)-height*1/32);
+        text("Options", (screenRatio)-((screenRatio*1/8)/2), (screenRatio*1/8)-screenRatio*1/32);
         // Save
         stroke(BLACK); 
         fill(BLACK);
         textAlign(CENTER, CENTER);
         textSize(width*2/75);
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16 ) {
+        if (mouseX > (screenRatio)-(screenRatio*1/4) && mouseX < screenRatio && mouseY > (screenRatio*1/8)  && mouseY < (screenRatio*1/8)+screenRatio*1/16 ) {
           fill(BLACK);
         } else {
           fill(GREY);
         }
-        rect((width)-((width*1/8)/2), (height*1/8)+height*1/32, width*1/4, height*1/16);
+        rect((screenRatio)-((screenRatio*1/8)/2), (screenRatio*1/8)+screenRatio*1/32, screenRatio*1/4, screenRatio*1/16);
         fill(WHITE);
-        text("Save", (width)-((width*1/8)/2), (height*1/8)+height*1/32);
+        text("Save", (screenRatio)-((screenRatio*1/8)/2), (screenRatio*1/8)+screenRatio*1/32);
         // Quit
         stroke(BLACK); 
         fill(BLACK);
         textAlign(CENTER, CENTER);
         textSize(width*2/75);
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
+        if (mouseX > (screenRatio)-(screenRatio*1/4) && mouseX < screenRatio && mouseY > (screenRatio*1/8)+screenRatio*1/16 && mouseY < (screenRatio*1/8)+screenRatio*1/8 ) {
           fill(BLACK);
         } else {
           fill(GREY);
         }
-        rect((width)-((width*1/8)/2), (height*1/8)+height*3/32, width*1/4, height*1/16);
+        rect((screenRatio)-((screenRatio*1/8)/2), (screenRatio*1/8)+screenRatio*3/32, screenRatio*1/4, screenRatio*1/16);
         fill(WHITE);
-        text("Quit", (width)-((width*1/8)/2), (height*1/8)+height*3/32);
+        text("Quit", (screenRatio)-((screenRatio*1/8)/2), (screenRatio*1/8)+screenRatio*3/32);
       }
       //Tabs
-      line(0, height*14/16, width, height*14/16);
+      line(0, screenRatio*14/16, screenRatio, screenRatio*14/16);
 
       // Research
       rectMode(CENTER);
-      if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height || gmf.displayResearchMenu == true) {
+      if (mouseX > 0 && mouseX < 300 && mouseY > screenRatio*14/16 && mouseY < screenRatio || gmf.displayResearchMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(width*1/4, height*15/16, width/2, width/8);
+      rect(screenRatio*1/4, screenRatio*15/16, screenRatio/2, screenRatio/8);
       rectMode(CENTER);
 
       // Construction
       rectMode(CENTER);
-      if (mouseX > width/2 && mouseX < width && mouseY > height*14/16 && mouseY < height || gmf.displayConstructionMenu == true) {
+      if (mouseX > screenRatio/2 && mouseX < screenRatio && mouseY > screenRatio*14/16 && mouseY < screenRatio || gmf.displayConstructionMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(width*3/4, height*15/16, width/2, width/8);
+      rect(screenRatio*3/4, screenRatio*15/16, screenRatio/2, screenRatio/8);
       rectMode(CENTER);
 
       fill(WHITE);
-      textSize(width*4/75);
-      text("Research", width/4, height*15/16);
-      text("Construction", width*3/4, height*15/16);
+      textSize(screenRatio*4/75);
+      text("Research", screenRatio/4, screenRatio*15/16);
+      text("Construction", screenRatio*3/4, screenRatio*15/16);
 
       // Next Turn
       rectMode(CENTER);
-      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
+      if (mouseX > screenRatio*54/64-(screenRatio*3/16)/2 && mouseX < screenRatio*54/64+(screenRatio*3/16)/2 && mouseY > screenRatio*1/32-screenRatio*1/16 && mouseY < screenRatio*1/32+screenRatio*1/16-screenRatio/60) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(width*54/64, height*1/32, width*3/16, height*1/16);
+      rect(screenRatio*54/64, screenRatio*1/32, screenRatio*3/16, screenRatio*1/16);
       fill(WHITE);
-      textSize(width*2/75);
-      text("TURN: " + turn, width*54/64, height*1/32);
+      textSize(screenRatio*2/75);
+      text("TURN: " + turn, screenRatio*54/64, screenRatio*1/32);
     }
   }
 
@@ -483,29 +483,29 @@ class menu {
     if (menuType == "Title") {
       if (menuState == 0) {
         // Play
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*2/5)-width/15 && mouseY < (height*2/5)+width/15) {
+        if (mouseX > ((screenRatio*1/2)-screenRatio/4) && mouseX < ((screenRatio*1/2)+screenRatio/4) && mouseY > (screenRatio*2/5)-screenRatio/15 && mouseY < (screenRatio*2/5)+screenRatio/15) {
           state = 1;
           turMan.setupBaseGame();
         }
         // Load 
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*3/5)-width/15 && mouseY < (height*3/5)+width/15) {
+        if (mouseX > ((screenRatio*1/2)-screenRatio/4) && mouseX < ((screenRatio*1/2)+screenRatio/4) && mouseY > (screenRatio*3/5)-screenRatio/15 && mouseY < (screenRatio*3/5)+screenRatio/15) {
           gameFileMan.loadSave();
           state = 1;
         }
         // Options
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
+        if (mouseX > ((screenRatio*1/2)-screenRatio/4) && mouseX < ((screenRatio*1/2)+screenRatio/4) && mouseY > (screenRatio*4/5)-screenRatio/15 && mouseY < (screenRatio*4/5)+screenRatio/15) {
           menuState = 1;
         }
 
 
         // Exit
         rectMode(CENTER);
-        if (mouseX > ((width*95/100)-15) && mouseX < ((width*95/100)+15) && mouseY > (height*5/100)-15 && mouseY < (height*5/100)+15) {
+        if (mouseX > ((screenRatio*95/100)-15) && mouseX < ((screenRatio*95/100)+15) && mouseY > (screenRatio*5/100)-15 && mouseY < (screenRatio*5/100)+15) {
           exit();
         }
       } else if (menuState == 1) {
         // Back Button
-        if (mouseX > ((width*5/100)-width/40) && mouseX < ((width*5/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
+        if (mouseX > ((screenRatio*5/100)-screenRatio/40) && mouseX < ((screenRatio*5/100)+screenRatio/40) && mouseY > (screenRatio*5/100)-screenRatio/40 && mouseY < (screenRatio*5/100)+screenRatio/40) {
           if (turn == 0) {
             menuState = 0;
           } else {
@@ -525,7 +525,7 @@ class menu {
       }
       // Construction Options
       // Build
-      if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)-width/20 && mouseY < (height*11/16)) {
+      if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)-screenRatio/20 && mouseY < (screenRatio*11/16)) {
         if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType == 0 && desiredBuilding == 'N') {
           resetGates();
           buildGate = true;
@@ -536,7 +536,7 @@ class menu {
         }
       }
       // Upgrade
-      if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)+width/120 && mouseY < (height*11/16)+width*7/120) {
+      if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)+screenRatio/120 && mouseY < (screenRatio*11/16)+screenRatio*7/120) {
         if (upgradeGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && minerals >= buildingGrid[selectedGridX][selectedGridY].getUpgradeCost() && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
           resetGates();
           upgradeGate = true;
@@ -546,7 +546,7 @@ class menu {
         }
       }
       //Demolish
-      if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)+width/15 && mouseY < (height*11/16)+width*7/60) {
+      if (mouseX > (screenRatio*1/2)-screenRatio/8 && mouseX < (screenRatio*1/2)+screenRatio/8 && mouseY > (screenRatio*11/16)+screenRatio/15 && mouseY < (screenRatio*11/16)+screenRatio*7/60) {
         if (demolishGate == false && buildingGrid[selectedGridX][selectedGridY].tileType != 0 && buildingGrid[selectedGridX][selectedGridY].isConstructing() == false) {
           resetGates();
           demolishGate = true;
@@ -558,7 +558,7 @@ class menu {
 
       //Building Menu
       //Food
-      if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
+      if (mouseX > (screenRatio*11/16)-screenRatio/60 && mouseX <(screenRatio*11/16)+screenRatio/15 && mouseY > (screenRatio*5/8)+screenRatio/75 && mouseY < (screenRatio*5/8)+screenRatio*29/300 && buildGate == true) {
         if (desiredBuilding != 'F') {
           desiredBuilding = 'F';
         } else {
@@ -567,7 +567,7 @@ class menu {
       }
 
       //Research
-      if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
+      if (mouseX > (screenRatio*11/16)+screenRatio/15 && mouseX <(screenRatio*11/16)+screenRatio*3/20 && mouseY > (screenRatio*5/8)+screenRatio/75 && mouseY < (screenRatio*5/8)+screenRatio*29/300 && buildGate == true) {
         if (desiredBuilding != 'R') {
           desiredBuilding = 'R';
         } else {
@@ -576,7 +576,7 @@ class menu {
       }
 
       //Power
-      if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true) {
+      if (mouseX > (screenRatio*11/16)-screenRatio/60 && mouseX <(screenRatio*11/16)+screenRatio/15 && mouseY > (screenRatio*5/8)+screenRatio*29/300 && mouseY < (screenRatio*5/8)+screenRatio*9/50 && buildGate == true) {
         if (desiredBuilding != 'P') {
           desiredBuilding = 'P';
         } else {
@@ -585,7 +585,7 @@ class menu {
       }
 
       //Mineral
-      if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true) {
+      if (mouseX > (screenRatio*11/16)+screenRatio/15 && mouseX <(screenRatio*11/16)+screenRatio*3/20 && mouseY > (screenRatio*5/8)+screenRatio*29/300 && mouseY < (screenRatio*5/8)+screenRatio*9/50 && buildGate == true) {
         if (desiredBuilding != 'M') {
           desiredBuilding = 'M';
         } else {
@@ -594,7 +594,7 @@ class menu {
       }
     } else if (menuType == "Game Menu Frame") {
       // In Game Menu
-      if (mouseX > (width)-(height*1/16) && mouseX < (width) && mouseY > 0 && mouseY < (height*1/16)) {
+      if (mouseX > (screenRatio)-(screenRatio*1/16) && mouseX < (screenRatio) && mouseY > 0 && mouseY < (screenRatio*1/16)) {
         if (displayInGameMenu == true) {
           displayInGameMenu = false;
         } else {
@@ -607,36 +607,36 @@ class menu {
 
       if (displayInGameMenu == true) {
         // Save
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16 ) {
+        if (mouseX > (screenRatio)-(screenRatio*1/4) && mouseX < screenRatio && mouseY > (screenRatio*1/8)  && mouseY < (screenRatio*1/8)+screenRatio*1/16 ) {
           gameFileMan.saveSave();
         }
         // Main Menu
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
+        if (mouseX > (screenRatio)-(screenRatio*1/4) && mouseX < screenRatio && mouseY > (screenRatio*1/8)+screenRatio*1/16 && mouseY < (screenRatio*1/8)+screenRatio*1/8 ) {
           state = 0;
           titleMenu.menuState = 0;
           displayInGameMenu = false;
         }
         // Options
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8) ) {
+        if (mouseX > (screenRatio)-(screenRatio*1/4) && mouseX < screenRatio && mouseY > (screenRatio*1/8)-screenRatio*1/16  && mouseY < (screenRatio*1/8) ) {
           state = 0;
           titleMenu.menuState = 1;
           displayInGameMenu = false;
         }
         //Research
       }
-      if (mouseX > 0 && mouseX < width/2 && mouseY > height*14/16 && mouseY < height ) {
+      if (mouseX > 0 && mouseX < screenRatio/2 && mouseY > screenRatio*14/16 && mouseY < screenRatio ) {
         gmf.displayResearchMenu = !gmf.displayResearchMenu;
         gmf.displayConstructionMenu = false;
         resetGates();
       } 
       // Construction
-      if (mouseX > width/2 && mouseX < width && mouseY > height*14/16 && mouseY < height ) {
+      if (mouseX > screenRatio/2 && mouseX < screenRatio && mouseY > screenRatio*14/16 && mouseY < screenRatio ) {
         gmf.displayConstructionMenu = !gmf.displayConstructionMenu;
         gmf.displayResearchMenu = false;
         resetGates();
       }
       // Advance Turn
-      if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
+      if (mouseX > screenRatio*54/64-(screenRatio*3/16)/2 && mouseX < screenRatio*54/64+(screenRatio*3/16)/2 && mouseY > screenRatio*1/32-screenRatio*1/16 && mouseY < screenRatio*1/32+screenRatio*1/16-screenRatio/60) {
         turMan.advanceTurn();
       }
     }
