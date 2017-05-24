@@ -65,7 +65,7 @@ void setup() {
       buildingGrid[i][j] = new tiles(i, j);
     }
   }
-  
+
   saveGame = new JSONObject();
 }
 

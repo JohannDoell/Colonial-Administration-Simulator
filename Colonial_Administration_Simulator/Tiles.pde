@@ -115,7 +115,7 @@ class tiles {
     }
     rect(tileLocationX, tileLocationY, tileWidth, tileHeight);
     fill(BLACK);
-    textSize(64);
+    textSize(width*8/75);
     textAlign(CENTER, CENTER);
     imageMode(CENTER);
     image(this.getImage(), tileLocationX, tileLocationY, tileWidth/2, tileWidth/2);
@@ -123,16 +123,16 @@ class tiles {
     fill(WHITE);
     // Progress Bar
     if (this.buildTime != 0 || this.upgradeTime != 0) {
-      rect(tileLocationX, tileLocationY+25, 70, 5);
+      rect(tileLocationX, tileLocationY+width/24, width*7/60, width/120);
     }
     rectMode(CORNER);
     if (this.buildTime != 0) {
       fill(GREEN);
-      rect(tileLocationX-35, tileLocationY+22, 70-70*(buildTime-1)/totalBuildTime, 5);
+      rect(tileLocationX-width*7/120, tileLocationY+width*11/300, width*7/60-width*7/60*(buildTime-1)/totalBuildTime, width/120);
     }
     if (this.upgradeTime != 0) {
       fill(GREEN);
-      rect(tileLocationX-35, tileLocationY+22, 70-70*(upgradeTime-1)/totalUpgradeTime, 5);
+      rect(tileLocationX-width*7/120, tileLocationY+width*11/300, width*7/60-width*7/60*(upgradeTime-1)/totalUpgradeTime, width/120);
     }
     rectMode(CENTER);
     fill(WHITE);
