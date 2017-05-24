@@ -2,8 +2,8 @@ class gameFileManager {
   gameFileManager() {
   }
 
-  void loadSave() {
-    saveGame = loadJSONObject("saveGame.json");
+  void loadSaveFile(String file) {
+    saveGame = loadJSONObject(file + ".json");
     turn = saveGame.getInt("turn");
     pops = saveGame.getInt("pops");
     food = saveGame.getInt("food");
@@ -58,5 +58,9 @@ class gameFileManager {
     buildingGrid[tilesWide-1][0].tileType = 4;
 
     resMan.randomizeResearchChoices();
+  }
+  
+  void loadSave() {
+   loadSaveFile("saveGame"); 
   }
 }
