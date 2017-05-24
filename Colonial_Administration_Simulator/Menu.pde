@@ -43,7 +43,7 @@ class menu {
           fill(GREY);
         }
         rectMode(CENTER);
-        rect(width*1/2, height*3/5, width/2, 80);
+        rect(width*1/2, height*3/5, width/2, width*2/15);
         fill(WHITE);
         textAlign(CENTER, CENTER);
         textSize(width/24);
@@ -414,7 +414,7 @@ class menu {
         stroke(BLACK); 
         fill(BLACK);
         textAlign(CENTER, CENTER);
-        textSize(16);
+        textSize(width*2/75);
         if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16 ) {
           fill(BLACK);
         } else {

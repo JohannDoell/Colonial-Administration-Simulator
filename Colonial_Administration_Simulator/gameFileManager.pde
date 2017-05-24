@@ -19,6 +19,7 @@ class gameFileManager {
         buildingGrid[i][j].tileLevel = saveGame.getInt("buildingGrid[" + i + "][" + j + "].tileLevel");
       }
     }
+    println("File:'"+ file +"'Loaded");
   }
 
   void saveSave() {
@@ -39,28 +40,31 @@ class gameFileManager {
       }
     }
     saveJSONObject(saveGame, "data/saveGame.json");
+    println("Game Saved");
   }
 
   void loadBaseFile() {    
-    turn = 0;
-    pops = 3;
-    food = 10;
-    minerals = 100;
-    energy = 100;
-    research = 0;
-    foodIncrease = -1;
-    mineralIncrease = 1;
-    energyIncrease = 0;
+    //turn = 0;
+    //pops = 3;
+    //food = 10;
+    //minerals = 100;
+    //energy = 100;
+    //research = 0;
+    //foodIncrease = -1;
+    //mineralIncrease = 1;
+    //energyIncrease = 0;
 
-    buildingGrid[0][0].tileType = 1;
-    buildingGrid[tilesWide-1][tilesHigh-1].tileType = 2;
-    buildingGrid[0][tilesHigh-1].tileType = 3;
-    buildingGrid[tilesWide-1][0].tileType = 4;
+    //buildingGrid[0][0].tileType = 1;
+    //buildingGrid[tilesWide-1][tilesHigh-1].tileType = 2;
+    //buildingGrid[0][tilesHigh-1].tileType = 3;
+    //buildingGrid[tilesWide-1][0].tileType = 4;
+
+    loadSaveFile("baseGame");
 
     resMan.randomizeResearchChoices();
   }
-  
+
   void loadSave() {
-   loadSaveFile("saveGame"); 
+    loadSaveFile("saveGame");
   }
 }
