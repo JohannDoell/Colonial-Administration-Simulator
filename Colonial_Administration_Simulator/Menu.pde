@@ -97,46 +97,23 @@ class menu {
       }
     } else if (menuType == "Research") {
       if (gmf.displayResearchMenu == true) {
+        fill(BLACK);
+        text("Research Coming Soon", width/2, height/2);
+        fill(WHITE);
         rectMode(CORNER);
 
-        // Needs Fixing
-
-        fill(WHITE);          
-        rect(width/20, width*7/60+width/4*0, width/6, width/6); 
-        if (mouseX > width/4 && mouseX < width/4+width*2/3 && mouseY > width*7/60+width/4*0 && mouseY < width*7/60+width/4*0+width*2/3) {
-          fill(GREY);
-        } else {
-          fill(WHITE);
+        for (int i = 0; i<3; i++) {
+          fill(WHITE);          
+          rect(width/20, width*7/60+width/4*i, width/6, width/6); 
+          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*7/60+width/4*i && mouseY < width*17/60+width/4*i) {
+            fill(GREY);
+          } else {
+            fill(WHITE);
+          }
+          rect(width/4, width*7/60+width/4*i, width*2/3, width/6);
+          fill(BLACK);
+          text(resMan.choices[i], width*2/15, width/5+width/4*i);
         }
-        rect(width/4, width*7/60+width/4*0, width*2/3, width/6);
-
-        fill(BLACK);
-        text(resMan.choices[0], width/20+width/12, width*7/60+width/12+width/4*0);
-
-        fill(WHITE);          
-        rect(width/20, width*7/60+width/4*1, width/6, width/6); 
-        if (mouseX > width/4 && mouseX < width/4+width*2/3 && mouseY > width*7/60+width/4*1 && mouseY < width*7/60+width/4*1+width*2/3) {
-          fill(GREY);
-        } else {
-          fill(WHITE);
-        }
-        rect(width/4, width*7/60+width/4*1, width*2/3, width/6);
-
-        fill(BLACK);
-        text(resMan.choices[1], width/20+width/12, width*7/60+width/12+width/4*1);
-
-        fill(WHITE);          
-        rect(width/20, width*7/60+width/4*2, width/6, width/6); 
-        if (mouseX > width/4 && mouseX < width/4+width*2/3 && mouseY > width*7/60+width/4*2 && mouseY < width*7/60+width/4*2+width*2/3) {
-          fill(GREY);
-        } else {
-          fill(WHITE);
-        }
-        rect(width/4, width*7/60+width/4*2, width*2/3, width/6);
-
-        fill(BLACK);
-        text(resMan.choices[2], width/20+width/12, width*7/60+width/12+width/4*2);
-
         textAlign(CENTER, CENTER);
       }
     } else if (menuType == "Construction") {
@@ -194,9 +171,6 @@ class menu {
       text("BUILD", width*1/2, (height*11/16)-width/40);
 
       // Upgrade
-      
-      // Needs Fixing
-      
       fill(WHITE);
       if (mouseX > (width*1/2)-width/8 && mouseX < (width*1/2)+width/8 && mouseY > (height*11/16)+width/120 && mouseY < (height*11/16)+width*7/120 && buildingGrid[selectedGridX][selectedGridY].tileType != 0) { 
         if (buildingGrid[selectedGridX][selectedGridY].isConstructing() == false && buildingGrid[selectedGridX][selectedGridY].tileLevel != 3) {
@@ -213,7 +187,7 @@ class menu {
           fill(GREEN);
         }
       }
-      rect(width*1/2, (height*11/16)+width/20, width/4, width/20);
+      rect(width*1/2, (height*11/16)+width/30, width/4, width/20);
       fill(BLACK);
       text("UPGRADE", width*1/2, (height*11/16)+width/30);
 
@@ -239,15 +213,12 @@ class menu {
       text("DEMOLISH", width*1/2, (height*11/16)+width*11/120);
 
       // Building Menu 
-      
-      // Needs Fixing
-      
       rectMode(CORNER);
       fill(WHITE);
       rect((width*11/16)-width/60, (height*5/8)+width/75, width/6, width/6);
       if (buildGate == true || buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
         //Food
-        if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/40 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true || desiredBuilding == 'F') {
+        if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true || desiredBuilding == 'F') {
           fill(GREY);
         } else {
           fill(WHITE);
@@ -287,9 +258,9 @@ class menu {
       }
 
       //Hover Text
-      
+
       // Needs Fixing
-      
+
       //Build
       rectMode(CORNER);
       fill(WHITE);
@@ -305,7 +276,7 @@ class menu {
 
       //Research
       if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
-        rect(mouseX+width/60, mouseY, width/4, width/3020);
+        rect(mouseX+width/60, mouseY, width/4, width/30);
         fill(BLACK);
         textAlign(LEFT);
         textSize(width*2/75);
