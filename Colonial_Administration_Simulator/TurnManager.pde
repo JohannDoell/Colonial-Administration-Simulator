@@ -42,7 +42,7 @@ class turnManager {
     energyIncrease = 0;
     foodIncrease = 0;
     researchIncrease = 0;
-    
+
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         mineralIncrease += buildingGrid[i][j].mineralValue;
@@ -82,7 +82,17 @@ class turnManager {
     energyIncrease = energyIncrease - energyTax;
     foodIncrease = foodIncrease - foodTax;
 
-    foodMax = foodIncrease * 10;
+    foodMax = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType == 1) {
+          foodMax++;
+        }
+      }
+    }
+    foodMax = foodMax * 10;
+
+
     energyMax = energyIncrease * 10;
 
     int noOfBuildings = 0;

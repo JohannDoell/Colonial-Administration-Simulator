@@ -153,7 +153,7 @@ class menu {
         if (buildingGrid[selectedGridX][selectedGridY].buildTime == 0) {
           if (buildGate == false) {
             fill(GREY);
-          } else if (buildGate == true && desiredBuilding == 'N') {
+          } else if (buildGate == true && desiredBuilding == 'N' || minerals < buildingGrid[selectedGridX][selectedGridY].getBuildCost(desiredBuilding)) {
             fill(RED);
           } else {
             fill(DARKGREEN);
@@ -372,7 +372,7 @@ class menu {
         text(energy/1000 + "K+" + energyIncrease/1000 + "K", width*53/96, height*4/128);
       }
 
-      if (food < 10 || food < pops || foodIncrease < 0) {
+      if (food < 10 || food < pops && foodIncrease < 1 || foodIncrease < 0) {
         fill(RED);
       } else if (food == foodMax) {
         fill(GREEN);

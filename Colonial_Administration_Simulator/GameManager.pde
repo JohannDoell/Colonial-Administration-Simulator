@@ -40,5 +40,8 @@ class gameManager {
     if (state == 1) {
       gmf.menuPress();
     }
+    if (key == 't') {
+      println(food);
+    }
   }
 }
