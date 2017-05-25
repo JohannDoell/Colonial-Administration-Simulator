@@ -3,9 +3,8 @@ class turnManager {
   }
 
   void updateResources() {
-    // Applies increases and checks for a game over. //<>//
+    // Applies increases and checks for a game over. //<>// //<>//
     // Also ensures resources do not go over their maxes.
-    pops = pops + popIncrease;
 
     food = food + foodIncrease;
     minerals = minerals + mineralIncrease;
@@ -106,12 +105,6 @@ class turnManager {
       mineralMax = 100;
     }
 
-    popIncrease = (food/50)-pops/3;
-    if (popIncrease > 1) {
-      popIncrease = 1;
-    } else if (popIncrease < 0) {
-      popIncrease = 0;
-    }
     resMan.maintainChoices();
   }
 
