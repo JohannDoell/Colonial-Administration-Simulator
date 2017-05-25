@@ -17,7 +17,7 @@ int foodMax, mineralMax, energyMax;
 // Currently unused.
 String nationName, playerName;
 // Standardized colours.
-color WHITE, GREY, LIGHTGREY, BLACK, GREEN, DARKGREEN, RED;
+color WHITE, DARKGREY, GREY, LIGHTGREY, BLACK, GREEN, DARKGREEN, RED;
 // Grid variables.
 int tilesWide = 7;
 int tilesHigh = 4;
@@ -48,6 +48,7 @@ void setup() {
   WHITE = color(255);
   GREY = color(155);
   LIGHTGREY = color(200);
+  DARKGREY = color(100);
   BLACK = color(0);
   GREEN = color(#23E831);
   DARKGREEN = color(#178E1F);

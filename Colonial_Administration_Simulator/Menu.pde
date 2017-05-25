@@ -218,7 +218,9 @@ class menu {
       rect((width*11/16)-width/60, (height*5/8)+width/75, width/6, width/6);
       if (buildGate == true || buildingGrid[selectedGridX][selectedGridY].tileType == 0) {
         //Food
-        if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true || desiredBuilding == 'F') {
+        if (desiredBuilding == 'F') {
+          fill(DARKGREY);
+        } else if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
           fill(GREY);
         } else {
           fill(WHITE);
@@ -226,7 +228,9 @@ class menu {
         rect((width*11/16)-width/60, (height*5/8)+width/75, width/12, width/12);
 
         //Research
-        if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true || desiredBuilding == 'R') {
+        if (desiredBuilding == 'R') {
+          fill(DARKGREY);
+        } else if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width/75 && mouseY < (height*5/8)+width*29/300 && buildGate == true) {
           fill(GREY);
         } else {
           fill(WHITE);
@@ -234,7 +238,9 @@ class menu {
         rect((width*11/16)+width/15, (height*5/8)+width/75, width/12, width/12);
 
         //Power
-        if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true || desiredBuilding == 'P') {
+        if (desiredBuilding == 'P') {
+          fill(DARKGREY);
+        } else if (mouseX > (width*11/16)-width/60 && mouseX <(width*11/16)+width/15 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true) {
           fill(GREY);
         } else {
           fill(WHITE);
@@ -242,7 +248,9 @@ class menu {
         rect((width*11/16)-width/60, (height*5/8)+width*29/300, width/12, width/12);
 
         //Mineral
-        if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true || desiredBuilding == 'M') {
+        if (desiredBuilding == 'M') {
+          fill(DARKGREY);
+        } else if (mouseX > (width*11/16)+width/15 && mouseX <(width*11/16)+width*3/20 && mouseY > (height*5/8)+width*29/300 && mouseY < (height*5/8)+width*9/50 && buildGate == true) {
           fill(GREY);
         } else {
           fill(WHITE);
@@ -258,8 +266,6 @@ class menu {
       }
 
       //Hover Text
-
-      // Needs Fixing
 
       //Build
       rectMode(CORNER);
@@ -360,7 +366,7 @@ class menu {
         text(energy + "+" + energyIncrease, width*53/96, height*4/128);
       }
       if (energy >= 1000 && energyIncrease <= 1000) {
-        text(energy/1000 + "K+" + energyIncrease,width*53/96, height*4/128);
+        text(energy/1000 + "K+" + energyIncrease, width*53/96, height*4/128);
       }
       if (energy >= 1000 && energyIncrease >= 1000) {
         text(energy/1000 + "K+" + energyIncrease/1000 + "K", width*53/96, height*4/128);
