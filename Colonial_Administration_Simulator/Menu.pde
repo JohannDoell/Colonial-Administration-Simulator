@@ -104,15 +104,15 @@ class menu {
 
         for (int i = 0; i<3; i++) {
           fill(WHITE);          
-          rect(width/20, width*7/60+width/4*i, width/6, width/6); 
-          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*7/60+width/4*i && mouseY < width*17/60+width/4*i) {
+          rect(width/20, width*7/60+width*12/64*i, width/6, width/6); 
+          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*7/60+width*12/64*i && mouseY < width*7/60+width/6+width*12/64*i) {
             fill(GREY);
           } else {
             fill(WHITE);
           }
-          rect(width/4, width*7/60+width/4*i, width*2/3, width/6);
+          rect(width/4, width*7/60+width*12/64*i, width*2/3, width/6);
           fill(BLACK);
-          text(resMan.choices[i], width*2/15, width/5+width/4*i);
+          text(resMan.choices[i], width*2/15, width/5+width*12/64*i);
         }
         textAlign(CENTER, CENTER);
       }
