@@ -40,14 +40,15 @@ class turnManager {
 
     mineralIncrease = 0;
     energyIncrease = 0;
-    
     foodIncrease = 0;
-
+    researchIncrease = 0;
+    
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         mineralIncrease += buildingGrid[i][j].mineralValue;
         energyIncrease += buildingGrid[i][j].powerValue;
         foodIncrease += buildingGrid[i][j].foodValue;
+        researchIncrease += buildingGrid[i][j].researchValue;
       }
     }
 
