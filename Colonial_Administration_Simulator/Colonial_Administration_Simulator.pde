@@ -28,7 +28,7 @@ boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
 PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil;
 // Save Game.
-JSONObject saveGame;
+JSONObject saveGame, baseGame;
 
 // Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];

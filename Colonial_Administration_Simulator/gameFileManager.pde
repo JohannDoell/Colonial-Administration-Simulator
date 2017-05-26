@@ -2,8 +2,8 @@ class gameFileManager {
   gameFileManager() {
   }
 
-  void loadSaveFile(String file) {
-    saveGame = loadJSONObject(file + ".json");
+  void loadSave() {
+    saveGame = loadJSONObject("saveGame.json");
     turn = saveGame.getInt("turn");
     pops = saveGame.getInt("pops");
     food = saveGame.getInt("food");
@@ -19,7 +19,7 @@ class gameFileManager {
         buildingGrid[i][j].tileLevel = saveGame.getInt("buildingGrid[" + i + "][" + j + "].tileLevel");
       }
     }
-    println("File:'"+ file +"'Loaded");
+    println("File:'SaveGame'Loaded");
   }
 
   void saveSave() {
@@ -44,27 +44,24 @@ class gameFileManager {
   }
 
   void loadBaseFile() {    
-    //turn = 0;
-    //pops = 3;
-    //food = 10;
-    //minerals = 100;
-    //energy = 100;
-    //research = 0;
-    //foodIncrease = -1;
-    //mineralIncrease = 1;
-    //energyIncrease = 0;
-
-    //buildingGrid[0][0].tileType = 1;
-    //buildingGrid[tilesWide-1][tilesHigh-1].tileType = 2;
-    //buildingGrid[0][tilesHigh-1].tileType = 3;
-    //buildingGrid[tilesWide-1][0].tileType = 4;
-
-    loadSaveFile("baseGame");
+    baseGame = loadJSONObject("baseGame.json");
+    turn = baseGame.getInt("turn");
+    pops = baseGame.getInt("pops");
+    food = baseGame.getInt("food");
+    minerals = baseGame.getInt("minerals");
+    energy = baseGame.getInt("energy");
+    research = baseGame.getInt("research");
+    foodIncrease = baseGame.getInt("foodIncrease", foodIncrease);
+    mineralIncrease = baseGame.getInt("mineralIncrease", mineralIncrease);
+    energyIncrease = baseGame.getInt("energyIncrease", energyIncrease);
+    for (int i = 0; i<tilesWide; i++) {
+      for (int j = 0; j<tilesHigh; j++) {
+        buildingGrid[i][j].tileType = baseGame.getInt("buildingGrid[" + i + "][" + j + "].tileType");
+        buildingGrid[i][j].tileLevel = baseGame.getInt("buildingGrid[" + i + "][" + j + "].tileLevel");
+      }
+    }
+    println("File:'baseGame'Loaded");
 
     resMan.setupBaseResearch();
-  }
-
-  void loadSave() {
-    loadSaveFile("saveGame");
   }
 }
