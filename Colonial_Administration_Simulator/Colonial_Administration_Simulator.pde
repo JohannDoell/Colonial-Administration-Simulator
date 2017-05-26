@@ -26,7 +26,7 @@ int selectedGridX, selectedGridY;
 // Confirmation gates for construction actions.
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
-PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil;
+PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX;
 // Save Game.
 JSONObject saveGame, baseGame;
 
@@ -43,7 +43,7 @@ researchManager resMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
 
 void setup() {
-  size(800, 800);
+  size(400, 400);
   state = 0;
   WHITE = color(255);
   GREY = color(155);
@@ -60,6 +60,7 @@ void setup() {
   pEnergy = loadImage("lightning.png");
   pResearch = loadImage("testtubes.png");
   pNil = loadImage("empty.png");
+  pX = loadImage("x.png");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {

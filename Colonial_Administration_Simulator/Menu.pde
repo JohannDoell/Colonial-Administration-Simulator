@@ -71,9 +71,10 @@ class menu {
           fill(WHITE);
         }
         rect(width*95/100, height*5/100, width/20, width/20);
-        stroke(#FF0505);
-        line((width*95/100)-10, (height*5/100)-width/60, (width*95/100)+width/60, (height*5/100)+width/60);
-        line((width*95/100)+10, (height*5/100)-width/60, (width*95/100)-width/60, (height*5/100)+width/60);
+        imageMode(CENTER);
+        image(pX, width*95/100, height*5/100, width/25, width/25);
+        imageMode(CORNER);
+        //line((width*95/100)-10, (height*5/100)-width/60, (width*95/100)+width/60, (height*5/100)+width/60);
       } else if (menuState == 1) {
         fill(BLACK);
         text("Options Coming Soon", width/2, height/2);
