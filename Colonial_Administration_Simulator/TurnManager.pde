@@ -13,6 +13,8 @@ class turnManager {
     if (food > 100 && foodIncrease > 10) {
       pops++;
       food = food - 100;
+    } else if (food < 100 && foodIncrease < 10 && pops > 10) {
+     pops--; 
     }
 
     if (food < 0 || energy < 0 || minerals < 0) {
