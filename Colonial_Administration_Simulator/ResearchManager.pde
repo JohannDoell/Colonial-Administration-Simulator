@@ -17,7 +17,9 @@ class researchManager {
   }
 
   void selectResearch(int researchChoice) {
-    
+    if (researchChoice != 20) {
+      println(researchChoice);
+    }
   }
 
   void setupBaseResearch () {

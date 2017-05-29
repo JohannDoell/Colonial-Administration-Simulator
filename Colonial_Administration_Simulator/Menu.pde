@@ -101,19 +101,21 @@ class menu {
         fill(WHITE);
         rectMode(CORNER);
 
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<7; i++) {
           fill(WHITE);          
-          rect(width/20, width*8/60+width*8/64*i, width/6, width*1/12); 
-          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*8/64*i && mouseY < width*8/60+width*1/12+width*8/64*i) {
+          rect(width/20, width*8/60+width*6/64*i, width/6, width*1/12); 
+          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i) {
             fill(GREY);
           } else {
             fill(WHITE);
           }
-          rect(width/4, width*8/60+width*8/64*i, width*2/3, width*1/12);
+          rect(width/4, width*8/60+width*6/64*i, width*2/3, width*1/12);
           fill(BLACK);
-          textSize(width*4/75);
-          text("Research Value:" + researchIncrease, width*1/2, width*13/16);
+          text("TEST",width*21/160, width*21/120+width*6/64*i);
         }
+          fill(BLACK);
+        textSize(width*4/75);
+        text("Research Value:" + researchIncrease, width*1/2, width*13/16);
         textAlign(CENTER, CENTER);
       }
     } else if (menuType == "Construction") {
@@ -670,8 +672,8 @@ class menu {
   }
 
   int getResearchChoice() {
-    for (int i = 0; i<5; i++) {
-      if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*8/64*i && mouseY < width*8/60+width*1/12+width*8/64*i && displayResearchMenu == true) {
+    for (int i = 0; i<7; i++) {
+      if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i && gmf.displayResearchMenu == true) {
         return i;
       }
     }
