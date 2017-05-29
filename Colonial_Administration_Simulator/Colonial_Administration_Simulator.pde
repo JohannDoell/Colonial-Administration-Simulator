@@ -43,7 +43,7 @@ researchManager resMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
 
 void setup() {
-  size(400, 400);
+  size(600, 600);
   state = 0;
   WHITE = color(255);
   GREY = color(155);

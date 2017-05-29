@@ -27,3 +27,9 @@ Breeding Program_20
 Parental Planning_20
 Hormone Therapy_50
 Genome Diversification_100
+
+Frontier Research
+Administrative AI
+Cybernetic Researchers
+Automated Research
+

@@ -111,9 +111,11 @@ class menu {
           }
           rect(width/4, width*8/60+width*6/64*i, width*2/3, width*1/12);
           fill(BLACK);
-          text("TEST",width*21/160, width*21/120+width*6/64*i);
+          imageMode(CENTER);
+          image(resMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
+          imageMode(CORNER);
         }
-          fill(BLACK);
+        fill(BLACK);
         textSize(width*4/75);
         text("Research Value:" + researchIncrease, width*1/2, width*13/16);
         textAlign(CENTER, CENTER);
