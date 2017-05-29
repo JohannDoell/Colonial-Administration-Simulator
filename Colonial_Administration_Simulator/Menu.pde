@@ -98,22 +98,21 @@ class menu {
       }
     } else if (menuType == "Research") {
       if (gmf.displayResearchMenu == true) {
-        fill(BLACK);
-        text("Research Coming Soon", width/2, height/2);
         fill(WHITE);
         rectMode(CORNER);
 
-        for (int i = 0; i<3; i++) {
+        for (int i = 0; i<5; i++) {
           fill(WHITE);          
-          rect(width/20, width*7/60+width*12/64*i, width/6, width/6); 
-          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*7/60+width*12/64*i && mouseY < width*7/60+width/6+width*12/64*i) {
+          rect(width/20, width*8/60+width*8/64*i, width/6, width*1/12); 
+          if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*8/64*i && mouseY < width*8/60+width*1/12+width*8/64*i) {
             fill(GREY);
           } else {
             fill(WHITE);
           }
-          rect(width/4, width*7/60+width*12/64*i, width*2/3, width/6);
+          rect(width/4, width*8/60+width*8/64*i, width*2/3, width*1/12);
           fill(BLACK);
-          text(resMan.choices[i], width*2/15, width/5+width*12/64*i);
+          textSize(width*4/75);
+          text("Research Value:" + researchIncrease, width*1/2, width*13/16);
         }
         textAlign(CENTER, CENTER);
       }
@@ -522,6 +521,7 @@ class menu {
         }
       }
     } else if (menuType == "Research") {
+      resMan.selectResearch(getResearchChoice());
     } else if (menuType == "Construction") {
 
       //Building Grid
@@ -669,6 +669,14 @@ class menu {
     text("You ran out of a resource", width/2, (height/2)+width/10);
   }
 
+  int getResearchChoice() {
+    for (int i = 0; i<5; i++) {
+      if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*8/64*i && mouseY < width*8/60+width*1/12+width*8/64*i && displayResearchMenu == true) {
+        return i;
+      }
+    }
+    return 20;
+  }
 
   // Resets the confirmation gates for all construction actions.
   void resetGates() {

@@ -118,7 +118,6 @@ class turnManager {
       mineralMax = 100;
     }
 
-    resMan.maintainChoices();
   }
 
   void processConstruction() {
