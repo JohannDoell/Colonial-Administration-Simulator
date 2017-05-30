@@ -57,4 +57,9 @@ class researchManager {
     return researchTracks[i].flavourText;
   }
   
+  int getProgress() {
+    researchTracks[selection].researchTime
+   return 0; 
+  }
+  
 }
