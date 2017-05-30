@@ -1,13 +1,9 @@
 class researchManager {
   boolean isResearching;
-  String currentBuildTrack;
-  int researchTime, totalResearchTime;
   int farmingProgress, buildTimeProgress, buildCostProgress, miningProgress, powerProgress, popProgress, researchProgress;
   int selection;
   researchManager() {
     isResearching = false;
-    researchTime = 0;
-    totalResearchTime = 0;
   }
 
   void updateResearchBonuses() {
@@ -56,4 +52,9 @@ class researchManager {
     }
     return pNil;
   }
+  
+  String getResearchFlavourText(int i) {
+    return researchTracks[i].flavourText;
+  }
+  
 }

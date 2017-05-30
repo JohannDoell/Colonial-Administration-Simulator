@@ -1,20 +1,21 @@
-class turnManager {
+class turnManager { //<>//
   turnManager() {
   }
 
   void updateResources() {
-    // Applies increases and checks for a game over. //<>// //<>//
+    // Applies increases and checks for a game over. //<>//
     // Also ensures resources do not go over their maxes.
 
     food = food + foodIncrease;
     minerals = minerals + mineralIncrease;
     energy = energy + energyIncrease;
+    research = researchIncrease;
 
     if (food > 100 && foodIncrease > 10) {
       pops++;
       food = food - 100;
     } else if (food < 100 && foodIncrease < 10 && pops > 10) {
-     pops--; 
+      pops--;
     }
 
     if (food < 0 || energy < 0 || minerals < 0) {
@@ -117,7 +118,6 @@ class turnManager {
     if (mineralMax < 100) {
       mineralMax = 100;
     }
-
   }
 
   void processConstruction() {
@@ -138,11 +138,18 @@ class turnManager {
     }
   }
 
+  void processResearch() {
+    for (int i=0; i<7; i++) {
+      researchTracks[i].research();
+    }
+  }
+
   void advanceTurn() {
     // Self explanatory.
     turn++;
     updateResources();
     processConstruction();
+    processResearch();
   }
 
   void setupBaseGame() {

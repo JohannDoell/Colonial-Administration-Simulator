@@ -101,6 +101,8 @@ class menu {
         fill(WHITE);
         rectMode(CORNER);
 
+        // Display Each Research Icon and Selection Button  
+
         for (int i = 0; i<7; i++) {
           fill(WHITE);          
           rect(width/20, width*8/60+width*6/64*i, width/6, width*1/12); 
@@ -112,8 +114,11 @@ class menu {
           rect(width/4, width*8/60+width*6/64*i, width*2/3, width*1/12);
           fill(BLACK);
           imageMode(CENTER);
+          textAlign(LEFT);
           image(resMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
+          text(resMan.getResearchFlavourText(i), width*1/5+(width/6)/2, (width*1/12)/2+width*17/120+width*6/64*i);
           imageMode(CORNER);
+          textAlign(CENTER,CENTER);
         }
         fill(BLACK);
         textSize(width*4/75);
