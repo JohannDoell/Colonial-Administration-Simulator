@@ -81,7 +81,18 @@ class turnManager { //<>// //<>//
 
     foodTax = pops;
 
-    mineralIncrease = mineralIncrease - mineralTax;
+    //popResearchBonus = ;
+    foodResearchBonus = researchTracks[0].bonus;
+    //buildTimeResearchBonus = ;
+    //buildCostResearchBonus = ;
+    //mineralResearchBonus = ;
+    //energyResearchBonus = ;
+
+    //mineralIncrease = mineralIncrease - mineralTax;
+    //energyIncrease = energyIncrease - energyTax;
+    foodIncrease = foodIncrease + int(foodIncrease * foodResearchBonus);
+
+      mineralIncrease = mineralIncrease - mineralTax;
     energyIncrease = energyIncrease - energyTax;
     foodIncrease = foodIncrease - foodTax;
 
@@ -145,7 +156,7 @@ class turnManager { //<>// //<>//
     }
   }
 
-    void advanceTurn() {
+  void advanceTurn() {
     // Self explanatory.
     turn++;
     updateResources();

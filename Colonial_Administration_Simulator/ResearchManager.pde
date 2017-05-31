@@ -96,7 +96,7 @@ class researchManager {
   int getResearchChoice() {
     for (int i = 0; i<7; i++) {
       if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i && gmf.displayResearchMenu == true) {
-        if (researchTracks[i].progress >= 3) {
+        if (researchTracks[i].progress >= 4) {
           return -1;
         } else {
          return i; 
