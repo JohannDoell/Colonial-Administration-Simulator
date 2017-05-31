@@ -13,7 +13,7 @@ class researchManager {
   }
 
   void selectResearch(int researchChoice) {
-    if (researchChoice != 20) {
+    if (researchChoice != -1) {
       selection = researchChoice;
       println(selection);
     }
@@ -26,6 +26,9 @@ class researchManager {
     miningProgress = 0;
     powerProgress = 0;
     popProgress = 0;
+    for (int i=0; i<7; i++) {
+      researchTracks[i].setResearchMenuVariables();
+    }
   }
 
   PImage getResearchIcon(int i) {
@@ -69,6 +72,8 @@ class researchManager {
         rect(width/20, width*8/60+width*6/64*i, width/6, width*1/12); 
         if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i) {
           fill(GREY);
+        } else if (selection == i) {
+          fill(LIGHTGREY);
         } else {
           fill(WHITE);
         }
@@ -77,7 +82,7 @@ class researchManager {
         imageMode(CENTER);
         textAlign(LEFT);
         image(resMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
-        text(resMan.getResearchFlavourText(i), width*1/5+(width/6)/2, (width*1/12)/2+width*17/120+width*6/64*i);
+        text(resMan.getResearchFlavourText(i) + " : " + researchTracks[i].researchTime + " / " + researchTracks[i].totalResearchTime, width*1/5+(width/6)/2, (width*1/12)/2+width*17/120+width*6/64*i);
         imageMode(CORNER);
         textAlign(CENTER, CENTER);
       }
@@ -91,7 +96,11 @@ class researchManager {
   int getResearchChoice() {
     for (int i = 0; i<7; i++) {
       if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i && gmf.displayResearchMenu == true) {
-        return i;
+        if (researchTracks[i].progress >= 3) {
+          return -1;
+        } else {
+         return i; 
+        }
       }
     }
     return -1;

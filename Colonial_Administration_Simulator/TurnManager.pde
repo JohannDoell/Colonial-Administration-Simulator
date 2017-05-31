@@ -1,9 +1,9 @@
-class turnManager { //<>//
+class turnManager { //<>// //<>//
   turnManager() {
   }
 
   void updateResources() {
-    // Applies increases and checks for a game over. //<>//
+    // Applies increases and checks for a game over.
     // Also ensures resources do not go over their maxes.
 
     food = food + foodIncrease;
@@ -141,10 +141,11 @@ class turnManager { //<>//
   void processResearch() {
     for (int i=0; i<7; i++) {
       researchTracks[i].research();
+      researchTracks[i].setResearchMenuVariables();
     }
   }
 
-  void advanceTurn() {
+    void advanceTurn() {
     // Self explanatory.
     turn++;
     updateResources();

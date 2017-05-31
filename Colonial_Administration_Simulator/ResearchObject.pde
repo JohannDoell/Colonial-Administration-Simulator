@@ -2,8 +2,8 @@ class researchObjects {
   boolean isResearching;
   int researchTime, totalResearchTime;
   String flavourText;
-  int[] researchTimeList = new int[4];
-  String[] researchNameList = new String[4];
+  int[] researchTimeList = new int[5];
+  String[] researchNameList = new String[5];
   int progress;
   int researchType;
 
@@ -84,13 +84,26 @@ class researchObjects {
       researchNameList[2] = "Cybernetic Researchers";
       researchNameList[3] = "Automated Research";
     }
-    totalResearchTime = researchTimeList[0];
-    flavourText = researchNameList[0];
+    researchTimeList[4] = 9999999;
+    researchNameList[4] = "Finished";
+    totalResearchTime = researchTimeList[progress];
+    flavourText = researchNameList[progress];
+  }
+
+  void setResearchMenuVariables() {
+    totalResearchTime = researchTimeList[progress];
+    flavourText = researchNameList[progress];
   }
 
   void research() {
     if (resMan.selection == this.researchType) {
-      researchTime += research;
+      if (this.progress != 4) {
+        researchTime += research;
+      }
+    }
+    if (researchTime >= totalResearchTime) {
+      progress++;
+      researchTime = 0;
     }
   }
 }
