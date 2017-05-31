@@ -10,9 +10,13 @@ class gameFileManager {
     minerals = saveGame.getInt("minerals");
     energy = saveGame.getInt("energy");
     research = saveGame.getInt("research");
-    foodIncrease = saveGame.getInt("foodIncrease", foodIncrease);
-    mineralIncrease = saveGame.getInt("mineralIncrease", mineralIncrease);
-    energyIncrease = saveGame.getInt("energyIncrease", energyIncrease);
+    foodIncrease = saveGame.getInt("foodIncrease");
+    mineralIncrease = saveGame.getInt("mineralIncrease");
+    energyIncrease = saveGame.getInt("energyIncrease");
+    for (int i = 0; i<7; i++ ) {
+      researchTracks[i].progress = saveGame.getInt("researchTracks[" + i + "].progress");
+      researchTracks[i].researchTime = saveGame.getInt("researchTracks[" + i + "].researchTime");
+    }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
         buildingGrid[i][j].tileType = saveGame.getInt("buildingGrid[" + i + "][" + j + "].tileType");
@@ -33,6 +37,10 @@ class gameFileManager {
     saveGame.setInt("foodIncrease", foodIncrease);
     saveGame.setInt("mineralIncrease", mineralIncrease);
     saveGame.setInt("energyIncrease", energyIncrease);
+    for (int i = 0; i<7; i++ ) {
+      saveGame.setInt("researchTracks[" + i + "].progress", researchTracks[i].progress);
+      saveGame.setInt("researchTracks[" + i + "].researchTime", researchTracks[i].researchTime);
+    }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
         saveGame.setInt("buildingGrid[" + i + "][" + j + "].tileType", buildingGrid[i][j].tileType);
@@ -54,6 +62,10 @@ class gameFileManager {
     foodIncrease = baseGame.getInt("foodIncrease", foodIncrease);
     mineralIncrease = baseGame.getInt("mineralIncrease", mineralIncrease);
     energyIncrease = baseGame.getInt("energyIncrease", energyIncrease);
+    for (int i = 0; i<7; i++ ) {
+     researchTracks[i].progress = baseGame.getInt("researchTracks[" + i + "].progress");
+     researchTracks[i].researchTime = baseGame.getInt("researchTracks[" + i + "].researchTime");
+    }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
         buildingGrid[i][j].tileType = baseGame.getInt("buildingGrid[" + i + "][" + j + "].tileType");
