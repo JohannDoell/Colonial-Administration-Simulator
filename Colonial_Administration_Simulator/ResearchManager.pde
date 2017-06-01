@@ -81,8 +81,8 @@ class researchManager {
         fill(BLACK);
         imageMode(CENTER);
         textAlign(LEFT);
-        image(resMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
-        text(resMan.getResearchFlavourText(i) + " : " + researchTracks[i].researchTime + " / " + researchTracks[i].totalResearchTime, width*1/5+(width/6)/2, (width*1/12)/2+width*17/120+width*6/64*i);
+        image(reseMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
+        text(reseMan.getResearchFlavourText(i) + " : " + researchTracks[i].researchTime + " / " + researchTracks[i].totalResearchTime, width*1/5+(width/6)/2, (width*1/12)/2+width*17/120+width*6/64*i);
         imageMode(CORNER);
         textAlign(CENTER, CENTER);
       }

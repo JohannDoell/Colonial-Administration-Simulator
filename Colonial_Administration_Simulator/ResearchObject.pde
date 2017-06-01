@@ -135,7 +135,7 @@ class researchObjects {
   }
 
   void research() {
-    if (resMan.selection == this.researchType) {
+    if (reseMan.selection == this.researchType) {
       if (this.progress != 4) {
         researchTime += research;
       }

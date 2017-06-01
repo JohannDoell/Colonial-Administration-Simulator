@@ -12,7 +12,7 @@ class gameManager {
     // Game
     else if (state == 1) {
       gmf.displayMenu();
-      turMan.updateResourceIncreases();
+      resoMan.updateResourceIncreases();
       if (gmf.displayResearchMenu == true) {
         researchMenu.displayMenu();
       }
@@ -39,9 +39,6 @@ class gameManager {
   void handleKeyPress() {
     if (state == 1) {
       gmf.menuPress();
-    }
-    if (key == 't') {
-      println(food);
     }
   }
 }

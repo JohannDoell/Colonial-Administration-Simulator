@@ -97,7 +97,7 @@ class menu {
         triangle((width*5/100)-width/120, (height*5/100)-width/120, (width*5/100)-width/60, (height*5/100), (width*5/100)-width/120, (height*5/100)+width/120);
       }
     } else if (menuType == "Research") {
-      resMan.displayResearchObjects();
+      reseMan.displayResearchObjects();
     } else if (menuType == "Construction") {
       // Display Tiles
       if (gmf.displayConstructionMenu == true) {
@@ -464,6 +464,41 @@ class menu {
       fill(WHITE);
       textSize(width*2/75);
       text("TURN: " + turn, width*54/64, height*1/32);
+
+      // Hover Text
+
+      // For resources
+      if (mouseY < height*1/16) {
+        rectMode(CORNER);
+        fill(WHITE);
+        if (mouseX > 0 && mouseX < width/5) {
+          rect(mouseX, mouseY, width/4, width/12);
+
+          fill(BLACK);
+          textAlign(LEFT);
+          textSize(width*2/75);
+          image(pPop, mouseX+width*13/100, mouseY+width/200, width/40, width/40);
+          text("Current:    " + pops, mouseX+width/60, mouseY+width/40);
+          image(pFood, mouseX+width*10/100, mouseY+width*11/200, width/40, width/40);
+          text("Need:    100", mouseX+width/60, mouseY+width*3/40);
+        }
+        if (mouseX > width/5 && mouseX < width*2/5) {
+          rect(mouseX, mouseY, width/4, width/12);
+          
+          fill(BLACK);
+          textAlign(LEFT);
+          textSize(width*2/75);
+          image(pPop, mouseX+width*13/100, mouseY+width/200, width/40, width/40);
+          text("Current:    " + pops, mouseX+width/60, mouseY+width/40);
+          image(pFood, mouseX+width*10/100, mouseY+width*11/200, width/40, width/40);
+          text("Buildings:    100", mouseX+width/60, mouseY+width*3/40);
+        }
+        if (mouseX > width*2/5 && mouseX < width*43/75) {
+        }
+        if (mouseX > width*43/75 && mouseX < width*3/4) {
+        }
+        rectMode(CENTER);
+      }
     }
   }
 
@@ -503,7 +538,7 @@ class menu {
         }
       }
     } else if (menuType == "Research") {
-      resMan.selectResearch(resMan.getResearchChoice());
+      reseMan.selectResearch(reseMan.getResearchChoice());
     } else if (menuType == "Construction") {
 
       //Building Grid

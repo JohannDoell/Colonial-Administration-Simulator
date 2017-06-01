@@ -74,6 +74,6 @@ class gameFileManager {
     }
     println("File:'baseGame'Loaded");
 
-    resMan.setupBaseResearch();
+    reseMan.setupBaseResearch();
   }
 }

@@ -41,8 +41,9 @@ menu constructionMenu = new menu("Construction");
 menu gmf = new menu("Game Menu Frame");
 gameManager game = new gameManager();
 turnManager turMan = new turnManager();
-researchManager resMan = new researchManager();
+researchManager reseMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
+resourceManager resoMan = new resourceManager();
 
 void setup() {
   size(600, 600);
@@ -79,6 +80,7 @@ void setup() {
 
 void draw() {
   game.handleGameState();
+  println(mouseX,mouseY);
 }
 
 void mouseClicked() {
