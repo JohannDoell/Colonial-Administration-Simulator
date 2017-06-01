@@ -88,37 +88,13 @@ class resourceManager {
   }
 
   void updateMineralIncreases() {
-    mineralIncrease = 0;
+    mineralIncrease = getBuildingMineralIncrease() + getPopMineralIncrease();
 
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        mineralIncrease += buildingGrid[i][j].mineralValue;
-      }
-    }
-
-    mineralIncrease = mineralIncrease * pops/3;
-
-    mineralTax = 0;
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType != 0) {
-          mineralTax++;
-        }
-      }
-    }
+    mineralTax = getMineralTax();
 
     mineralIncrease = mineralIncrease - mineralTax;
 
-    int noOfBuildings = 0;
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType != 0) {
-          noOfBuildings++;
-        }
-      }
-    }
-
-    mineralMax = mineralIncrease * 10 + noOfBuildings * 5;
+    mineralMax = mineralIncrease * 10 + getNoOfBuildings() * 5;
 
     if (mineralMax < 100) {
       mineralMax = 100;
@@ -126,27 +102,10 @@ class resourceManager {
   }
 
   void updatePowerIncreases() {
-    energyIncrease = 0;
 
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        energyIncrease += buildingGrid[i][j].powerValue;
-      }
-    }
+    energyIncrease = getBuildingEnergyIncrease() + getPopEnergyIncrease();
 
-    energyIncrease = energyIncrease * pops/3;
-
-    energyTax = 0;
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType != 0 && buildingGrid[i][j].tileType != 3) {
-          energyTax++;
-        }
-        if (buildingGrid[i][j].tileLevel == 3) {
-          energyTax++;
-        }
-      }
-    }
+    energyTax = getEnergyTax();
 
     energyIncrease = energyIncrease - energyTax;
 
@@ -165,5 +124,77 @@ class resourceManager {
         researchIncrease += buildingGrid[i][j].researchValue;
       }
     }
+  }
+
+  // Energy Functions
+
+  int getBuildingEnergyIncrease() {
+    int bei = 0;
+
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        bei += buildingGrid[i][j].powerValue;
+      }
+    }
+    return bei;
+  }
+
+  int getPopEnergyIncrease() {
+    return getBuildingEnergyIncrease() * pops/3;
+  }
+
+  int getEnergyTax() {
+    int bet = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType != 0) {
+          bet++;
+        }
+        if (buildingGrid[i][j].tileLevel == 3) {
+          bet++;
+        }
+      }
+    }
+    return bet;
+  }
+
+  // Mineral Functions
+
+  int getBuildingMineralIncrease() {
+    int bmi = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        bmi += buildingGrid[i][j].mineralValue;
+      }
+    }
+    return bmi;
+  }
+
+  int getPopMineralIncrease() {
+    return getBuildingEnergyIncrease() * pops/3;
+  }
+
+  int getMineralTax() {
+    int bmt = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType != 0) {
+          bmt++;
+        }
+      }
+    }
+    return bmt;
+  }
+
+  int getNoOfBuildings() {
+    int noOfBuildings = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType != 0) {
+          noOfBuildings++;
+        }
+      }
+    }
+    return noOfBuildings;
   }
 }
