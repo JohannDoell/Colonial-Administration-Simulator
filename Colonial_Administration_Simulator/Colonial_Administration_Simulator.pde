@@ -80,7 +80,8 @@ void setup() {
 
 void draw() {
   game.handleGameState();
-  println(mouseX,mouseY);
+  println(researchTracks[4].bonus);
+  println(resoMan.getResearchEnergyIncrease());
 }
 
 void mouseClicked() {

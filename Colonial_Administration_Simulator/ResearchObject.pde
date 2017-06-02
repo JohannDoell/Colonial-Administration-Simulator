@@ -15,7 +15,6 @@ class researchObjects {
     totalResearchTime = 0;
     progress = 0;
     researchType = _researchType;
-    bonusList[0] = 1.00;
     if (researchType == 0) {
       researchTimeList[0] = 50;
       researchTimeList[1] = 100;
@@ -27,6 +26,7 @@ class researchObjects {
       researchNameList[2] = "Pyrohydroponics";
       researchNameList[3] = "Atmoshydroponics";
 
+      bonusList[0] = 0.00;
       bonusList[1] = 0.10;
       bonusList[2] = 0.15;
       bonusList[3] = 0.20;
@@ -42,6 +42,7 @@ class researchObjects {
       researchNameList[2] = "Off World Construction";
       researchNameList[3] = "Nanite Construction";
 
+      bonusList[0] = 0;
       bonusList[1] = 0;
       bonusList[2] = 0;
       bonusList[3] = 0;
@@ -57,6 +58,7 @@ class researchObjects {
       researchNameList[2] = "Superalloy Construction";
       researchNameList[3] = "Nanofibre Construction";
 
+      bonusList[0] = 0;
       bonusList[1] = 0;
       bonusList[2] = 0;
       bonusList[3] = 0;
@@ -72,6 +74,7 @@ class researchObjects {
       researchNameList[2] = "Open Pit Mining";
       researchNameList[3] = "Planetary Core Mining";
 
+      bonusList[0] = 1.00;
       bonusList[1] = 1.10;
       bonusList[2] = 1.20;
       bonusList[3] = 1.30;
@@ -87,6 +90,7 @@ class researchObjects {
       researchNameList[2] = "Geothermal Power";
       researchNameList[3] = "Nuclear Power";
 
+      bonusList[0] = 1.00;
       bonusList[1] = 1.10;
       bonusList[2] = 1.20;
       bonusList[3] = 1.30;
@@ -102,6 +106,7 @@ class researchObjects {
       researchNameList[2] = "Hormone Therapy";
       researchNameList[3] = "Genome Diversification";
 
+      bonusList[0] = 0;
       bonusList[1] = -5;
       bonusList[2] = -10;
       bonusList[3] = -20;
@@ -117,6 +122,7 @@ class researchObjects {
       researchNameList[2] = "Cybernetic Researchers";
       researchNameList[3] = "Automated Research";
 
+      bonusList[0] = 1.00;
       bonusList[1] = 1.10;
       bonusList[2] = 1.20;
       bonusList[3] = 1.30;
@@ -132,6 +138,7 @@ class researchObjects {
   void setResearchMenuVariables() {
     totalResearchTime = researchTimeList[progress];
     flavourText = researchNameList[progress];
+    bonus = bonusList[progress];
   }
 
   void research() {

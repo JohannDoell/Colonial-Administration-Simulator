@@ -11,14 +11,14 @@ class gameManager {
     } 
     // Game
     else if (state == 1) {
-      gmf.displayMenu();
-      resoMan.updateResourceIncreases();
       if (gmf.displayResearchMenu == true) {
         researchMenu.displayMenu();
       }
       if (gmf.displayConstructionMenu == true) {   
         constructionMenu.displayMenu();
       }
+      gmf.displayMenu();
+      resoMan.updateResourceIncreases();
     } 
     // Loss Screen
     else if (state == 2) {

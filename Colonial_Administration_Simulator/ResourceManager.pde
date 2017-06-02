@@ -47,44 +47,15 @@ class resourceManager {
     updateMineralIncreases();
     updatePowerIncreases();
     updateResearchIncreases();
-
-    //popResearchBonus = ;
-    //foodResearchBonus = researchTracks[0].bonus;
-    //buildTimeResearchBonus = ;
-    //buildCostResearchBonus = ;
-    //mineralResearchBonus = ;
-    //energyResearchBonus = ;
-
-    //mineralIncrease = mineralIncrease - mineralTax;
-    //energyIncrease = energyIncrease - energyTax;
-    //foodIncrease = foodIncrease + int(foodIncrease * foodResearchBonus);
   }
 
   void updateFoodIncreases() {
-    foodIncrease = 0;
+    foodIncrease = getBuildingFoodIncrease();
 
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        foodIncrease += buildingGrid[i][j].foodValue;
-      }
-    }
-
-    foodTax = pops;
+    foodTax = getFoodTax();
     foodIncrease = foodIncrease - foodTax;
 
-    foodMax = 0;
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType == 1) {
-          foodMax++;
-        }
-      }
-    }
-    foodMax = foodMax * 10;
-
-    if (foodMax < 0) {
-      foodMax = 10;
-    }
+    foodMax = getFoodMax();
   }
 
   void updateMineralIncreases() {
@@ -92,13 +63,11 @@ class resourceManager {
 
     mineralTax = getMineralTax();
 
-    mineralIncrease = mineralIncrease - mineralTax;
+    mineralResearchBonus = getResearchMineralIncrease();
 
-    mineralMax = mineralIncrease * 10 + getNoOfBuildings() * 5;
+    mineralIncrease = mineralIncrease + int(mineralResearchBonus) - mineralTax;
 
-    if (mineralMax < 100) {
-      mineralMax = 100;
-    }
+    mineralMax = getMineralMax();
   }
 
   void updatePowerIncreases() {
@@ -107,23 +76,15 @@ class resourceManager {
 
     energyTax = getEnergyTax();
 
-    energyIncrease = energyIncrease - energyTax;
+    energyResearchBonus = getResearchEnergyIncrease();
 
-    energyMax = energyIncrease * 10;
+    energyIncrease = energyIncrease + int(energyResearchBonus) - energyTax;
 
-    if (energyMax < 100) {
-      energyMax = 100;
-    }
+    energyMax = getEnergyMax();
   }
 
   void updateResearchIncreases() {
-    researchIncrease = 0;
-
-    for (int i=0; i<tilesWide; i++) {
-      for (int j=0; j<tilesHigh; j++) {
-        researchIncrease += buildingGrid[i][j].researchValue;
-      }
-    }
+    researchIncrease = getResearchValue();
   }
 
   // Energy Functions
@@ -140,22 +101,35 @@ class resourceManager {
   }
 
   int getPopEnergyIncrease() {
-    return getBuildingEnergyIncrease() * pops/3;
+    return (getBuildingEnergyIncrease() * pops/3) - getBuildingEnergyIncrease();
+  }
+
+  int getResearchEnergyIncrease() {
+    return int((getBuildingEnergyIncrease() * researchTracks[4].bonus) - getBuildingEnergyIncrease());
   }
 
   int getEnergyTax() {
-    int bet = 0;
+    int et = 0;
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType != 0) {
-          bet++;
+        if (buildingGrid[i][j].tileType != 0 && buildingGrid[i][j].tileType != 3) {
+          et++;
         }
         if (buildingGrid[i][j].tileLevel == 3) {
-          bet++;
+          et++;
         }
       }
     }
-    return bet;
+    return et;
+  }
+
+  int getEnergyMax() {
+    int em = energyIncrease * 10;
+
+    if (em < 100) {
+      em = 100;
+    }
+    return em;
   }
 
   // Mineral Functions
@@ -171,20 +145,83 @@ class resourceManager {
   }
 
   int getPopMineralIncrease() {
-    return getBuildingEnergyIncrease() * pops/3;
+    return (getBuildingMineralIncrease() * pops/3) - getBuildingMineralIncrease();
+  }
+
+  int getResearchMineralIncrease() {
+    return int((getBuildingMineralIncrease() * researchTracks[3].bonus) - getBuildingMineralIncrease());
   }
 
   int getMineralTax() {
-    int bmt = 0;
+    int mt = 0;
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         if (buildingGrid[i][j].tileType != 0) {
-          bmt++;
+          mt++;
         }
       }
     }
-    return bmt;
+    return mt;
   }
+
+  int getMineralMax() {
+
+    int mm = mineralIncrease * 10 + getNoOfBuildings() * 5;
+
+    if (mm < 100) {
+      mm = 100;
+    }
+    return mm;
+  }
+
+  // Food Functions
+
+  int getBuildingFoodIncrease() {
+    int bfi = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        bfi += buildingGrid[i][j].foodValue;
+      }
+    }
+    return bfi;
+  }
+
+  int getFoodTax() {
+    int ft = pops;
+    return ft;
+  }
+
+  int getFoodMax() {
+    int fm = 0;
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        if (buildingGrid[i][j].tileType == 1) {
+          fm++;
+        }
+      }
+    }
+    fm = fm * 10;
+
+    if (fm < 0) {
+      fm = 10;
+    }
+    return fm;
+  }
+
+  // Research Functions
+
+  int getResearchValue() {
+    int ri = 0;
+
+    for (int i=0; i<tilesWide; i++) {
+      for (int j=0; j<tilesHigh; j++) {
+        ri += buildingGrid[i][j].researchValue;
+      }
+    }
+    return ri;
+  }
+
+  // Number of Buildings Function
 
   int getNoOfBuildings() {
     int noOfBuildings = 0;

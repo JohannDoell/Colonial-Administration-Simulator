@@ -472,28 +472,49 @@ class menu {
         rectMode(CORNER);
         fill(WHITE);
         if (mouseX > 0 && mouseX < width/5) {
-          rect(mouseX, mouseY, width/4, width/12);
+          rect(mouseX, mouseY, width/4, width*5/68);
 
           fill(BLACK);
           textAlign(LEFT);
           textSize(width*2/75);
           image(pPop, mouseX+width*13/100, mouseY+width/200, width/40, width/40);
           text("Current:    " + pops, mouseX+width/60, mouseY+width/40);
-          image(pFood, mouseX+width*10/100, mouseY+width*11/200, width/40, width/40);
-          text("Need:    100", mouseX+width/60, mouseY+width*3/40);
+          image(pFood, mouseX+width*10/100, mouseY+width*8/200, width/40, width/40);
+          text("Need:    100", mouseX+width/60, mouseY+width*5/80);
         }
         if (mouseX > width/5 && mouseX < width*2/5) {
-          rect(mouseX, mouseY, width/4, width/12);
-          
+          rect(mouseX, mouseY, width/4, width*13/68);
+
           fill(BLACK);
           textAlign(LEFT);
           textSize(width*2/75);
-          image(pPop, mouseX+width*13/100, mouseY+width/200, width/40, width/40);
-          text("Current:    " + pops, mouseX+width/60, mouseY+width/40);
-          image(pFood, mouseX+width*10/100, mouseY+width*11/200, width/40, width/40);
-          text("Buildings:    100", mouseX+width/60, mouseY+width*3/40);
+          image(pMineral, mouseX+width*13/100, mouseY+width*1/200, width/40, width/40);
+          text("Current:    " + minerals, mouseX+width/60, mouseY+width/40);
+          image(pMineral, mouseX+width*15/100, mouseY+width*8/200, width/40, width/40);
+          text("Buildings:    " + resoMan.getBuildingMineralIncrease(), mouseX+width/60, mouseY+width*5/80);
+          image(pMineral, mouseX+width*9/100, mouseY+width*16/200, width/40, width/40);
+          text("Pops:    " + resoMan.getPopMineralIncrease(), mouseX+width/60, mouseY+width*8/80);
+          image(pMineral, mouseX+width*15/100, mouseY+width*23/200, width/40, width/40);
+          text("Research:    " + resoMan.getResearchMineralIncrease(), mouseX+width/60, mouseY+width*11/80);
+          image(pMineral, mouseX+width*8/100, mouseY+width*31/200, width/40, width/40);
+          text("Tax:    " + resoMan.getMineralTax(), mouseX+width/60, mouseY+width*14/80);
         }
         if (mouseX > width*2/5 && mouseX < width*43/75) {
+          rect(mouseX, mouseY, width/4, width*13/68);
+
+          fill(BLACK);
+          textAlign(LEFT);
+          textSize(width*2/75);
+          image(pEnergy, mouseX+width*13/100, mouseY+width*1/200, width/40, width/40);
+          text("Current:    " + energy, mouseX+width/60, mouseY+width/40);
+          image(pEnergy, mouseX+width*15/100, mouseY+width*8/200, width/40, width/40);
+          text("Buildings:    " + resoMan.getBuildingEnergyIncrease(), mouseX+width/60, mouseY+width*5/80);
+          image(pEnergy, mouseX+width*9/100, mouseY+width*16/200, width/40, width/40);
+          text("Pops:    " + resoMan.getPopEnergyIncrease(), mouseX+width/60, mouseY+width*8/80);
+          image(pEnergy, mouseX+width*15/100, mouseY+width*23/200, width/40, width/40);
+          text("Research:    " + resoMan.getResearchEnergyIncrease(), mouseX+width/60, mouseY+width*11/80);
+          image(pEnergy, mouseX+width*8/100, mouseY+width*31/200, width/40, width/40);
+          text("Tax:    " + resoMan.getEnergyTax(), mouseX+width/60, mouseY+width*14/80);
         }
         if (mouseX > width*43/75 && mouseX < width*3/4) {
         }
