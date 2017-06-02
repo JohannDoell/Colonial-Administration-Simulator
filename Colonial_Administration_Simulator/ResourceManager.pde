@@ -16,7 +16,7 @@ class resourceManager {
 
     if (food > foodNeededForPop && foodIncrease > 10) {
       pops++;
-      food = food - 100;
+      food = food - foodNeededForPop;
     } else if (food < 100 && foodIncrease < 10 && pops > 10) {
       pops--;
     }
@@ -49,6 +49,10 @@ class resourceManager {
     updateMineralIncreases();
     updatePowerIncreases();
     updateResearchIncreases();
+
+    for (int i=0; i<7; i++) {
+      researchTracks[i].setResearchMenuVariables();
+    }
   }
 
   void updateFoodIncreases() {

@@ -68,11 +68,13 @@ class researchManager {
       // Display Each Research Icon and Selection Button  
       fill(BLACK);
       textSize(width*4/75);
-      textAlign(CENTER, CENTER);
+      textAlign(LEFT, CENTER);
       image(pResearch, width*80/200, width*126/160, width*13/200, width*13/200);
       text("+" + researchIncrease, width*1/2, width*13/16);
       textSize(width*2/75);
+      textAlign(CENTER, CENTER);
 
+      //textSize(16);
       for (int i = 0; i<7; i++) {
         fill(WHITE);          
         rect(width/20, width*8/60+width*6/64*i, width/6, width*1/12); 
