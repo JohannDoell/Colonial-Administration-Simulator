@@ -51,8 +51,8 @@ class gameFileManager {
     println("Game Saved");
   }
 
-  void loadSave() {
-    loadSaveGame("saveGame.json");
+  void loadSave(int i) {
+    loadSaveGame("saveGame"+ str(i) + ".json");
   }
 
   void loadBaseFile() {    

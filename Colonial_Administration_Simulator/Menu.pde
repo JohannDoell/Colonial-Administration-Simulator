@@ -76,6 +76,7 @@ class menu {
         imageMode(CORNER);
         //line((width*95/100)-10, (height*5/100)-width/60, (width*95/100)+width/60, (height*5/100)+width/60);
       } else if (menuState == 1) {
+        // Options Menu
         fill(BLACK);
         text("Options Coming Soon", width/2, height/2);
 
@@ -95,6 +96,17 @@ class menu {
         }
         line((width*5/100)-width/120, height*5/100, (width*5/100)+10, height*5/100);
         triangle((width*5/100)-width/120, (height*5/100)-width/120, (width*5/100)-width/60, (height*5/100), (width*5/100)-width/120, (height*5/100)+width/120);
+      } else if (menuState == 2) {
+        // Load Menu
+        for (int i = 0; i < 3; i++) {
+          rectMode(CORNER);
+          if (mouseX > ((i+1)*width*1/4)-width/10 && mouseX < ((i+1)*width*1/4)+width/10 && mouseY > width/4 && mouseY < width*3/4) {
+            fill(GREY);
+          } else {
+            fill(WHITE);
+          }
+          rect(((i+1)*width*1/4)-width/10, width*1/4, width*4/20, width*10/20);
+        }
       }
     } else if (menuType == "Research") {
       reseMan.displayResearchObjects();
@@ -241,10 +253,12 @@ class menu {
 
         fill(BLACK);
 
-        text('F', (width*11/16)+width/40, (height*5/8)+width*11/200);
-        text('R', (width*11/16)+width*13/120, (height*5/8)+width*11/200);
-        text('P', (width*11/16)+width/40, (height*5/8)+width*83/600);
-        text('M', (width*11/16)+width*13/120, (height*5/8)+width*83/600);
+        imageMode(CENTER);
+        image(pFood, (width*11/16)+width/40, (height*5/8)+width*11/200, width/20, width/20);
+        image(pResearch, (width*11/16)+width*13/120, (height*5/8)+width*11/200, width/20, width/20);
+        image(pEnergy, (width*11/16)+width/40, (height*5/8)+width*83/600, width/20, width/20);
+        image(pMineral, (width*11/16)+width*13/120, (height*5/8)+width*83/600, width/20, width/20);
+        imageMode(CORNER);
       }
 
       //Hover Text
@@ -552,8 +566,9 @@ class menu {
         }
         // Load 
         if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*3/5)-width/15 && mouseY < (height*3/5)+width/15) {
-          gameFileMan.loadSave();
-          state = 1;
+          menuState = 2;
+          //gameFileMan.loadSave();
+          //state = 1;
         }
         // Options
         if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
@@ -567,6 +582,7 @@ class menu {
           exit();
         }
       } else if (menuState == 1) {
+        // Options Menu
         // Back Button
         if (mouseX > ((width*5/100)-width/40) && mouseX < ((width*5/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
           if (turn == 0) {
@@ -576,6 +592,8 @@ class menu {
             state = 1;
           }
         }
+      } else if (menuState == 2) {
+        // Load Menu
       }
     } else if (menuType == "Research") {
       reseMan.selectResearch(reseMan.getResearchChoice());
