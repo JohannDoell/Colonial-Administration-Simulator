@@ -36,10 +36,10 @@ class researchManager {
       return pFood;
     }
     if (i == 1) {
-      return pNil;
+      return pClock;
     }
     if (i == 2) {
-      return pNil;
+      return pHammer;
     }
     if (i == 3) {
       return pMineral;
@@ -66,6 +66,12 @@ class researchManager {
       rectMode(CORNER);
 
       // Display Each Research Icon and Selection Button  
+      fill(BLACK);
+      textSize(width*4/75);
+      textAlign(CENTER, CENTER);
+      image(pResearch, width*80/200, width*126/160, width*13/200, width*13/200);
+      text("+" + researchIncrease, width*1/2, width*13/16);
+      textSize(width*2/75);
 
       for (int i = 0; i<7; i++) {
         fill(WHITE);          
@@ -86,10 +92,12 @@ class researchManager {
         imageMode(CORNER);
         textAlign(CENTER, CENTER);
       }
-      fill(BLACK);
-      textSize(width*4/75);
-      text("Research Value:" + researchIncrease, width*1/2, width*13/16);
-      textAlign(CENTER, CENTER);
+
+      for (int i = 0; i<7; i++) {
+        if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i) {
+          displayResearchInfo(i);
+        }
+      }
     }
   }
 
@@ -99,10 +107,69 @@ class researchManager {
         if (researchTracks[i].progress >= 4) {
           return -1;
         } else {
-         return i; 
+          return i;
         }
       }
     }
     return -1;
+  }
+
+  void displayResearchInfo(int i) {
+    if (i == 0) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*23/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Increases Food Gain", mouseX+width*3/120, mouseY+width/40);
+    }
+    if (i == 1) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*23/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Decreases Build Time", mouseX+width*3/120, mouseY+width/40);
+    }
+    if (i == 2) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*23/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Decreases Build Cost", mouseX+width*3/120, mouseY+width/40);
+    }
+    if (i == 3) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*25/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Increases Mineral Gain", mouseX+width*3/120, mouseY+width/40);
+    }
+    if (i == 4) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*25/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Increases Energy Gain", mouseX+width*3/120, mouseY+width/40);
+    }
+    if (i == 5) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*29/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Decreases Population Cost", mouseX+width*3/120, mouseY+width/40);
+    }
+    if (i == 6) {
+      fill(WHITE);
+      rect(mouseX+width/60, mouseY, width*27/80, width/30);
+      fill(BLACK);
+      textAlign(LEFT);
+      textSize(width*2/75);
+      text("Increases Research Gain", mouseX+width*3/120, mouseY+width/40);
+    }
   }
 }

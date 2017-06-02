@@ -160,9 +160,11 @@ class tiles {
   void buildTile(char buildType) {
     // Build Process called through the menu.
     minerals = minerals - this.getBuildCost(buildType);
-    this.buildTime = (this.getBuildCost(buildType))/10;
-    this.isBuilding = true;
+
+    this.buildTime = int(((this.getBuildCost(buildType))/10) - ((this.getBuildCost(buildType))/10)*researchTracks[1].bonus) ;
+
     this.totalBuildTime = this.buildTime;
+    this.isBuilding = true;
     if (buildType == 'F') {
       tileType = 1;
     }
@@ -190,7 +192,7 @@ class tiles {
           }
         }
       }
-      return noOf * 300;
+      return int(noOf * 300 - noOf * researchTracks[2].bonus);
     }
     // Mines
     if (buildType == 'M') {
@@ -201,7 +203,7 @@ class tiles {
           }
         }
       }
-      return noOf * 100;
+      return int(noOf * 100 - noOf * researchTracks[2].bonus);
     }
     // Power Stations
     if (buildType == 'P') {
@@ -212,7 +214,7 @@ class tiles {
           }
         }
       }
-      return noOf * 500;
+      return int(noOf * 500 - noOf * researchTracks[2].bonus);
     }
     // Research Stations
     if (buildType == 'R') {
@@ -223,7 +225,7 @@ class tiles {
           }
         }
       }
-      return noOf * 500;
+      return int(noOf * 500 - noOf * researchTracks[2].bonus);
     }
     return 0;
   }

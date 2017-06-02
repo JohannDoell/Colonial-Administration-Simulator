@@ -26,7 +26,7 @@ int selectedGridX, selectedGridY;
 // Confirmation gates for construction actions.
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
-PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX;
+PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer;
 // Save Game.
 JSONObject saveGame, baseGame;
 
@@ -64,6 +64,8 @@ void setup() {
   pResearch = loadImage("testtubes.png");
   pNil = loadImage("empty.png");
   pX = loadImage("x.png");
+  pClock = loadImage("clock.png");
+  pHammer = loadImage("hammer.png");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {
@@ -80,8 +82,7 @@ void setup() {
 
 void draw() {
   game.handleGameState();
-  println(researchTracks[4].bonus);
-  println(resoMan.getResearchEnergyIncrease());
+  //println(mouseX, mouseY);
 }
 
 void mouseClicked() {

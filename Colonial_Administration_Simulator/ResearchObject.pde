@@ -43,10 +43,10 @@ class researchObjects {
       researchNameList[3] = "Nanite Construction";
 
       bonusList[0] = 0;
-      bonusList[1] = 0;
-      bonusList[2] = 0;
-      bonusList[3] = 0;
-      bonusList[4] = 0;
+      bonusList[1] = 0.05;
+      bonusList[2] = 0.10;
+      bonusList[3] = 0.20;
+      bonusList[4] = 0.30;
     } else if (researchType == 2) {
       researchTimeList[0] = 100;
       researchTimeList[1] = 100;
@@ -59,10 +59,10 @@ class researchObjects {
       researchNameList[3] = "Nanofibre Construction";
 
       bonusList[0] = 0;
-      bonusList[1] = 0;
-      bonusList[2] = 0;
-      bonusList[3] = 0;
-      bonusList[4] = 0;
+      bonusList[1] = 0.05;
+      bonusList[2] = 0.10;
+      bonusList[3] = 0.20;
+      bonusList[4] = 0.30;
     } else if (researchType == 3) {
       researchTimeList[0] = 20;
       researchTimeList[1] = 30;
