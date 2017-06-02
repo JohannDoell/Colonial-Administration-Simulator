@@ -517,6 +517,18 @@ class menu {
           text("Tax:    " + resoMan.getEnergyTax(), mouseX+width/60, mouseY+width*14/80);
         }
         if (mouseX > width*43/75 && mouseX < width*3/4) {
+          rect(mouseX, mouseY, width/4, width*8/68);
+
+          fill(BLACK);
+          textAlign(LEFT);
+          textSize(width*2/75);
+          image(pFood, mouseX+width*13/100, mouseY+width*1/200, width/40, width/40);
+          text("Current:    " + energy, mouseX+width/60, mouseY+width/40);
+          image(pFood, mouseX+width*15/100, mouseY+width*8/200, width/40, width/40);
+          text("Buildings:    " + resoMan.getBuildingFoodIncrease(), mouseX+width/60, mouseY+width*5/80);
+          image(pFood, mouseX+width*8/100, mouseY+width*16/200, width/40, width/40);
+          text("Tax:    " + resoMan.getFoodTax(), mouseX+width/60, mouseY+width*8/80);
+
         }
         rectMode(CENTER);
       }
