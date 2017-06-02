@@ -88,7 +88,20 @@ class researchManager {
         imageMode(CENTER);
         textAlign(LEFT);
         image(reseMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
-        text(reseMan.getResearchFlavourText(i) + " : " + researchTracks[i].researchTime + " / " + researchTracks[i].totalResearchTime, width*1/5+(width/6)/2, (width*1/12)/2+width*17/120+width*6/64*i);
+        if (researchTracks[i].progress != 4) {
+          text(reseMan.getResearchFlavourText(i) + " : " + researchTracks[i].researchTime + " / " + researchTracks[i].totalResearchTime, width*160/600, (width*1/12)/2+width*17/120+width*6/64*i);
+        } else {
+          text("Finished", width*160/600, (width*1/12)/2+width*17/120+width*6/64*i);
+        }
+
+
+        if (i == 5) {
+          text("-" + researchTracks[i].getBonus(0) + "%⇨-" + researchTracks[i].getBonus(1) + "%", width*440/600, (width*1/12)/2+width*17/120+width*6/64*i);
+        } else {
+          text("+" + researchTracks[i].getBonus(0) + "%⇨+" + researchTracks[i].getBonus(1) + "%", width*440/600, (width*1/12)/2+width*17/120+width*6/64*i);
+        }
+
+
         imageMode(CORNER);
         textAlign(CENTER, CENTER);
       }
@@ -115,61 +128,13 @@ class researchManager {
   }
 
   void displayResearchInfo(int i) {
-    if (i == 0) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*23/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Increases Food Gain", mouseX+width*3/120, mouseY+width/40);
-    }
-    if (i == 1) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*23/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Decreases Build Time", mouseX+width*3/120, mouseY+width/40);
-    }
-    if (i == 2) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*23/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Decreases Build Cost", mouseX+width*3/120, mouseY+width/40);
-    }
-    if (i == 3) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*25/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Increases Mineral Gain", mouseX+width*3/120, mouseY+width/40);
-    }
-    if (i == 4) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*25/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Increases Energy Gain", mouseX+width*3/120, mouseY+width/40);
-    }
-    if (i == 5) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*29/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Decreases Population Cost", mouseX+width*3/120, mouseY+width/40);
-    }
-    if (i == 6) {
-      fill(WHITE);
-      rect(mouseX+width/60, mouseY, width*27/80, width/30);
-      fill(BLACK);
-      textAlign(LEFT);
-      textSize(width*2/75);
-      text("Increases Research Gain", mouseX+width*3/120, mouseY+width/40);
-    }
+    fill(WHITE);
+    int[] rectWidths = {width*23/80, width*23/80, width*23/80, width*25/80, width*25/80, width*29/80, width*27/80};
+    String[] descriptors = {"Increases Food Gain", "Decreases Build Time", "Decreases Build Cost", "Increases Mineral Gain", "Increases Energy Gain", "Decreases Population Cost", "Increases Research Gain"};
+    rect(mouseX+width/60, mouseY, rectWidths[i], width/30);
+    fill(BLACK);
+    textAlign(LEFT);
+    textSize(width*2/75);
+    text(descriptors[i], mouseX+width*3/120, mouseY+width/40);
   }
 }

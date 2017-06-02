@@ -75,11 +75,11 @@ class tiles {
       if (tileLevel == 0) {
         researchValue = 0;
       } else if (tileLevel == 1) {
-        researchValue = 5;
+        researchValue = 1;
       } else if (tileLevel == 2) {
-        researchValue = 10;
+        researchValue = 3;
       } else if (tileLevel == 3) {
-        researchValue = 20;
+        researchValue = 5;
       }
     }
     // Also check for the current status of construction jobs.

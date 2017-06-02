@@ -17,9 +17,9 @@ class researchObjects {
     researchType = _researchType;
     if (researchType == 0) {
       researchTimeList[0] = 50;
-      researchTimeList[1] = 100;
-      researchTimeList[2] = 150;
-      researchTimeList[3] = 200;
+      researchTimeList[1] = 200;
+      researchTimeList[2] = 300;
+      researchTimeList[3] = 400;
 
       researchNameList[0] = "Hydroponics";
       researchNameList[1] = "Cryohydroponics";
@@ -33,9 +33,9 @@ class researchObjects {
       bonusList[4] = 0.25;
     } else if (researchType == 1) {
       researchTimeList[0] = 20;
-      researchTimeList[1] = 50;
-      researchTimeList[2] = 100;
-      researchTimeList[3] = 200;
+      researchTimeList[1] = 100;
+      researchTimeList[2] = 200;
+      researchTimeList[3] = 400;
 
       researchNameList[0] = "Standardized Construction";
       researchNameList[1] = "Automated Construction";
@@ -43,15 +43,15 @@ class researchObjects {
       researchNameList[3] = "Nanite Construction";
 
       bonusList[0] = 0;
-      bonusList[1] = 0.05;
-      bonusList[2] = 0.10;
-      bonusList[3] = 0.20;
-      bonusList[4] = 0.30;
+      bonusList[1] = 0.10;
+      bonusList[2] = 0.30;
+      bonusList[3] = 0.50;
+      bonusList[4] = 0.70;
     } else if (researchType == 2) {
       researchTimeList[0] = 100;
-      researchTimeList[1] = 100;
-      researchTimeList[2] = 150;
-      researchTimeList[3] = 200;
+      researchTimeList[1] = 200;
+      researchTimeList[2] = 300;
+      researchTimeList[3] = 400;
 
       researchNameList[0] = "Durasteel Construction";
       researchNameList[1] = "Plasteel Construction";
@@ -59,15 +59,15 @@ class researchObjects {
       researchNameList[3] = "Nanofibre Construction";
 
       bonusList[0] = 0;
-      bonusList[1] = 0.05;
-      bonusList[2] = 0.10;
-      bonusList[3] = 0.20;
-      bonusList[4] = 0.30;
+      bonusList[1] = 0.10;
+      bonusList[2] = 0.30;
+      bonusList[3] = 0.60;
+      bonusList[4] = 0.70;
     } else if (researchType == 3) {
       researchTimeList[0] = 20;
-      researchTimeList[1] = 30;
-      researchTimeList[2] = 50;
-      researchTimeList[3] = 100;
+      researchTimeList[1] = 60;
+      researchTimeList[2] = 100;
+      researchTimeList[3] = 200;
 
       researchNameList[0] = "Surface Mining";
       researchNameList[1] = "Underground Mining";
@@ -81,9 +81,9 @@ class researchObjects {
       bonusList[4] = 1.50;
     } else if (researchType == 4) {
       researchTimeList[0] = 10;
-      researchTimeList[1] = 50;
-      researchTimeList[2] = 75;
-      researchTimeList[3] = 200;
+      researchTimeList[1] = 100;
+      researchTimeList[2] = 150;
+      researchTimeList[3] = 400;
 
       researchNameList[0] = "Fossil Fuel Power";
       researchNameList[1] = "Sustainable Power";
@@ -97,9 +97,9 @@ class researchObjects {
       bonusList[4] = 1.50;
     } else if (researchType == 5) {
       researchTimeList[0] = 20;
-      researchTimeList[1] = 20;
-      researchTimeList[2] = 50;
-      researchTimeList[3] = 200;
+      researchTimeList[1] = 40;
+      researchTimeList[2] = 100;
+      researchTimeList[3] = 400;
 
       researchNameList[0] = "Breeding Program";
       researchNameList[1] = "Parental Planning";
@@ -113,9 +113,9 @@ class researchObjects {
       bonusList[4] = -50;
     } else if (researchType == 6) {
       researchTimeList[0] = 50;
-      researchTimeList[1] = 100;
-      researchTimeList[2] = 200;
-      researchTimeList[3] = 300;
+      researchTimeList[1] = 200;
+      researchTimeList[2] = 400;
+      researchTimeList[3] = 600;
 
       researchNameList[0] = "Frontier Research";
       researchNameList[1] = "Administrative AI";
@@ -141,28 +141,22 @@ class researchObjects {
     bonus = bonusList[progress];
   }
 
-  int getBonus() {
-    if (progress != 4) {
-      if (researchType == 0) {
-      } else if (researchType == 1) {
-      } else if (researchType == 2) {
-      } else if (researchType == 3) {
-      } else if (researchType == 4) {
-      } else if (researchType == 5) {
-      } else if (researchType == 6) {
-      }
-    } else {
-      if (researchType == 0) {
-        return 25;
-      } else if (researchType == 1) {
-      } else if (researchType == 2) {
-      } else if (researchType == 3) {
-      } else if (researchType == 4) {
-      } else if (researchType == 5) {
-      } else if (researchType == 6) {
-      }
+  int getBonus(int i) {
+    if (progress == 4) {
+     i = 0;
     }
+    
+    if (researchType == 0 || researchType == 1 || researchType == 2) {
+      return int(bonusList[progress+i] * 100);
+    } else if (researchType == 3 || researchType == 4 || researchType == 6) {
+      return int(bonusList[progress+i] * 100)-100;
+    } else if (researchType == 5) {
+      return int(bonusList[progress+i]) * -1;
+    }
+    return -1;
   }
+
+
 
   void research() {
     if (reseMan.selection == this.researchType) {
