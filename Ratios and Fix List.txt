@@ -2,7 +2,9 @@
 550 = width*11/12
 450 = width*3/4
 400 = width*2/3
+344 = width*43/75
 300 = width/2
+240 = width*2/5
 170 = width*17/60
 150 = width/4
 120 = width/5
@@ -36,5 +38,3 @@
 8 = width/75
 5 = width/120
 3 = width/200
-
-Things to Fix
