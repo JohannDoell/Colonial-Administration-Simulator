@@ -202,7 +202,7 @@ class resourceManager {
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
         if (buildingGrid[i][j].tileType == 1) {
-          fm++;
+          fm = fm + buildingGrid[i][j].tileLevel;
         }
       }
     }

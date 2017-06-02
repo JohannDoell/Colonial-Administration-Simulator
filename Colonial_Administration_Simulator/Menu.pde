@@ -483,7 +483,7 @@ class menu {
           text("Need:    " + foodNeededForPop, mouseX+width/60, mouseY+width*5/80);
         }
         if (mouseX > width/5 && mouseX < width*2/5) {
-          rect(mouseX, mouseY, width/4, width*13/68);
+          rect(mouseX, mouseY, width/4, width*15/68);
 
           fill(BLACK);
           textAlign(LEFT);
@@ -498,9 +498,11 @@ class menu {
           text("Research:    " + resoMan.getResearchMineralIncrease(), mouseX+width/60, mouseY+width*11/80);
           image(pMineral, mouseX+width*8/100, mouseY+width*31/200, width/40, width/40);
           text("Tax:    " + resoMan.getMineralTax(), mouseX+width/60, mouseY+width*14/80);
+          image(pMineral, mouseX+width*8/100, mouseY+width*38/200, width/40, width/40);
+          text("Max:    " + resoMan.getMineralMax(), mouseX+width/60, mouseY+width*17/80);
         }
         if (mouseX > width*2/5 && mouseX < width*43/75) {
-          rect(mouseX, mouseY, width/4, width*13/68);
+          rect(mouseX, mouseY, width/4, width*15/68);
 
           fill(BLACK);
           textAlign(LEFT);
@@ -515,19 +517,23 @@ class menu {
           text("Research:    " + resoMan.getResearchEnergyIncrease(), mouseX+width/60, mouseY+width*11/80);
           image(pEnergy, mouseX+width*8/100, mouseY+width*31/200, width/40, width/40);
           text("Tax:    " + resoMan.getEnergyTax(), mouseX+width/60, mouseY+width*14/80);
+          image(pEnergy, mouseX+width*8/100, mouseY+width*38/200, width/40, width/40);
+          text("Max:    " + resoMan.getEnergyMax(), mouseX+width/60, mouseY+width*17/80);
         }
         if (mouseX > width*43/75 && mouseX < width*3/4) {
-          rect(mouseX, mouseY, width/4, width*8/68);
+          rect(mouseX, mouseY, width/4, width*10/68);
 
           fill(BLACK);
           textAlign(LEFT);
           textSize(width*2/75);
           image(pFood, mouseX+width*13/100, mouseY+width*1/200, width/40, width/40);
-          text("Current:    " + energy, mouseX+width/60, mouseY+width/40);
+          text("Current:    " + food, mouseX+width/60, mouseY+width/40);
           image(pFood, mouseX+width*15/100, mouseY+width*8/200, width/40, width/40);
           text("Buildings:    " + resoMan.getBuildingFoodIncrease(), mouseX+width/60, mouseY+width*5/80);
           image(pFood, mouseX+width*8/100, mouseY+width*16/200, width/40, width/40);
           text("Tax:    " + resoMan.getFoodTax(), mouseX+width/60, mouseY+width*8/80);
+          image(pFood, mouseX+width*17/200, mouseY+width*23/200, width/40, width/40);
+          text("Max:    " + resoMan.getFoodMax(), mouseX+width/60, mouseY+width*11/80);
         }
         rectMode(CENTER);
       }
