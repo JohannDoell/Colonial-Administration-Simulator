@@ -141,6 +141,29 @@ class researchObjects {
     bonus = bonusList[progress];
   }
 
+  int getBonus() {
+    if (progress != 4) {
+      if (researchType == 0) {
+      } else if (researchType == 1) {
+      } else if (researchType == 2) {
+      } else if (researchType == 3) {
+      } else if (researchType == 4) {
+      } else if (researchType == 5) {
+      } else if (researchType == 6) {
+      }
+    } else {
+      if (researchType == 0) {
+        return 25;
+      } else if (researchType == 1) {
+      } else if (researchType == 2) {
+      } else if (researchType == 3) {
+      } else if (researchType == 4) {
+      } else if (researchType == 5) {
+      } else if (researchType == 6) {
+      }
+    }
+  }
+
   void research() {
     if (reseMan.selection == this.researchType) {
       if (this.progress != 4) {
