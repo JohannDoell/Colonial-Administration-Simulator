@@ -14,6 +14,7 @@ int foodIncrease, mineralIncrease, energyIncrease, researchIncrease;
 float popResearchBonus, foodResearchBonus, buildTimeResearchBonus, buildCostResearchBonus, mineralResearchBonus, energyResearchBonus;
 int foodTax, mineralTax, energyTax;
 int foodMax, mineralMax, energyMax;
+int foodNeededForPop = 100;
 // Currently unused.
 String nationName, playerName;
 // Standardized colours.
@@ -44,6 +45,7 @@ turnManager turMan = new turnManager();
 researchManager reseMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
 resourceManager resoMan = new resourceManager();
+randomEventManager randMan = new randomEventManager();
 
 void setup() {
   size(600, 600);

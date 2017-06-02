@@ -192,7 +192,7 @@ class tiles {
           }
         }
       }
-      return int(noOf * 300 - noOf * researchTracks[2].bonus);
+      return int(noOf * 300 - noOf * 300 * researchTracks[2].bonus);
     }
     // Mines
     if (buildType == 'M') {
@@ -203,7 +203,7 @@ class tiles {
           }
         }
       }
-      return int(noOf * 100 - noOf * researchTracks[2].bonus);
+      return int(noOf * 100 - noOf * 100 * researchTracks[2].bonus);
     }
     // Power Stations
     if (buildType == 'P') {
@@ -214,7 +214,7 @@ class tiles {
           }
         }
       }
-      return int(noOf * 500 - noOf * researchTracks[2].bonus);
+      return int(noOf * 500 - noOf * 500 * researchTracks[2].bonus);
     }
     // Research Stations
     if (buildType == 'R') {
@@ -225,7 +225,7 @@ class tiles {
           }
         }
       }
-      return int(noOf * 500 - noOf * researchTracks[2].bonus);
+      return int(noOf * 500 - noOf * 500 * researchTracks[2].bonus);
     }
     return 0;
   }

@@ -2,8 +2,8 @@ class gameFileManager {
   gameFileManager() {
   }
 
-  void loadSave() {
-    saveGame = loadJSONObject("saveGame.json");
+  void loadSaveGame(String fileToLoad) {
+    saveGame = loadJSONObject(fileToLoad);
     turn = saveGame.getInt("turn");
     pops = saveGame.getInt("pops");
     food = saveGame.getInt("food");
@@ -23,7 +23,7 @@ class gameFileManager {
         buildingGrid[i][j].tileLevel = saveGame.getInt("buildingGrid[" + i + "][" + j + "].tileLevel");
       }
     }
-    println("File:'SaveGame'Loaded");
+    println("File:'" + fileToLoad + "'Loaded");
   }
 
   void saveSave() {
@@ -51,29 +51,12 @@ class gameFileManager {
     println("Game Saved");
   }
 
-  void loadBaseFile() {    
-    baseGame = loadJSONObject("baseGame.json");
-    turn = baseGame.getInt("turn");
-    pops = baseGame.getInt("pops");
-    food = baseGame.getInt("food");
-    minerals = baseGame.getInt("minerals");
-    energy = baseGame.getInt("energy");
-    research = baseGame.getInt("research");
-    foodIncrease = baseGame.getInt("foodIncrease", foodIncrease);
-    mineralIncrease = baseGame.getInt("mineralIncrease", mineralIncrease);
-    energyIncrease = baseGame.getInt("energyIncrease", energyIncrease);
-    for (int i = 0; i<7; i++ ) {
-     researchTracks[i].progress = baseGame.getInt("researchTracks[" + i + "].progress");
-     researchTracks[i].researchTime = baseGame.getInt("researchTracks[" + i + "].researchTime");
-    }
-    for (int i = 0; i<tilesWide; i++) {
-      for (int j = 0; j<tilesHigh; j++) {
-        buildingGrid[i][j].tileType = baseGame.getInt("buildingGrid[" + i + "][" + j + "].tileType");
-        buildingGrid[i][j].tileLevel = baseGame.getInt("buildingGrid[" + i + "][" + j + "].tileLevel");
-      }
-    }
-    println("File:'baseGame'Loaded");
+  void loadSave() {
+    loadSaveGame("saveGame.json");
+  }
 
+  void loadBaseFile() {    
+    loadSaveGame("baseGame.json");
     reseMan.setupBaseResearch();
   }
 }

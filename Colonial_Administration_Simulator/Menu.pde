@@ -480,7 +480,7 @@ class menu {
           image(pPop, mouseX+width*13/100, mouseY+width/200, width/40, width/40);
           text("Current:    " + pops, mouseX+width/60, mouseY+width/40);
           image(pFood, mouseX+width*10/100, mouseY+width*8/200, width/40, width/40);
-          text("Need:    100", mouseX+width/60, mouseY+width*5/80);
+          text("Need:    " + foodNeededForPop, mouseX+width/60, mouseY+width*5/80);
         }
         if (mouseX > width/5 && mouseX < width*2/5) {
           rect(mouseX, mouseY, width/4, width*13/68);
