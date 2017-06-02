@@ -12,7 +12,9 @@ class resourceManager {
     energy = energy + energyIncrease;
     research = researchIncrease;
 
-    if (food > 100 && foodIncrease > 10) {
+    foodNeededForPop = 100 + int(researchTracks[5].bonus);
+
+    if (food > foodNeededForPop && foodIncrease > 10) {
       pops++;
       food = food - 100;
     } else if (food < 100 && foodIncrease < 10 && pops > 10) {
@@ -202,7 +204,7 @@ class resourceManager {
     }
     fm = fm * 10;
 
-    if (fm < 0) {
+    if (fm < 10) {
       fm = 10;
     }
     return fm;
