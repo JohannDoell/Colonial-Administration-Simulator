@@ -17,6 +17,9 @@ class gameManager {
       if (gmf.displayConstructionMenu == true) {   
         constructionMenu.displayMenu();
       }
+      if (gmf.displayConstructionMenu == false && gmf.displayResearchMenu == false) {
+       objectiveMenu.displayMenu(); 
+      }
       gmf.displayMenu();
       resoMan.updateResourceIncreases();
     } 

@@ -528,10 +528,11 @@ class menu {
           text("Buildings:    " + resoMan.getBuildingFoodIncrease(), mouseX+width/60, mouseY+width*5/80);
           image(pFood, mouseX+width*8/100, mouseY+width*16/200, width/40, width/40);
           text("Tax:    " + resoMan.getFoodTax(), mouseX+width/60, mouseY+width*8/80);
-
         }
         rectMode(CENTER);
       }
+    } else if (menuType == "Objective") {
+    } else if (menuType == "Tutorial") {
     }
   }
 
@@ -696,6 +697,8 @@ class menu {
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
         turMan.advanceTurn();
       }
+    } else if (menuType == "Objective") {
+    } else if (menuType == "Tutorial") {
     }
   }
 
@@ -708,6 +711,8 @@ class menu {
       if (key == ' ') {
         turMan.advanceTurn();
       }
+    } else if (menuType == "Objective") {
+    } else if (menuType == "Tutorial") {
     }
   }
 
