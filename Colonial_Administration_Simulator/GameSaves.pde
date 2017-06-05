@@ -10,6 +10,10 @@ class gameSaves {
     } else if (gameFile == 2) {
       gameToLoad = "saveGame3.json";
     }
+    updateSave();
+  }
+
+  void updateSave() {
     thisSaveGame = loadJSONObject(gameToLoad);
     sTurn = thisSaveGame.getInt("turn");
     sPops = thisSaveGame.getInt("pops");

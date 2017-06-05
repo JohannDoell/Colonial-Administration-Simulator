@@ -116,12 +116,12 @@ class menu {
           text(":" + saveGames[i].sMinerals, (i+1)*width*1/4, width*17/32);
           text(":" + saveGames[i].sEnergy, (i+1)*width*1/4, width*19/32);
           text(":+" + saveGames[i].sResearch, (i+1)*width*1/4, width*21/32);
-          //image(pTurn, ((i+1)*width*1/4)-width*2/32, width*11/32,width/20, width/20);
-          image(pPop, ((i+1)*width*1/4)-width*2/32, width*25/64, width/20, width/20);
-          image(pFood, ((i+1)*width*1/4)-width*2/32, width*29/64, width/20, width/20);
-          image(pMineral, ((i+1)*width*1/4)-width*2/32, width*33/64, width/20, width/20);
-          image(pEnergy, ((i+1)*width*1/4)-width*2/32, width*37/64, width/20, width/20);
-          image(pResearch, ((i+1)*width*1/4)-width*2/32, width*41/64, width/20, width/20);
+          //image(pTurn, ((i+1)*width*1/4)-width*1/16, width*11/32,width/20, width/20);
+          image(pPop, ((i+1)*width*1/4)-width*1/16, width*25/64, width/20, width/20);
+          image(pFood, ((i+1)*width*1/4)-width*1/16, width*29/64, width/20, width/20);
+          image(pMineral, ((i+1)*width*1/4)-width*1/16, width*33/64, width/20, width/20);
+          image(pEnergy, ((i+1)*width*1/4)-width*1/16, width*37/64, width/20, width/20);
+          image(pResearch, ((i+1)*width*1/4)-width*1/16, width*41/64, width/20, width/20);
         }
       }
     } else if (menuType == "Research") {
@@ -583,6 +583,9 @@ class menu {
         // Load 
         if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*3/5)-width/15 && mouseY < (height*3/5)+width/15) {
           menuState = 2;
+          for (int i = 0; i>3;i++) {
+           saveGames[i].updateSave(); 
+          }
           //gameFileMan.loadSave();
           //state = 1;
         }
