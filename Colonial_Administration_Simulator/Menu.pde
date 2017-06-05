@@ -106,6 +106,22 @@ class menu {
             fill(WHITE);
           }
           rect(((i+1)*width*1/4)-width/10, width*1/4, width*4/20, width*10/20);
+          fill(BLACK);
+          textAlign(CENTER, CENTER);
+          text("Save " + str(i+1), (i+1)*width*1/4, width*9/32);
+          textAlign(LEFT, CENTER);
+          text(":" + saveGames[i].sTurn, (i+1)*width*1/4, width*11/32);
+          text(":" + saveGames[i].sPops, (i+1)*width*1/4, width*13/32);
+          text(":" + saveGames[i].sFood, (i+1)*width*1/4, width*15/32);
+          text(":" + saveGames[i].sMinerals, (i+1)*width*1/4, width*17/32);
+          text(":" + saveGames[i].sEnergy, (i+1)*width*1/4, width*19/32);
+          text(":+" + saveGames[i].sResearch, (i+1)*width*1/4, width*21/32);
+          //image(pTurn, ((i+1)*width*1/4)-width*2/32, width*11/32,width/20, width/20);
+          image(pPop, ((i+1)*width*1/4)-width*2/32, width*25/64, width/20, width/20);
+          image(pFood, ((i+1)*width*1/4)-width*2/32, width*29/64, width/20, width/20);
+          image(pMineral, ((i+1)*width*1/4)-width*2/32, width*33/64, width/20, width/20);
+          image(pEnergy, ((i+1)*width*1/4)-width*2/32, width*37/64, width/20, width/20);
+          image(pResearch, ((i+1)*width*1/4)-width*2/32, width*41/64, width/20, width/20);
         }
       }
     } else if (menuType == "Research") {
@@ -594,6 +610,13 @@ class menu {
         }
       } else if (menuState == 2) {
         // Load Menu
+        for (int i = 0; i < 3; i++) {
+          rectMode(CORNER);
+          if (mouseX > ((i+1)*width*1/4)-width/10 && mouseX < ((i+1)*width*1/4)+width/10 && mouseY > width/4 && mouseY < width*3/4) {
+            gameFileMan.loadSave(i+1);
+            state = 1;
+          }
+        }
       }
     } else if (menuType == "Research") {
       reseMan.selectResearch(reseMan.getResearchChoice());
@@ -723,6 +746,11 @@ class menu {
       }
     } else if (menuType == "Objective") {
     } else if (menuType == "Tutorial") {
+      for (int i = 0; i < 3; i++) {
+        if (mouseX > ((i+1)*width*1/4)-width/10 && mouseX < ((i+1)*width*1/4)+width/10 && mouseY > width/4 && mouseY < width*3/4) {
+          fill(GREY);
+        }
+      }
     }
   }
 

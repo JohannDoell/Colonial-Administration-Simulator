@@ -35,6 +35,7 @@ JSONObject saveGame, baseGame;
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
 // Research Track
 researchObjects[] researchTracks = new researchObjects[7];
+gameSaves[] saveGames = new gameSaves[3];
 
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
@@ -79,6 +80,10 @@ void setup() {
 
   for (int i=0; i<7; i++) {
     researchTracks[i] = new researchObjects(i);
+  }
+  
+    for (int i=0; i<3; i++) {
+    saveGames[i] = new gameSaves(i);
   }
 
   saveGame = new JSONObject();
