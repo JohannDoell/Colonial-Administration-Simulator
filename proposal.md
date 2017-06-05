@@ -8,6 +8,7 @@ This project is based off the 4X grand strategy game called "Stellaris". Stellar
 - [x] Each building must contribute to ingame resource pools.
 - [x] Research System
 - [x] Research helps gain resources and construct buildings.
+- [ ] Tutorial system
 - [ ] Code Clean Up (After Everything Else)
 
 ## Wants
@@ -15,6 +16,6 @@ This project is based off the 4X grand strategy game called "Stellaris". Stellar
 - [ ] Other systems from Stellaris
 	- Politics?
 	- Colonize planets?
-- [ ] Tutorial system
 - [ ] General polish
 - [x] Save and load to file.
+- [ ] Save and load multiple files.
