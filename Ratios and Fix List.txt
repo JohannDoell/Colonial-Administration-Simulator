@@ -1,10 +1,13 @@
 600 = width
 550 = width*11/12
+482 = width*241/300
 450 = width*3/4
 400 = width*2/3
+382 = width*191/300
 344 = width*43/75
 300 = width/2
 240 = width*2/5
+200 = width/3
 170 = width*17/60
 150 = width/4
 120 = width/5
