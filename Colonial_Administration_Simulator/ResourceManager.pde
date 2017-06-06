@@ -224,6 +224,7 @@ class resourceManager {
         ri += buildingGrid[i][j].researchValue;
       }
     }
+    ri = int(ri + ri * researchTracks[6].bonus);
     return ri;
   }
 

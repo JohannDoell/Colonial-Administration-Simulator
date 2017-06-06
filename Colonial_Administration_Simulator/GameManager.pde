@@ -18,7 +18,7 @@ class gameManager {
         constructionMenu.displayMenu();
       }
       if (gmf.displayConstructionMenu == false && gmf.displayResearchMenu == false) {
-       objectiveMenu.displayMenu(); 
+        objectiveMenu.displayMenu();
       }
       gmf.displayMenu();
       resoMan.updateResourceIncreases();
@@ -36,6 +36,12 @@ class gameManager {
       gmf.menuClick();
       constructionMenu.menuClick();
       researchMenu.menuClick();
+    }
+  }
+
+  void handleMouseDrag() {
+    if (state == 0) {
+    } else if (state == 1) {
     }
   }
 

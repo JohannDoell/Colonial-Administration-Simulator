@@ -122,11 +122,11 @@ class researchObjects {
       researchNameList[2] = "Cybernetic Researchers";
       researchNameList[3] = "Automated Research";
 
-      bonusList[0] = 1.00;
-      bonusList[1] = 1.10;
-      bonusList[2] = 1.20;
-      bonusList[3] = 1.30;
-      bonusList[4] = 1.50;
+      bonusList[0] = 0.00;
+      bonusList[1] = 0.10;
+      bonusList[2] = 0.20;
+      bonusList[3] = 0.30;
+      bonusList[4] = 0.50;
     }
     researchTimeList[4] = 9999999;
     researchNameList[4] = "Finished";
@@ -146,9 +146,9 @@ class researchObjects {
      i = 0;
     }
     
-    if (researchType == 0 || researchType == 1 || researchType == 2) {
+    if (researchType == 0 || researchType == 1 || researchType == 2 || researchType == 6) {
       return int(bonusList[progress+i] * 100);
-    } else if (researchType == 3 || researchType == 4 || researchType == 6) {
+    } else if (researchType == 3 || researchType == 4) {
       return int(bonusList[progress+i] * 100)-100;
     } else if (researchType == 5) {
       return int(bonusList[progress+i]) * -1;

@@ -81,8 +81,8 @@ void setup() {
   for (int i=0; i<7; i++) {
     researchTracks[i] = new researchObjects(i);
   }
-  
-    for (int i=0; i<3; i++) {
+
+  for (int i=0; i<3; i++) {
     saveGames[i] = new gameSaves(i);
   }
 
@@ -91,11 +91,15 @@ void setup() {
 
 void draw() {
   game.handleGameState();
-  //println(mouseX, mouseY);
+  println(mouseX, mouseY);
 }
 
 void mouseClicked() {
   game.handleMouseClick();
+}
+
+void mouseDragged() {
+  game.handleMouseDrag();
 }
 
 void keyPressed() {

@@ -117,6 +117,7 @@ class menu {
       }
       // Display Selected Tile
       fill(WHITE);
+      rectMode(CENTER);
       rect(width*1/4, (height*11/16)+width/30, width/6, width/6);
       fill(BLACK);
       textSize(width/15);
@@ -135,6 +136,15 @@ class menu {
         text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (width*1/4), (height*11/16)-width/30);
       }
       textSize(width/30);
+
+      rectMode(CORNER);
+      fill(WHITE);
+      if (mouseX > width/6 && mouseX < width*1/3 && mouseY > width*191/300 && mouseY < width*241/300) {
+        for (int i = 0; i < 4; i++) {
+          rect(width/12, width*191/300+(width/24*i), width/12, width/24);
+        }
+      }      
+      rectMode(CENTER);
 
       // Construction Options
       // Build
