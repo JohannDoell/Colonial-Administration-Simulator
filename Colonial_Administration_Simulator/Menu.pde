@@ -136,12 +136,13 @@ class menu {
         text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].buildTime, (width*1/4), (height*11/16)-width/30);
       }
       textSize(width/30);
-
       rectMode(CORNER);
-      fill(WHITE);
       if (mouseX > width/6 && mouseX < width*1/3 && mouseY > width*191/300 && mouseY < width*241/300) {
         for (int i = 0; i < 4; i++) {
-          rect(width/12, width*191/300+(width/24*i), width/12, width/24);
+          fill(WHITE);
+          rect(width*8/120, width*191/300+(width/24*i), width*12/120, width/24);
+          fill(BLACK);
+          text("  :", width*12/120, width*195/300+(width/24*i));
         }
       }      
       rectMode(CENTER);

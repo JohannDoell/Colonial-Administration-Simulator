@@ -27,7 +27,7 @@ int selectedGridX, selectedGridY;
 // Confirmation gates for construction actions.
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
-PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer;
+PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer, pLevel;
 // Save Game.
 JSONObject saveGame, baseGame;
 
@@ -71,6 +71,7 @@ void setup() {
   pX = loadImage("x.png");
   pClock = loadImage("clock.png");
   pHammer = loadImage("hammer.png");
+  pLevel = loadImage("arrow.png");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {

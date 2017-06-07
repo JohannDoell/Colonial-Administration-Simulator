@@ -88,7 +88,7 @@ class gameFileManager {
       text(":" + saveGames[i].sMinerals, (i+1)*width*1/4, width*17/32);
       text(":" + saveGames[i].sEnergy, (i+1)*width*1/4, width*19/32);
       text(":+" + saveGames[i].sResearch, (i+1)*width*1/4, width*21/32);
-      //image(pTurn, ((i+1)*width*1/4)-width*1/16, width*11/32,width/20, width/20);
+      image(pClock, ((i+1)*width*1/4)-width*1/16, width*21/64,width/20, width/20);
       image(pPop, ((i+1)*width*1/4)-width*1/16, width*25/64, width/20, width/20);
       image(pFood, ((i+1)*width*1/4)-width*1/16, width*29/64, width/20, width/20);
       image(pMineral, ((i+1)*width*1/4)-width*1/16, width*33/64, width/20, width/20);
