@@ -557,8 +557,6 @@ class menu {
         }
         rectMode(CENTER);
       }
-    } else if (menuType == "Objective") {
-    } else if (menuType == "Tutorial") {
     }
   }
 
@@ -750,13 +748,6 @@ class menu {
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
         turMan.advanceTurn();
       }
-    } else if (menuType == "Objective") {
-    } else if (menuType == "Tutorial") {
-      for (int i = 0; i < 3; i++) {
-        if (mouseX > ((i+1)*width*1/4)-width/10 && mouseX < ((i+1)*width*1/4)+width/10 && mouseY > width/4 && mouseY < width*3/4) {
-          fill(GREY);
-        }
-      }
     }
   }
 
@@ -769,8 +760,6 @@ class menu {
       if (key == ' ') {
         turMan.advanceTurn();
       }
-    } else if (menuType == "Objective") {
-    } else if (menuType == "Tutorial") {
     }
   }
 
