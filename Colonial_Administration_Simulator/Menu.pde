@@ -583,8 +583,6 @@ class menu {
         if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
           menuState = 1;
         }
-
-
         // Exit
         rectMode(CENTER);
         if (mouseX > ((width*95/100)-15) && mouseX < ((width*95/100)+15) && mouseY > (height*5/100)-15 && mouseY < (height*5/100)+15) {
