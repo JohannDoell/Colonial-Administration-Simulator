@@ -4,6 +4,7 @@ class menu {
   boolean displayInGameMenu = false;
   boolean displayResearchMenu = false;
   boolean displayConstructionMenu = false;
+  boolean displayExplorationMenu = false;
   char desiredBuilding = 'N';
 
   menu(String _menuType) {
@@ -449,30 +450,37 @@ class menu {
       line(0, height*14/16, width, height*14/16);
 
       // Research
-      rectMode(CENTER);
-      if (mouseX > 0 && mouseX < 300 && mouseY > height*14/16 && mouseY < height || gmf.displayResearchMenu == true) {
+      rectMode(CORNER);
+      if (mouseX > 0 && mouseX < width/3 && mouseY > height*14/16 && mouseY < height || gmf.displayResearchMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(width*1/4, height*15/16, width/2, width/8);
-      rectMode(CENTER);
+      rect(0, height*14/16, width*1/3, width/8);
+
+      // Exploration
+      if (mouseX > width/3 && mouseX < width*2/3 && mouseY > height*14/16 && mouseY < height || gmf.displayExplorationMenu == true) {
+        fill(BLACK);
+      } else {
+        fill(GREY);
+      }
+      rect(width*1/3, height*14/16, width*1/3, width/8);
 
       // Construction
-      rectMode(CENTER);
-      if (mouseX > width/2 && mouseX < width && mouseY > height*14/16 && mouseY < height || gmf.displayConstructionMenu == true) {
+      if (mouseX > width*2/3 && mouseX < width && mouseY > height*14/16 && mouseY < height || gmf.displayConstructionMenu == true) {
         fill(BLACK);
       } else {
         fill(GREY);
       }
-      rect(width*3/4, height*15/16, width/2, width/8);
-      rectMode(CENTER);
+      rect(width*2/3, height*14/16, width*1/3, width/8);
 
       fill(WHITE);
-      textSize(width*4/75);
-      text("Research", width/4, height*15/16);
-      text("Construction", width*3/4, height*15/16);
+      textSize(width*3/75);
+      text("Research", width*13/80, height*15/16);
+      text("Exploration", width*40/80, height*15/16);
+      text("Construction", width*67/80, height*15/16);
 
+      rectMode(CENTER);
       // Next Turn
       rectMode(CENTER);
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
@@ -557,6 +565,8 @@ class menu {
         }
         rectMode(CENTER);
       }
+    } else if (menuType == "Exploration") {
+      
     }
   }
 
@@ -731,25 +741,37 @@ class menu {
           titleMenu.menuState = 1;
           displayInGameMenu = false;
         }
-        //Research
       }
-      if (mouseX > 0 && mouseX < width/2 && mouseY > height*14/16 && mouseY < height ) {
+      // Tabs
+      // Research
+      if (mouseX > 0 && mouseX < width/3 && mouseY > height*14/16 && mouseY < height) {
         gmf.displayResearchMenu = !gmf.displayResearchMenu;
         gmf.displayConstructionMenu = false;
+        gmf.displayExplorationMenu = false;
         resetGates();
       } 
+      // Exploration
+      if (mouseX > width/3 && mouseX < width*2/3 && mouseY > height*14/16 && mouseY < height) {
+        gmf.displayExplorationMenu = !gmf.displayExplorationMenu;
+        gmf.displayResearchMenu = false;
+        gmf.displayConstructionMenu = false;
+      }
       // Construction
-      if (mouseX > width/2 && mouseX < width && mouseY > height*14/16 && mouseY < height ) {
+      if (mouseX > width*2/3 && mouseX < width && mouseY > height*14/16 && mouseY < height) {
         gmf.displayConstructionMenu = !gmf.displayConstructionMenu;
         gmf.displayResearchMenu = false;
+        gmf.displayExplorationMenu = false;
         resetGates();
       }
+
       // Advance Turn
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
         turMan.advanceTurn();
       }
     }
   }
+
+
 
   void menuPress() {
     if (menuType == "Title") {

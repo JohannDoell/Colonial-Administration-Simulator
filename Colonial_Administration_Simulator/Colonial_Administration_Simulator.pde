@@ -40,6 +40,7 @@ gameSaves[] saveGames = new gameSaves[3];
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
 menu constructionMenu = new menu("Construction");
+menu explorationMenu = new menu("Exploration");
 menu gmf = new menu("Game Menu Frame");
 gameManager game = new gameManager();
 turnManager turMan = new turnManager();
