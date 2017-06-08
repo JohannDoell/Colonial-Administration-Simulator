@@ -566,7 +566,9 @@ class menu {
         rectMode(CENTER);
       }
     } else if (menuType == "Exploration") {
-      
+      rectMode(CORNER);
+      fill(WHITE);
+      rect(width/12, width/6, 500, 200);
     }
   }
 
@@ -768,6 +770,7 @@ class menu {
       if (mouseX > width*54/64-(width*3/16)/2 && mouseX < width*54/64+(width*3/16)/2 && mouseY > height*1/32-height*1/16 && mouseY < height*1/32+height*1/16-width/60) {
         turMan.advanceTurn();
       }
+    } else if (menuType == "Exploration") {
     }
   }
 
@@ -782,6 +785,7 @@ class menu {
       if (key == ' ') {
         turMan.advanceTurn();
       }
+    } else if (menuType == "Exploration") {
     }
   }
 
