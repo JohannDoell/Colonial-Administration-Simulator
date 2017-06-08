@@ -569,6 +569,9 @@ class menu {
       rectMode(CORNER);
       fill(WHITE);
       rect(width/12, width/6, 500, 200);
+      ellipseMode(CENTER);
+      fill(LIGHTGREY);
+      ellipse(100, width*2/6, 50, 50);
     }
   }
 
