@@ -568,10 +568,55 @@ class menu {
     } else if (menuType == "Exploration") {
       rectMode(CORNER);
       fill(WHITE);
-      rect(width/12, width/6, 500, 200);
-      ellipseMode(CENTER);
-      fill(LIGHTGREY);
-      ellipse(100, width*2/6, 50, 50);
+      rect(width/12, width/6, width*5/6, width/3);
+      fill(WHITE);
+      rect(width/12, width*3/6, width*5/6, width/4);
+      if (relics > 0) {
+        for (int i = 0; i < 5; i++) {
+          ellipseMode(CORNER); 
+          ellipse(width*3/20+(width/6*i), width*325/600 + width/4, width/24, width/24);
+        }
+      }
+      for (int i = 0; i < 3; i++) {
+        if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12 || selectedShip == i) {
+          fill(GREY);
+        } else {
+          fill(WHITE);
+        }
+        rect(width/12, width*1/2+(width/12*i), width/6, width/12);
+        fill(BLACK);
+        textSize(28);
+        textAlign(CENTER, CENTER);
+        // Delta, Lambda, Psi
+        char[] charsToDisplay = {'Δ', 'λ', 'Ψ'};
+        text(charsToDisplay[i], width/6, width*43/80+(width/12*i));
+      }
+
+      if (ships[selectedShip].isConstructed == true) {
+        // Display Info
+      } else {
+        // Display Requisition Info
+        if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
+          if (buildGate == true) {
+            fill(DARKGREEN);
+          } else {
+            fill(GREY);
+          }
+        } else {
+          if (buildGate == true) {
+            fill(GREEN);
+          } else {
+            fill(WHITE);
+          }
+        }
+        textAlign(LEFT, CENTER);
+        rect(width/3, width*7/12, width*7/15, width/12);
+        fill(BLACK);
+        text("REQUSITION:   " + ships[selectedShip].reqPrice, 210, 375);
+        imageMode(CENTER);
+        image(pMineral, 400, 380, 20, 20);
+        imageMode(CORNER);
+      }
     }
   }
 
@@ -760,6 +805,7 @@ class menu {
         gmf.displayExplorationMenu = !gmf.displayExplorationMenu;
         gmf.displayResearchMenu = false;
         gmf.displayConstructionMenu = false;
+        resetGates();
       }
       // Construction
       if (mouseX > width*2/3 && mouseX < width && mouseY > height*14/16 && mouseY < height) {
@@ -774,6 +820,19 @@ class menu {
         turMan.advanceTurn();
       }
     } else if (menuType == "Exploration") {
+      for (int i = 0; i < 3; i++) {
+        if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12) {
+          selectedShip = i;
+        }
+      }
+      if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
+        if (buildGate == false) {
+          buildGate = true;
+        } else {
+          // Build a ship fam.
+          // Or like, check if you can.
+        }
+      }
     }
   }
 
@@ -805,5 +864,6 @@ class menu {
     demolishGate = false;
     buildGate = false;
     upgradeGate = false;
+    constructionMenu.desiredBuilding = 'N';
   }
 }

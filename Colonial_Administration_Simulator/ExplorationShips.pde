@@ -3,12 +3,19 @@ class explorationShips {
   int experience, shipLevel;
   int health, maxHealth;
   int percentChance;
+  int reqPrice;
   int[] requiredXPArray = {100, 300, 500, 750, 1000};
-  String[] shipNames = {"ISS Majestic","HIRMS Sputnik III","USS Enterprise"};
+  String[] shipNames = {"ISS Majestic", "HIRMS Sputnik III", "USS Enterprise"};
   explorationShips (int i) {
     isConstructed = false;
-    
-    
+    isHome = true;
+    if (i == 0) {
+      reqPrice = 100;
+    } else if (i == 1) {
+      reqPrice = 300;
+    } else if (i == 2) {
+      reqPrice = 500;
+    }
   }
 
   void shipUpdate() {

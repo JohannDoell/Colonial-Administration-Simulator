@@ -9,7 +9,7 @@
 
 int state, turn;
 // Resource related variables
-int pops, food, minerals, energy, research;
+int pops, food, minerals, energy, research, relics;
 int foodIncrease, mineralIncrease, energyIncrease, researchIncrease;
 float popResearchBonus, foodResearchBonus, buildTimeResearchBonus, buildCostResearchBonus, mineralResearchBonus, energyResearchBonus;
 int foodTax, mineralTax, energyTax;
@@ -24,6 +24,8 @@ int tilesWide = 7;
 int tilesHigh = 4;
 // Grid selection variables.
 int selectedGridX, selectedGridY;
+// Exploration selection variable.
+int selectedShip;
 // Confirmation gates for construction actions.
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
@@ -33,9 +35,12 @@ JSONObject saveGame, baseGame;
 
 // Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
-// Research Track
+
 researchObjects[] researchTracks = new researchObjects[7];
 gameSaves[] saveGames = new gameSaves[3];
+
+// Ships
+explorationShips[] ships = new explorationShips[3];
 
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
@@ -77,13 +82,14 @@ void setup() {
       buildingGrid[i][j] = new tiles(i, j);
     }
   }
-
   for (int i=0; i<7; i++) {
     researchTracks[i] = new researchObjects(i);
   }
-
   for (int i=0; i<3; i++) {
     saveGames[i] = new gameSaves(i);
+  }
+  for (int i=0; i<3; i++) {
+    ships[i] = new explorationShips(i);
   }
 
   saveGame = new JSONObject();

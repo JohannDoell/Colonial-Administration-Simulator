@@ -34,8 +34,13 @@ class gameManager {
       titleMenu.menuClick();
     } else if (state == 1) {
       gmf.menuClick();
-      constructionMenu.menuClick();
-      researchMenu.menuClick();
+      if (gmf.displayConstructionMenu == true) {
+        constructionMenu.menuClick();
+      } else if (gmf.displayResearchMenu == true) {
+        researchMenu.menuClick();
+      } else if (gmf.displayExplorationMenu == true) {
+        explorationMenu.menuClick();
+      }
     }
   }
 
