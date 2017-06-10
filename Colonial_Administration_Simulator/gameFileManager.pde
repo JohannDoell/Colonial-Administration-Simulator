@@ -19,6 +19,8 @@ class gameFileManager {
     }
     for (int i = 0; i<3; i++) {
       ships[i].isBought = saveGame.getBoolean("ships["+i+"].isBought");
+      ships[i].shipLevel = saveGame.getInt("ships["+i+"].shipLevel");
+      ships[i].experience = saveGame.getInt("ships["+i+"].experience");
     }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
@@ -46,6 +48,8 @@ class gameFileManager {
     }
     for (int i = 0; i<3; i++) {
       saveGame.setBoolean("ships["+i+"].isBought", ships[i].isBought);
+      saveGame.setInt("ships["+i+"].shipLevel", ships[i].shipLevel);
+      saveGame.setInt("ships["+i+"].experience", ships[i].experience);
     }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
