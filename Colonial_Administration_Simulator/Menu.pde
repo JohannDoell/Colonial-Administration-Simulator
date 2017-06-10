@@ -387,6 +387,20 @@ class menu {
       text(food + "+" + foodIncrease, width*34/48, height*4/128);
       fill(BLACK);
 
+      // Tips Screen
+      if (gmf.displayConstructionMenu == false && gmf.displayExplorationMenu == false && gmf.displayResearchMenu == false) {
+        textAlign(LEFT, CENTER);
+        text("Tips and Tricks", width/20, width/8);
+        text("- Random Events occur every 50 turns.", width/20, width/6);
+        text("- Population requires food to grow.", width/20, 125);
+        text("- Colonists are a very powerful resource.", width/20, width/4);
+        text("- Research requires Research, Construction requires Materials,", width/20, 175);
+        text("and Exploration requires Energy", width/20, width/3);
+        text("- Buildings have Material and Energy upkeep costs.", width/20, 225);
+        text("- Level Three buildings require two Energy.", width/20, 250);
+        text("- Exploration is the key to victory.", width/20, 275);
+      }
+
       // InGame Option Menu
       rectMode(CENTER);
       stroke(BLACK); 
@@ -585,7 +599,7 @@ class menu {
         }
         rect(width/12, width*1/2+(width/12*i), width/6, width/12);
         fill(BLACK);
-        textSize(28);
+        textSize(width*7/150);
         textAlign(CENTER, CENTER);
         // Delta, Lambda, Psi
         char[] charsToDisplay = {'Δ', 'λ', 'Ψ'};
@@ -593,7 +607,7 @@ class menu {
       }
 
       if (ships[selectedShip].isBought == true) {
-        // Display Info
+        ships[selectedShip].displayShipInfo();
       } else {
         // Display Requisition Info
         if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {

@@ -53,6 +53,10 @@ class resourceManager {
     for (int i=0; i<7; i++) {
       researchTracks[i].setResearchMenuVariables();
     }
+    for (int i=0; i<3; i++) {
+     ships[i].shipUpdate(); 
+    }
+    
   }
 
   void updateFoodIncreases() {

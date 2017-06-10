@@ -26,7 +26,7 @@ int tilesHigh = 4;
 int selectedGridX, selectedGridY;
 // Exploration selection variable.
 int selectedShip;
-// Confirmation gates for construction actions.
+// Confirmation gates for construction actions.s
 boolean demolishGate, buildGate, upgradeGate;
 // Resource images.
 PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer, pLevel;
@@ -97,6 +97,7 @@ void setup() {
   }
 
   saveGame = new JSONObject();
+  selectedShip = 0;
 }
 
 void draw() {
@@ -114,4 +115,7 @@ void mouseDragged() {
 
 void keyPressed() {
   game.handleKeyPress();
+  if (key == 'y') {
+   ships[selectedShip].experience++; 
+  }
 }
