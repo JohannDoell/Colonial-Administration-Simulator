@@ -1,0 +1,2 @@
+- Finish Exploration System
+- Implement Random Event System
