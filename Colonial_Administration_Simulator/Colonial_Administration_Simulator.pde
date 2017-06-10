@@ -38,6 +38,7 @@ tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
 
 researchObjects[] researchTracks = new researchObjects[7];
 gameSaves[] saveGames = new gameSaves[3];
+explorationMissions[] missions = new explorationMissions[5];
 
 // Ships
 explorationShips[] ships = new explorationShips[3];
@@ -66,30 +67,33 @@ void setup() {
   DARKGREEN = color(#178E1F);
   RED = color(#CE1717);
 
-  pPop = loadImage("pop.png");
-  pFood = loadImage("apple.png");
-  pMineral = loadImage("cog.png");
-  pEnergy = loadImage("lightning.png");
-  pResearch = loadImage("testtubes.png");
-  pNil = loadImage("empty.png");
-  pX = loadImage("x.png");
-  pClock = loadImage("clock.png");
-  pHammer = loadImage("hammer.png");
-  pLevel = loadImage("arrow.png");
+  pPop = loadImage("Images/pop.png");
+  pFood = loadImage("Images/apple.png");
+  pMineral = loadImage("Images/cog.png");
+  pEnergy = loadImage("Images/lightning.png");
+  pResearch = loadImage("Images/testtubes.png");
+  pNil = loadImage("Images/empty.png");
+  pX = loadImage("Images/x.png");
+  pClock = loadImage("Images/clock.png");
+  pHammer = loadImage("Images/hammer.png");
+  pLevel = loadImage("Images/arrow.png");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {
       buildingGrid[i][j] = new tiles(i, j);
     }
   }
-  for (int i=0; i<7; i++) {
+  for (int i=0; i<researchTracks.length; i++) {
     researchTracks[i] = new researchObjects(i);
   }
   for (int i=0; i<3; i++) {
     saveGames[i] = new gameSaves(i);
   }
-  for (int i=0; i<3; i++) {
+  for (int i=0; i<ships.length; i++) {
     ships[i] = new explorationShips(i);
+  }
+  for (int i=0; i<missions.length; i++) {
+    missions[i] = new explorationMissions();
   }
 
   saveGame = new JSONObject();

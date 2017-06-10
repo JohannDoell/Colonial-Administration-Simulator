@@ -592,13 +592,17 @@ class menu {
         text(charsToDisplay[i], width/6, width*43/80+(width/12*i));
       }
 
-      if (ships[selectedShip].isConstructed == true) {
+      if (ships[selectedShip].isBought == true) {
         // Display Info
       } else {
         // Display Requisition Info
         if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
           if (buildGate == true) {
-            fill(DARKGREEN);
+            if (ships[selectedShip].canBuyShip() == true) {
+              fill(DARKGREEN);
+            } else {
+              fill(RED);
+            }
           } else {
             fill(GREY);
           }
@@ -612,9 +616,9 @@ class menu {
         textAlign(LEFT, CENTER);
         rect(width/3, width*7/12, width*7/15, width/12);
         fill(BLACK);
-        text("REQUSITION:   " + ships[selectedShip].reqPrice, 210, 375);
+        text("REQUISITION:   " + ships[selectedShip].reqPrice, width*7/20, width*5/8);
         imageMode(CENTER);
-        image(pMineral, 400, 380, 20, 20);
+        image(pEnergy, width*27/40, width*19/30, width/30, width/30);
         imageMode(CORNER);
       }
     }
@@ -825,12 +829,16 @@ class menu {
           selectedShip = i;
         }
       }
-      if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
-        if (buildGate == false) {
-          buildGate = true;
-        } else {
-          // Build a ship fam.
-          // Or like, check if you can.
+      if (ships[selectedShip].isBought == false) {
+        if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
+          if (buildGate == false) {
+            buildGate = true;
+          } else {
+            if (ships[selectedShip].canBuyShip() == true) {
+              ships[selectedShip].buyShip();
+              resetGates();
+            }
+          }
         }
       }
     }

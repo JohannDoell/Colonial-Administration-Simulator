@@ -1,5 +1,6 @@
 {
   "minerals": 100,
+  "ships[1].isBought": false,
   "buildingGrid[0][3].tileType": 3,
   "buildingGrid[2][0].tileLevel": 0,
   "researchTracks[6].progress": 0,
@@ -25,6 +26,7 @@
   "buildingGrid[5][1].tileLevel": 0,
   "buildingGrid[1][0].tileLevel": 0,
   "buildingGrid[4][3].tileLevel": 0,
+  "ships[2].isBought": false,
   "researchTracks[0].progress": 0,
   "buildingGrid[0][2].tileLevel": 0,
   "buildingGrid[1][0].tileType": 0,
@@ -77,5 +79,6 @@
   "buildingGrid[3][2].tileType": 0,
   "buildingGrid[2][3].tileLevel": 0,
   "buildingGrid[4][0].tileLevel": 0,
+  "ships[0].isBought": false,
   "buildingGrid[6][2].tileType": 0
 }

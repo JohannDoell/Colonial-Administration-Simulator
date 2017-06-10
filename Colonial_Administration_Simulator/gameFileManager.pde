@@ -17,6 +17,9 @@ class gameFileManager {
       researchTracks[i].progress = saveGame.getInt("researchTracks[" + i + "].progress");
       researchTracks[i].researchTime = saveGame.getInt("researchTracks[" + i + "].researchTime");
     }
+    for (int i = 0; i<3; i++) {
+      ships[i].isBought = saveGame.getBoolean("ships["+i+"].isBought");
+    }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
         buildingGrid[i][j].tileType = saveGame.getInt("buildingGrid[" + i + "][" + j + "].tileType");
@@ -37,9 +40,12 @@ class gameFileManager {
     saveGame.setInt("foodIncrease", foodIncrease);
     saveGame.setInt("mineralIncrease", mineralIncrease);
     saveGame.setInt("energyIncrease", energyIncrease);
-    for (int i = 0; i<7; i++ ) {
+    for (int i = 0; i<7; i++) {
       saveGame.setInt("researchTracks[" + i + "].progress", researchTracks[i].progress);
       saveGame.setInt("researchTracks[" + i + "].researchTime", researchTracks[i].researchTime);
+    }
+    for (int i = 0; i<3; i++) {
+      saveGame.setBoolean("ships["+i+"].isBought", ships[i].isBought);
     }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
@@ -88,7 +94,7 @@ class gameFileManager {
       text(":" + saveGames[i].sMinerals, (i+1)*width*1/4, width*17/32);
       text(":" + saveGames[i].sEnergy, (i+1)*width*1/4, width*19/32);
       text(":+" + saveGames[i].sResearch, (i+1)*width*1/4, width*21/32);
-      image(pClock, ((i+1)*width*1/4)-width*1/16, width*21/64,width/20, width/20);
+      image(pClock, ((i+1)*width*1/4)-width*1/16, width*21/64, width/20, width/20);
       image(pPop, ((i+1)*width*1/4)-width*1/16, width*25/64, width/20, width/20);
       image(pFood, ((i+1)*width*1/4)-width*1/16, width*29/64, width/20, width/20);
       image(pMineral, ((i+1)*width*1/4)-width*1/16, width*33/64, width/20, width/20);

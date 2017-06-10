@@ -1,16 +1,16 @@
 class explorationShips {
-  boolean isConstructed, isHome;
+  boolean isBought, isHome;
   int experience, shipLevel;
   int health, maxHealth;
   int percentChance;
   int reqPrice;
   int[] requiredXPArray = {100, 300, 500, 750, 1000};
-  String[] shipNames = {"ISS Majestic", "HIRMS Sputnik III", "USS Enterprise"};
+  String[] shipNames = {"JDS Yamato", "HIRMS Sputnik III", "USS Enterprise"};
   explorationShips (int i) {
-    isConstructed = false;
+    isBought = false;
     isHome = true;
     if (i == 0) {
-      reqPrice = 100;
+      reqPrice = 125;
     } else if (i == 1) {
       reqPrice = 300;
     } else if (i == 2) {
@@ -47,6 +47,19 @@ class explorationShips {
   }
 
   void skillLevelUpdate() {
+  }
+
+  boolean canBuyShip() {
+    if (energy >= reqPrice) {
+     return true; 
+    } else {
+     return false; 
+    }
+  }
+
+  void buyShip() {
+    energy = energy - reqPrice;
+    isBought = true;
   }
 
   void resetValues() {

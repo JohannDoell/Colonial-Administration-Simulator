@@ -94,6 +94,10 @@ class tiles {
       isBuilding = false;
       this.totalBuildTime = 0;
     }
+    // Insurance Clause
+    if (this.tileLevel > 3) {
+     tileLevel = 3; 
+    }
   }
 
   void resetValues() {
