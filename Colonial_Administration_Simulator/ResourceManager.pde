@@ -54,9 +54,8 @@ class resourceManager {
       researchTracks[i].setResearchMenuVariables();
     }
     for (int i=0; i<3; i++) {
-     ships[i].shipUpdate(); 
+      ships[i].shipUpdate();
     }
-    
   }
 
   void updateFoodIncreases() {
@@ -122,12 +121,7 @@ class resourceManager {
     int et = 0;
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType != 0 && buildingGrid[i][j].tileType != 3) {
-          et++;
-        }
-        if (buildingGrid[i][j].tileLevel == 3) {
-          et++;
-        }
+        et += buildingGrid[i][j].getEnergyTax();
       }
     }
     return et;
@@ -166,9 +160,7 @@ class resourceManager {
     int mt = 0;
     for (int i=0; i<tilesWide; i++) {
       for (int j=0; j<tilesHigh; j++) {
-        if (buildingGrid[i][j].tileType != 0) {
-          mt++;
-        }
+        mt += buildingGrid[i][j].getMineralTax();
       }
     }
     return mt;

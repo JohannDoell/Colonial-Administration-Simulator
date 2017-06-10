@@ -27,9 +27,9 @@ int selectedGridX, selectedGridY;
 // Exploration selection variable.
 int selectedShip;
 // Confirmation gates for construction actions.s
-boolean demolishGate, buildGate, upgradeGate;
+boolean demolishGate, buildGate, upgradeGate, deployGate, repairGate, shipUpgradeGate;
 // Resource images.
-PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer, pLevel;
+PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer, pLevel, pHealth;
 // Save Game.
 JSONObject saveGame, baseGame;
 
@@ -77,6 +77,7 @@ void setup() {
   pClock = loadImage("Images/clock.png");
   pHammer = loadImage("Images/hammer.png");
   pLevel = loadImage("Images/arrow.png");
+  pHealth = loadImage("Images/wrench.png");
 
   for (int i=0; i<tilesWide; i++) {
     for (int j=0; j<tilesHigh; j++) {
@@ -116,6 +117,6 @@ void mouseDragged() {
 void keyPressed() {
   game.handleKeyPress();
   if (key == 'y') {
-   ships[selectedShip].experience++; 
+    ships[selectedShip].experience = ships[selectedShip].experience + 20;
   }
 }

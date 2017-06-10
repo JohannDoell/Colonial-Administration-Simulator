@@ -10,6 +10,7 @@ class gameFileManager {
     minerals = saveGame.getInt("minerals");
     energy = saveGame.getInt("energy");
     research = saveGame.getInt("research");
+    relics = saveGame.getInt("relics");
     foodIncrease = saveGame.getInt("foodIncrease");
     mineralIncrease = saveGame.getInt("mineralIncrease");
     energyIncrease = saveGame.getInt("energyIncrease");
@@ -21,6 +22,8 @@ class gameFileManager {
       ships[i].isBought = saveGame.getBoolean("ships["+i+"].isBought");
       ships[i].shipLevel = saveGame.getInt("ships["+i+"].shipLevel");
       ships[i].experience = saveGame.getInt("ships["+i+"].experience");
+      ships[i].health = saveGame.getInt("ships["+i+"].health");
+      ships[i].maxHealth = saveGame.getInt("ships["+i+"].maxHealth");
     }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {
@@ -39,6 +42,7 @@ class gameFileManager {
     saveGame.setInt("minerals", minerals);
     saveGame.setInt("energy", energy);
     saveGame.setInt("research", research);
+    saveGame.setInt("relics", relics);
     saveGame.setInt("foodIncrease", foodIncrease);
     saveGame.setInt("mineralIncrease", mineralIncrease);
     saveGame.setInt("energyIncrease", energyIncrease);
@@ -50,6 +54,8 @@ class gameFileManager {
       saveGame.setBoolean("ships["+i+"].isBought", ships[i].isBought);
       saveGame.setInt("ships["+i+"].shipLevel", ships[i].shipLevel);
       saveGame.setInt("ships["+i+"].experience", ships[i].experience);
+      saveGame.setInt("ships["+i+"].health", ships[i].health);
+      saveGame.setInt("ships["+i+"].maxHealth", ships[i].maxHealth);
     }
     for (int i = 0; i<tilesWide; i++) {
       for (int j = 0; j<tilesHigh; j++) {

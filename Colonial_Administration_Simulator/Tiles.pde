@@ -96,7 +96,7 @@ class tiles {
     }
     // Insurance Clause
     if (this.tileLevel > 3) {
-     tileLevel = 3; 
+      tileLevel = 3;
     }
   }
 
@@ -292,6 +292,44 @@ class tiles {
     } else {
       return pNil;
     }
+  }
+
+  int getMineralTax() {
+    if (tileType == 0) {
+      return 0;
+    }
+    return 1;
+  }
+
+  int getEnergyTax() {
+    if (tileType == 0 || tileType == 3) {
+      return 0;
+    }
+    if (tileLevel != 3) {
+      return 1;
+    } else {
+      return 2;
+    }
+  }
+
+  int getResourceValue() {
+    // Farms
+    if (tileType == 1) {
+      return foodValue;
+    }
+    // Mines
+    if (tileType == 2) {
+      return mineralValue;
+    }
+    // Power Stations
+    if (tileType == 3) {
+      return powerValue;
+    }
+    // Research Stations
+    if (tileType == 4) {
+      return researchValue;
+    }
+    return 0;
   }
 
   boolean isConstructing() {

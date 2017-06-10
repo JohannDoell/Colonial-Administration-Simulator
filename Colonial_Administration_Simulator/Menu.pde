@@ -125,10 +125,6 @@ class menu {
       imageMode(CENTER);
       image(buildingGrid[selectedGridX][selectedGridY].getImage(), width*1/4, (height*11/16)+width/30, buildingGrid[0][0].tileWidth/2, buildingGrid[0][0].tileWidth/2);
       imageMode(CORNER);
-      textSize(width/30);
-      if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
-        text("Lvl." + buildingGrid[selectedGridX][selectedGridY].tileLevel, (width*1/4)-width/24, (height*11/16)+width*11/120);
-      }
       textSize(width/50);
       if (buildingGrid[selectedGridX][selectedGridY].upgradeTime != 0) {
         text("Finished In:" + buildingGrid[selectedGridX][selectedGridY].upgradeTime, (width*1/4), (height*11/16)-width/30);
@@ -138,14 +134,21 @@ class menu {
       }
       textSize(width/30);
       rectMode(CORNER);
-      if (mouseX > width/6 && mouseX < width*1/3 && mouseY > width*191/300 && mouseY < width*241/300) {
-        for (int i = 0; i < 4; i++) {
-          fill(WHITE);
-          rect(width*8/120, width*191/300+(width/24*i), width*12/120, width/24);
-          fill(BLACK);
-          text("  :", width*12/120, width*195/300+(width/24*i));
+      if (buildingGrid[selectedGridX][selectedGridY].tileType != 0) {
+        if (mouseX > width/6 && mouseX < width*1/3 && mouseY > width*191/300 && mouseY < width*241/300) {
+          for (int i = 0; i < 4; i++) {
+            PImage[] imagesToDisplay = {buildingGrid[selectedGridX][selectedGridY].getImage(), pLevel, pMineral, pEnergy};
+            int[] numbersToDisplay = {buildingGrid[selectedGridX][selectedGridY].getResourceValue(), buildingGrid[selectedGridX][selectedGridY].tileLevel, buildingGrid[selectedGridX][selectedGridY].getMineralTax(), buildingGrid[selectedGridX][selectedGridY].getEnergyTax()};
+            fill(WHITE);
+            rect(width*8/120, width*191/300+(width/24*i), width*12/120, width/24);
+            fill(BLACK);
+            image(imagesToDisplay[i], width*42/600, width*385/600+(width/24*i), width/30, width/30);
+            textAlign(LEFT, CENTER);
+            text(" :" + numbersToDisplay[i], width*60/600, width*390/600+(width/24*i));
+            textAlign(CENTER, CENTER);
+          }
         }
-      }      
+      } 
       rectMode(CENTER);
 
       // Construction Options
@@ -607,33 +610,10 @@ class menu {
       }
 
       if (ships[selectedShip].isBought == true) {
+        // Display Ship Info
         ships[selectedShip].displayShipInfo();
       } else {
-        // Display Requisition Info
-        if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
-          if (buildGate == true) {
-            if (ships[selectedShip].canBuyShip() == true) {
-              fill(DARKGREEN);
-            } else {
-              fill(RED);
-            }
-          } else {
-            fill(GREY);
-          }
-        } else {
-          if (buildGate == true) {
-            fill(GREEN);
-          } else {
-            fill(WHITE);
-          }
-        }
-        textAlign(LEFT, CENTER);
-        rect(width/3, width*7/12, width*7/15, width/12);
-        fill(BLACK);
-        text("REQUISITION:   " + ships[selectedShip].reqPrice, width*7/20, width*5/8);
-        imageMode(CENTER);
-        image(pEnergy, width*27/40, width*19/30, width/30, width/30);
-        imageMode(CORNER);
+        ships[selectedShip].displayReqInfo();
       }
     }
   }
@@ -841,6 +821,7 @@ class menu {
       for (int i = 0; i < 3; i++) {
         if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12) {
           selectedShip = i;
+          resetGates();
         }
       }
       if (ships[selectedShip].isBought == false) {
@@ -852,6 +833,12 @@ class menu {
               ships[selectedShip].buyShip();
               resetGates();
             }
+          }
+        }
+      } else {
+        for (int i=0; i<3; i++) {
+          if (mouseX > (width*4/15)+(i*width*9/40) && mouseY > width*2/3 && mouseX < (width*4/15)+(i*width*9/40)+width/6 && mouseY < (width*2/3)+(width/15)) {
+            ships[selectedShip].interpretAction(i);
           }
         }
       }
@@ -886,6 +873,9 @@ class menu {
     demolishGate = false;
     buildGate = false;
     upgradeGate = false;
+    deployGate = false;
+    repairGate = false;
+    shipUpgradeGate = false;
     constructionMenu.desiredBuilding = 'N';
   }
 }
