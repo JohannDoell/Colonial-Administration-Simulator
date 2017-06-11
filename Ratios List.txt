@@ -15,10 +15,12 @@
 344 = width*43/75
 320 = width*8/15
 300 = width/2
+295 = width*59/120
 280 = width*7/15
 275 = width*11/24
+250 = width*5/12
 240 = width*2/5
-225 = width*
+225 = width*3/8
 210 = width*7/20
 200 = width/3
 175 = width*3/8
@@ -28,7 +30,7 @@
 135 = width*9/40
 125 = width*5/24
 120 = width/5
-115 =
+115 = width*23/120
 108 = width*9/50
 100 = width/6
 90 = width*3/20
