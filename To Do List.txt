@@ -1,2 +1,2 @@
-- Finish Exploration System
-- Implement Random Event System
+- Implement Ship Event Notifications
+- Implement Random Events and Notifications
