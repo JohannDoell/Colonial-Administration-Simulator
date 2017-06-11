@@ -245,4 +245,32 @@ class resourceManager {
     }
     return noOfBuildings;
   }
+  
+    void destroyRandomBuilding() {
+    int roll;
+    boolean isBuildingDestroyed = false;
+
+    while (isBuildingDestroyed = false) {
+      
+      for (int i=0; i<tilesWide; i++) {
+        for (int j=0; j<tilesHigh; j++) {
+          
+          if (buildingGrid[i][j].tileType != 0) {
+            
+            if (isBuildingDestroyed == false) {
+              roll = int(random(1, getNoOfBuildings()+1));
+              if (roll == 1) {
+                buildingGrid[i][j].tileType = 0;
+                isBuildingDestroyed = true;
+              }
+              
+            }
+          }
+          
+        }
+        
+      }
+    }
+  }
+  
 }

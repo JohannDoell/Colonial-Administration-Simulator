@@ -36,6 +36,7 @@ JSONObject saveGame, baseGame;
 boolean displayShipEventNotification, displayRandomEventNotification, notificationDisplayed;
 // Random Event Variables
 int eventNumber;
+boolean freeBuilding;
 
 // Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];

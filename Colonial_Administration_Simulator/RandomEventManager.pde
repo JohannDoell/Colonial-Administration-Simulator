@@ -2,6 +2,7 @@ class randomEventManager {
   int randomEventCount = 9;
   int randomEasyEventCount = 4;
   String resultString, shipEventString;
+  int gridX, gridY;
   randomEventManager() {
   }
 
@@ -14,12 +15,12 @@ class randomEventManager {
   }
 
   void runEvent() {
-        // 1-2 Gain Resources
-        // 3-4 Lose Resources
+    // 1-2 Gain Resources
+    // 3-4 Lose Resources
     // 5 Gain Building
     // 6 Lose Building
-      // 7 Gain All of a Resource
-      // 8 Lose All of a Resource
+    // 7 Gain All of a Resource
+    // 8 Lose All of a Resource
     // 9 Take Ship Damage
     if (eventNumber == 1) {
       minerals += 100;
@@ -37,7 +38,11 @@ class randomEventManager {
       }
       resultString = "Lost Energy";
     } else if (eventNumber == 5) {
+      freeBuilding = true;
+      resultString = "Free Building";
     } else if (eventNumber == 6) {
+      resoMan.destroyRandomBuilding();
+      resultString = "Building Destroyed";
     } else if (eventNumber == 7) {
       minerals = mineralMax;
       energy = energyMax;
@@ -47,6 +52,20 @@ class randomEventManager {
       energy = 0;
       resultString = "Lost All Resources";
     } else if (eventNumber == 9) {
+
+      boolean shipFound = false;
+      int roll = int(random(0, 3));
+
+      while (shipFound == false) {
+        if (ships[roll].isBought == false) {
+          roll = int(random(0, 3));
+        } else {
+          shipFound = true;
+        }
+      }
+
+      ships[roll].health = ships[roll].health - (ships[roll].health/2);
+      resultString = "Ship Damaged";
     }
   }
 
@@ -56,7 +75,7 @@ class randomEventManager {
       if (roll == 1) {
         minerals = mineralMax;
         shipEventString = "Gained Materials";
-      } else {
+      } else if (roll == 2) {
         energy = energyMax; 
         shipEventString = "Gained Energy";
       }
