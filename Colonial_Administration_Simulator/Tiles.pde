@@ -165,7 +165,7 @@ class tiles {
     // Build Process called through the menu.
     minerals = minerals - this.getBuildCost(buildType);
 
-    this.buildTime = int(((this.getBuildCost(buildType))/10) - ((this.getBuildCost(buildType))/10)*researchTracks[1].bonus) ;
+    this.buildTime = int(((this.getBuildCost(buildType))/10) - ((this.getBuildCost(buildType))/10)*researchTracks[1].bonus);
 
     this.totalBuildTime = this.buildTime;
     this.isBuilding = true;
@@ -182,9 +182,16 @@ class tiles {
       tileType = 4;
     }
     tileLevel = 0;
+
+    freeBuilding = false;
   }
 
   int getBuildCost(char buildType) {
+
+    if (freeBuilding == true) {
+      return 0;
+    }
+
     // Finds the build cost by being called by the menu.
     int noOf = 0;
     // Farms
