@@ -1,4 +1,4 @@
-class turnManager { //<>//
+class turnManager { //<>// //<>//
   turnManager() {
   }
 

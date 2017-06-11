@@ -22,6 +22,7 @@ class gameManager {
       }
       gmf.displayMenu();
       resoMan.updateResourceIncreases();
+      //notification.displayMenu();
     } 
     // Loss Screen
     else if (state == 2) {

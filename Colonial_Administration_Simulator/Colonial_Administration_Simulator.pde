@@ -32,6 +32,10 @@ boolean demolishGate, buildGate, upgradeGate, deployGate, repairGate, shipUpgrad
 PImage pPop, pFood, pMineral, pEnergy, pResearch, pNil, pX, pClock, pHammer, pLevel, pHealth;
 // Save Game.
 JSONObject saveGame, baseGame;
+// Display Notification Booleans
+boolean displayShipEventNotification, displayRandomEventNotification, notificationDisplayed;
+// Random Event Variables
+int eventNumber;
 
 // Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
@@ -48,6 +52,7 @@ menu researchMenu = new menu("Research");
 menu constructionMenu = new menu("Construction");
 menu explorationMenu = new menu("Exploration");
 menu gmf = new menu("Game Menu Frame");
+menu notification = new menu("Notification");
 gameManager game = new gameManager();
 turnManager turMan = new turnManager();
 researchManager reseMan = new researchManager();

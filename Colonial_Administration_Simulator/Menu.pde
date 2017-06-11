@@ -647,6 +647,7 @@ class menu {
       } else {
         ships[selectedShip].displayReqInfo();
       }
+    } else if (menuType == "Notification") {
     }
   }
 
@@ -881,6 +882,7 @@ class menu {
           selectedMission = i;
         }
       }
+    } else if (menuType == "Notification") {
     }
   }
 
@@ -896,6 +898,13 @@ class menu {
         turMan.advanceTurn();
       }
     } else if (menuType == "Exploration") {
+    } else if (menuType == "Notification") {
+      if (displayShipEventNotification == true && displayRandomEventNotification == false) {
+       randMan.displayShipNotification();
+      }
+      if (displayRandomEventNotification == true) {
+        randMan.displayNotification();
+      }
     }
   }
 
