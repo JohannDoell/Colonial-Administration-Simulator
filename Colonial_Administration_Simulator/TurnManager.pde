@@ -30,6 +30,7 @@ class turnManager { //<>//
   void processShips() {
     for (int i=0; i<3; i++) {
       ships[i].shipUpdate();
+      ships[i].checkMissionStatus();
     }
   }
 

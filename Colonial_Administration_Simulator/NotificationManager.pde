@@ -1,0 +1,4 @@
+class notificationManager {
+  notificationManager() {
+  }
+}

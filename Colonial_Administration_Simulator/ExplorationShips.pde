@@ -9,6 +9,11 @@ class explorationShips {
   String[] shipNames = {"JDS Yamato", "HIRMS Sputnik III", "USS Enterprise"};
   int[] percentChanceArray = {0, 10, 25, 50, 70, 80};
   int[] maxHealthArray = {5, 10, 25, 60, 80, 100};
+
+  int roll;
+
+  int resourceChance, buildingChance, relicChance, successChance, difficulty;
+
   explorationShips (int i) {
     shipLevel = 0;
     isBought = false;
@@ -31,6 +36,9 @@ class explorationShips {
     experienceNeeded = requiredXPArray[shipLevel];
     failureReduction = percentChanceArray[shipLevel];
     maxHealth = maxHealthArray[shipLevel];
+    if (health < 0) {
+      health = 0;
+    }
   }
 
   void levelUpShip() {
@@ -46,6 +54,38 @@ class explorationShips {
     }
   }
 
+  void checkMissionStatus() {
+    if (isHome == false) {
+      missionProgress++;
+      if (missionProgress >= totalMissionProgress) {
+        makeSuccessRoll();
+        isHome = true;
+      }
+    }
+  }
+
+  void makeSuccessRoll() {
+    roll = int(random(1, 100.1));
+    experience += ((100 - roll)/2)*(difficulty+1);
+    //println(roll, successChance);
+    if (roll <= successChance) {
+      makeRewardRoll();
+    } else {
+      health = health - (roll - successChance);
+    }
+  }
+
+  void makeRewardRoll() {
+    roll = int(random(1, 100.1));
+    if (roll < (resourceChance)) {
+      randMan.runShipEvent(1);
+    } else if (roll < (resourceChance + buildingChance)) {
+      randMan.runShipEvent(2);
+    } else if (roll > (resourceChance + buildingChance)) {
+      randMan.runShipEvent(3);
+    }
+  }
+
   void buyShip() {
     energy = energy - reqPrice;
     isBought = true;
@@ -53,7 +93,14 @@ class explorationShips {
   }
 
   void beginShipMission() {
-    
+    successChance = missions[selectedMission].successChance;
+    resourceChance = missions[selectedMission].resourceChance;
+    buildingChance = missions[selectedMission].buildingChance;
+    relicChance = missions[selectedMission].relicChance;
+    difficulty = missions[selectedMission].difficulty;
+    totalMissionProgress = missions[selectedMission].missionLength;
+    missionProgress = 0;
+    isHome = false;
   }
 
   void displayShipInfo() {
@@ -88,12 +135,16 @@ class explorationShips {
     // Mission Progress
     fill(WHITE);
     rect(width*4/15, width*370/600, width*37/60, width*20/600);
+    if (isHome == false) {
+      fill(GREEN);
+      rect(width*4/15, width*370/600, (width*37/60)*missionProgress/totalMissionProgress, width*20/600);
+    }
     fill(BLACK);
     if (isHome == false) {
       textAlign(LEFT, CENTER);
-      text("", width*160/600, width*378/600);
+      text(" Mission Progress:", width*160/600, width*378/600);
       textAlign(RIGHT, CENTER);
-      text("", width*530/600, width*378/600);
+      text(missionProgress+"/"+totalMissionProgress, width*530/600, width*378/600);
     } else {
       textAlign(LEFT, CENTER);
       text(" Awaiting Assignment", width*160/600, width*378/600);
@@ -206,13 +257,14 @@ class explorationShips {
   }
 
   void deployShip() {
-    if (deployGate == false) {
-      gmf.resetGates();
-      deployGate = true;
-    } else {
-      gmf.resetGates();
-      exploMan.prepMissionStats();
-      
+    if (health >= 1 && isHome == true) {
+      if (deployGate == false) {
+        gmf.resetGates();
+        deployGate = true;
+      } else {
+        gmf.resetGates();
+        beginShipMission();
+      }
     }
   }
 
@@ -243,7 +295,7 @@ class explorationShips {
   }
 
   boolean canDeploy() {
-    if (health > 0) {
+    if (health > 0 || isHome == true) {
       return true;
     } else {
       return false;

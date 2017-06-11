@@ -54,7 +54,7 @@ researchManager reseMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
 resourceManager resoMan = new resourceManager();
 randomEventManager randMan = new randomEventManager();
-explorationManager exploMan = new explorationManager();
+notificationManager notManager = new notificationManager();
 
 void setup() {
   size(600, 600);
