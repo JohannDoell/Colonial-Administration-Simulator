@@ -8,7 +8,18 @@ class randomEventManager {
 
   void generateRandomEventNumber() {
     if (turn > 150) {
-      eventNumber = int(random(1, randomEventCount+1));
+      boolean hasShip = false;
+      for (int i=0; i<3; i++) {
+        if (ships[i].isBought == true) {
+          hasShip = true;
+        }
+      }
+
+      if (hasShip == true) {        
+        eventNumber = int(random(1, randomEventCount+1));
+      } else {        
+        eventNumber = int(random(1, randomEventCount));
+      }
     } else {
       eventNumber = int(random(1, randomEasyEventCount+1));
     }
@@ -67,6 +78,7 @@ class randomEventManager {
       ships[roll].health = ships[roll].health - (ships[roll].health/2);
       resultString = "Ship Damaged";
     }
+    displayRandomEventNotification = true;
   }
 
   void runShipEvent(int result) {
@@ -80,8 +92,13 @@ class randomEventManager {
         shipEventString = "Gained Energy";
       }
     } else if (result == 2) {
+      freeBuilding = true;
+      shipEventString = "Free Building";
     } else if (result == 3) {
+      relics++;
+      shipEventString = "Relic Found";
     }
+    displayShipEventNotification = true;
   }
 
   void displayNotification() {
@@ -126,5 +143,22 @@ class randomEventManager {
     textSize(width/30);
     text("MISSION SUCCESS!", width*205/600, width*270/600);
     text("Result:", width*205/600, width*330/600);
+  }
+
+  void clickRandomEventNotification() {
+    if (mouseX > width*2/3 && mouseX < width*5/6 && mouseY > 250 && mouseY < width/6) {
+      displayRandomEventNotification = false;
+    }
+  }
+
+  void clickShipNotification() {
+    if (mouseX > width*2/3 && mouseX < width*5/6 && mouseY > 250 && mouseY < width/6) {
+      displayShipEventNotification = false;
+    }
+  }
+
+  void debug_TestEvents() {
+    generateRandomEventNumber();
+    runEvent();
   }
 }

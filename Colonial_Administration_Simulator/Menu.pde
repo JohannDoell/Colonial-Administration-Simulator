@@ -648,6 +648,11 @@ class menu {
         ships[selectedShip].displayReqInfo();
       }
     } else if (menuType == "Notification") {
+      if (displayRandomEventNotification == true) {
+        randMan.displayNotification();
+      } else if (displayShipEventNotification == true) {
+        randMan.displayShipNotification();
+      }
     }
   }
 
@@ -883,6 +888,11 @@ class menu {
         }
       }
     } else if (menuType == "Notification") {
+      if (displayRandomEventNotification == true) {
+        randMan.clickRandomEventNotification();
+      } else if (displayShipEventNotification == true) {
+        randMan.clickShipNotification();
+      }
     }
   }
 
@@ -900,7 +910,7 @@ class menu {
     } else if (menuType == "Exploration") {
     } else if (menuType == "Notification") {
       if (displayShipEventNotification == true && displayRandomEventNotification == false) {
-       randMan.displayShipNotification();
+        randMan.displayShipNotification();
       }
       if (displayRandomEventNotification == true) {
         randMan.displayNotification();

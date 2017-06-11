@@ -130,4 +130,7 @@ void keyPressed() {
   if (key == 'r') {
     relics++;
   }
+  if (key == 'd') {
+    
+  }
 }
