@@ -387,7 +387,11 @@ class menu {
       }
       //Food
       image(pFood, width*28/48, height*2/128, width/30, width/30);
-      text(food + "+" + foodIncrease, width*34/48, height*4/128);
+      if (food <= 100) {
+        text(food + "+" + foodIncrease, width*34/48, height*4/128);
+      } else {
+        text(food + "+" + foodIncrease, width*350/480, height*4/128);
+      }
       fill(BLACK);
 
       // Tips Screen
@@ -395,7 +399,7 @@ class menu {
         textAlign(LEFT, CENTER);
         text("Tips and Tricks", width/20, width/8);
         text("- Random Events occur every 50 turns.", width/20, width/6);
-        text("- Population requires food to grow.", width/20, 125);
+        text("- Population growth requires Food and Food income to grow.", width/20, 125);
         text("- Colonists are a very powerful resource.", width/20, width/4);
         text("- Research requires Research, Construction requires Materials,", width/20, 175);
         text("and Exploration requires Energy", width/20, width/3);
@@ -591,14 +595,22 @@ class menu {
       if (relics > 0) {
         for (int i = 0; i < 5; i++) {
           ellipseMode(CORNER); 
+          if (i+1 <= relics) {
+            fill(GREY);
+          } else {
+            fill(WHITE);
+          }
           ellipse(width*3/20+(width/6*i), width*325/600 + width/4, width/24, width/24);
         }
       }
       for (int i = 0; i < 3; i++) {
-        if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12 || selectedShip == i) {
+        if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12) {
           fill(GREY);
         } else {
           fill(WHITE);
+        }
+        if (selectedShip == i) {
+          fill(DARKGREY);
         }
         rect(width/12, width*1/2+(width/12*i), width/6, width/12);
         fill(BLACK);
@@ -609,6 +621,26 @@ class menu {
         text(charsToDisplay[i], width/6, width*43/80+(width/12*i));
       }
 
+      for (int i = 0; i < 5; i++) {
+        textAlign(CENTER, CENTER);
+        if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > (width/6)+(width/15)*i && mouseY < (width/15)+(width/6)+(width/15)*i) {
+          fill(GREY);
+        } else {
+          fill(WHITE);
+        }
+        if (selectedMission == i) {
+          fill(DARKGREY);
+        }
+        if (ships[selectedShip].isBought == false) {
+          fill(WHITE);
+        }
+        textSize(width*7/150);
+        rect(width/12, (width/6)+(width/15)*i, width/6, width/15);
+        fill(BLACK);
+        text(i+1, width/6, (width*115/600)+(width/15)*i);
+        missions[i].displayMission();
+      }
+      textSize(width*7/150);
       if (ships[selectedShip].isBought == true) {
         // Display Ship Info
         ships[selectedShip].displayShipInfo();
@@ -840,6 +872,13 @@ class menu {
           if (mouseX > (width*4/15)+(i*width*9/40) && mouseY > width*2/3 && mouseX < (width*4/15)+(i*width*9/40)+width/6 && mouseY < (width*2/3)+(width/15)) {
             ships[selectedShip].interpretAction(i);
           }
+        }
+      }
+
+
+      for (int i = 0; i < 5; i++) {
+        if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > (width/6)+(width/15)*i && mouseY < (width/15)+(width/6)+(width/15)*i) {
+          selectedMission = i;
         }
       }
     }

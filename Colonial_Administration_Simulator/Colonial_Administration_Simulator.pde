@@ -25,7 +25,7 @@ int tilesHigh = 4;
 // Grid selection variables.
 int selectedGridX, selectedGridY;
 // Exploration selection variable.
-int selectedShip;
+int selectedShip, selectedMission;
 // Confirmation gates for construction actions.s
 boolean demolishGate, buildGate, upgradeGate, deployGate, repairGate, shipUpgradeGate;
 // Resource images.
@@ -54,6 +54,7 @@ researchManager reseMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
 resourceManager resoMan = new resourceManager();
 randomEventManager randMan = new randomEventManager();
+explorationManager exploMan = new explorationManager();
 
 void setup() {
   size(600, 600);
@@ -94,11 +95,12 @@ void setup() {
     ships[i] = new explorationShips(i);
   }
   for (int i=0; i<missions.length; i++) {
-    missions[i] = new explorationMissions();
+    missions[i] = new explorationMissions(i);
   }
 
   saveGame = new JSONObject();
   selectedShip = 0;
+  relics = 0;
 }
 
 void draw() {
@@ -118,5 +120,8 @@ void keyPressed() {
   game.handleKeyPress();
   if (key == 'y') {
     ships[selectedShip].experience = ships[selectedShip].experience + 20;
+  }
+  if (key == 'r') {
+    relics++;
   }
 }

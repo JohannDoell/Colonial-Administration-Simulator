@@ -2,8 +2,7 @@ class explorationShips {
   boolean isBought, isHome;
   int experience, experienceNeeded, shipLevel;
   int health, maxHealth;
-  int repairTime, totalRepairTime;
-  int upgradeTime, totalUpgradeTime;
+  int missionProgress, totalMissionProgress;
   int failureReduction;
   int reqPrice;
   int[] requiredXPArray = {100, 300, 500, 750, 1000, 99999999};
@@ -47,34 +46,14 @@ class explorationShips {
     }
   }
 
-  boolean canBuyShip() {
-    if (energy >= reqPrice) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  boolean canRepairShip() {
-    if (health < maxHealth) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  boolean canUpgradeShip() {
-    if (shipLevel >= 5) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   void buyShip() {
     energy = energy - reqPrice;
     isBought = true;
     health = maxHealth;
+  }
+
+  void beginShipMission() {
+    
   }
 
   void displayShipInfo() {
@@ -106,6 +85,21 @@ class explorationShips {
       textAlign(RIGHT, CENTER);
       text("Max ", width*530/600, width*358/600);
     }
+    // Mission Progress
+    fill(WHITE);
+    rect(width*4/15, width*370/600, width*37/60, width*20/600);
+    fill(BLACK);
+    if (isHome == false) {
+      textAlign(LEFT, CENTER);
+      text("", width*160/600, width*378/600);
+      textAlign(RIGHT, CENTER);
+      text("", width*530/600, width*378/600);
+    } else {
+      textAlign(LEFT, CENTER);
+      text(" Awaiting Assignment", width*160/600, width*378/600);
+      textAlign(RIGHT, CENTER);
+    }
+
     // Actions
     String[] actions = {"Deploy", "Repair", "Upgrade"};
     for (int i=0; i<3; i++) {
@@ -197,7 +191,9 @@ class explorationShips {
 
   void interpretAction(int i) {
     if (i == 0) {
-      deployShip();
+      if (canDeploy() == true) {
+        deployShip();
+      }
     } else if (i == 1) {
       if (canRepairShip() == true) {
         repairShip();
@@ -215,23 +211,72 @@ class explorationShips {
       deployGate = true;
     } else {
       gmf.resetGates();
+      exploMan.prepMissionStats();
+      
     }
   }
 
   void repairShip() {
     if (repairGate == false) {
-      gmf.resetGates();
-      repairGate = true;
+      if (energy >= getRepairCost()) {
+        gmf.resetGates();
+        repairGate = true;
+      }
     } else {
+      gmf.resetGates();
+      energy = energy - getRepairCost();
+      health = maxHealth;
     }
   }
 
   void upgradeShip() {
     if (shipUpgradeGate == false) {
-      gmf.resetGates();
-      shipUpgradeGate = true;
+      if (energy >= getUpgradeCost()) {
+        gmf.resetGates();
+        shipUpgradeGate = true;
+      }
     } else {
       gmf.resetGates();
+      energy = energy - getUpgradeCost();
+      experience = experienceNeeded;
+    }
+  }
+
+  boolean canDeploy() {
+    if (health > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean canBuyShip() {
+    if (energy >= reqPrice) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean canRepairShip() {
+    if (isHome == false) {
+      return false;
+    }
+    if (health < maxHealth) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean canUpgradeShip() {
+    if (isHome == false) {
+      return false;
+    }
+    if (shipLevel >= 5) {
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -246,7 +291,7 @@ class explorationShips {
   }
 
   int getRepairCost() {
-    return (maxHealth - health) * 5;
+    return (maxHealth - health) * 2;
   }
 
   int getUpgradeCost() {

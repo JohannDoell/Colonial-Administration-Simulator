@@ -34,6 +34,11 @@ class resourceManager {
     if (minerals > mineralMax) {
       minerals = mineralMax;
     }
+    
+    if (relics >= 5) {
+      relics = 5;
+    }
+    
   }
 
   void updateResourceIncreases() {
@@ -55,6 +60,9 @@ class resourceManager {
     }
     for (int i=0; i<3; i++) {
       ships[i].shipUpdate();
+    }
+    for (int i=0; i<5; i++) {
+      missions[i].updateMissionValues();
     }
   }
 
