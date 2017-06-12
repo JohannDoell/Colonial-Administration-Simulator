@@ -37,6 +37,7 @@ class resourceManager {
 
     if (relics >= 5) {
       relics = 5;
+      state = 3;
     }
   }
 

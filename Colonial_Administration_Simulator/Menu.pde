@@ -919,11 +919,23 @@ class menu {
   }
 
   void loseScreen() {
+    textAlign(CENTER, CENTER);
     fill(BLACK);
     textSize(width*8/75);
     text("YOU LOSE", width/2, height/2);
     textSize(width/30);
     text("You ran out of a resource", width/2, (height/2)+width/10);
+  }
+
+  void winScreen() {
+    textAlign(CENTER, CENTER);
+    fill(BLACK);
+    textSize(width*8/75);
+    text("YOU WIN", width/2, height/2);
+    textSize(width/30);
+    text("You gathered all the relics", width/2, (height/2)+width/10);
+    text("and brought mankind into a new golden age.", width/2, (height/2)+width/10+25);
+    text("SCORE: "+ (5000 - turn), width/2, (height/2)+width/10+50);
   }
 
   // Resets the confirmation gates for all construction actions.

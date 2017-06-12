@@ -111,7 +111,7 @@ void setup() {
 
 void draw() {
   game.handleGameState();
-  println(mouseX, mouseY);
+  //println(mouseX, mouseY);
 }
 
 void mouseClicked() {
@@ -124,13 +124,13 @@ void mouseDragged() {
 
 void keyPressed() {
   game.handleKeyPress();
-  if (key == 'y') {
-    ships[selectedShip].experience = ships[selectedShip].experience + 20;
-  }
-  if (key == 'r') {
-    relics++;
-  }
-  if (key == 'd') {
-    
-  }
+  //if (key == 'y') {
+  //  ships[selectedShip].experience = ships[selectedShip].experience + 20;
+  //}
+  //if (key == 'r') {
+  //  relics++;
+  //}
+  //if (key == 'd') {
+  //  relics--;
+  //}
 }

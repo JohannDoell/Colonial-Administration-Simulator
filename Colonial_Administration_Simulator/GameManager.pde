@@ -27,6 +27,8 @@ class gameManager {
     // Loss Screen
     else if (state == 2) {
       gmf.loseScreen();
+    } else if (state == 3) {
+      gmf.winScreen();
     }
   }
 

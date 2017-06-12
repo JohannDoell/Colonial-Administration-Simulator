@@ -66,23 +66,20 @@ class explorationShips {
 
   void makeSuccessRoll() {
     roll = int(random(1, 100.1));
-    experience += ((100 - roll)/2)*(difficulty+1);
+    //experience += ((100 - roll)/2)*(difficulty+1);
     //println(roll, successChance);
     if (roll <= successChance) {
-      makeRewardRoll();
+      roll = int(random(1, 100.1));
+      println("Relic Roll: " + roll, "Target: " + relicChance);
+      if (roll <= relicChance) {
+        relics++;
+        experience += 1000;
+      } else {
+        experience += ((100 - roll)/2)*(difficulty+1);
+      }
     } else {
       health = health - (roll - successChance);
-    }
-  }
-
-  void makeRewardRoll() {
-    roll = int(random(1, 100.1));
-    if (roll < (resourceChance)) {
-      randMan.runShipEvent(1);
-    } else if (roll < (resourceChance + buildingChance)) {
-      randMan.runShipEvent(2);
-    } else if (roll > (resourceChance + buildingChance)) {
-      randMan.runShipEvent(3);
+      experience += (((100 - roll)/2)*(difficulty+1))/10;
     }
   }
 
@@ -94,8 +91,6 @@ class explorationShips {
 
   void beginShipMission() {
     successChance = missions[selectedMission].successChance;
-    resourceChance = missions[selectedMission].resourceChance;
-    buildingChance = missions[selectedMission].buildingChance;
     relicChance = missions[selectedMission].relicChance;
     difficulty = missions[selectedMission].difficulty;
     totalMissionProgress = missions[selectedMission].missionLength;
