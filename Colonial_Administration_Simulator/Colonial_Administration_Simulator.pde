@@ -117,16 +117,4 @@ void mouseClicked() {
 
 void keyPressed() {
   game.handleKeyPress();
-
-  // Debug Key Commands
-
-  //if (key == 'y') {
-  //  ships[selectedShip].experience = ships[selectedShip].experience + 20;
-  //}
-  //if (key == 'r') {
-  //  relics++;
-  //}
-  //if (key == 'd') {
-  //  relics--;
-  //}
 }

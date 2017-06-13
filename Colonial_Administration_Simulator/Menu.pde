@@ -399,13 +399,15 @@ class menu {
         textAlign(LEFT, CENTER);
         text("Tips and Tricks", width/20, width/8);
         text("- Random Events occur every 50 turns.", width/20, width/6);
-        text("- Population growth requires Food and Food income to grow.", width/20, 125);
+        text("- Population growth requires Food and Food income to grow.", width/20, width*5/24);
         text("- Colonists are a very powerful resource.", width/20, width/4);
-        text("- Research requires Research, Construction requires Materials,", width/20, 175);
+        text("- Research requires Research, Construction requires Materials,", width/20, width*175/600);
         text("and Exploration requires Energy", width/20, width/3);
-        text("- Buildings have Material and Energy upkeep costs.", width/20, 225);
-        text("- Level Three buildings require two Energy.", width/20, 250);
-        text("- Exploration is the key to victory.", width/20, 275);
+        text("- Buildings have Material and Energy upkeep costs.", width/20, width*3/8);
+        text("- Higher level buildings have higher taxes.", width/20, width*5/12);
+        text("- Exploration is the key to victory.", width/20, width*11/24);
+        text("- Pressing the space button advances the turn.", width/20, width/2);
+        text("clicking the turn button also works.", width/20, width*325/600);
       }
 
       // InGame Option Menu
@@ -603,6 +605,7 @@ class menu {
           ellipse(width*3/20+(width/6*i), width*325/600 + width/4, width/24, width/24);
         }
       }
+      // Ship select buttons.
       for (int i = 0; i < 3; i++) {
         if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12) {
           fill(GREY);
@@ -621,6 +624,7 @@ class menu {
         text(charsToDisplay[i], width/6, width*43/80+(width/12*i));
       }
 
+      // Mission select buttons.
       for (int i = 0; i < 5; i++) {
         textAlign(CENTER, CENTER);
         if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > (width/6)+(width/15)*i && mouseY < (width/15)+(width/6)+(width/15)*i) {
@@ -641,8 +645,8 @@ class menu {
         missions[i].displayMission();
       }
       textSize(width*7/150);
+      // Ship Info
       if (ships[selectedShip].isBought == true) {
-        // Display Ship Info
         ships[selectedShip].displayShipInfo();
       } else {
         ships[selectedShip].displayReqInfo();
@@ -848,12 +852,14 @@ class menu {
         turMan.advanceTurn();
       }
     } else if (menuType == "Exploration") {
+      // Select ship.
       for (int i = 0; i < 3; i++) {
         if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > width*1/2+(width/12*i) && mouseY < width*1/2+(width/12*i)+width/12) {
           selectedShip = i;
           resetGates();
         }
       }
+      // Action buttons.
       if (ships[selectedShip].isBought == false) {
         if (mouseX > width/3 && mouseX < width/3+width*7/15 && mouseY > width*7/12 && mouseY < width*7/12+width/12) {
           if (buildGate == false) {
@@ -873,7 +879,7 @@ class menu {
         }
       }
 
-
+      // Select Missions.
       for (int i = 0; i < 5; i++) {
         if (mouseX > width/12 && mouseX < width/12+width/6 && mouseY > (width/6)+(width/15)*i && mouseY < (width/15)+(width/6)+(width/15)*i) {
           selectedMission = i;
