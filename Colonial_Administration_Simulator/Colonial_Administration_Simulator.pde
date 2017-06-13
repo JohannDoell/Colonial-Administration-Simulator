@@ -15,8 +15,6 @@ float popResearchBonus, foodResearchBonus, buildTimeResearchBonus, buildCostRese
 int foodTax, mineralTax, energyTax;
 int foodMax, mineralMax, energyMax;
 int foodNeededForPop = 100;
-// Currently unused.
-String nationName, playerName;
 // Standardized colours.
 color WHITE, DARKGREY, GREY, LIGHTGREY, BLACK, GREEN, DARKGREEN, RED;
 // Grid variables.
@@ -40,31 +38,33 @@ boolean freeBuilding;
 
 // Construction menu grid.
 tiles[][] buildingGrid = new tiles[tilesWide][tilesHigh];
-
 researchObjects[] researchTracks = new researchObjects[7];
+// Displayed Saves on the save/load screen.
 gameSaves[] saveGames = new gameSaves[3];
+// Ships and Missions displayed on the exploration screen.
+explorationShips[] ships = new explorationShips[3];
 explorationMissions[] missions = new explorationMissions[5];
 
-// Ships
-explorationShips[] ships = new explorationShips[3];
-
+// Menus
 menu titleMenu = new menu("Title");
 menu researchMenu = new menu("Research");
 menu constructionMenu = new menu("Construction");
 menu explorationMenu = new menu("Exploration");
 menu gmf = new menu("Game Menu Frame");
-menu notification = new menu("Notification");
+
+// Managers
 gameManager game = new gameManager();
 turnManager turMan = new turnManager();
 researchManager reseMan = new researchManager();
 gameFileManager gameFileMan = new gameFileManager();
 resourceManager resoMan = new resourceManager();
-randomEventManager randMan = new randomEventManager();
-notificationManager notManager = new notificationManager();
 
 void setup() {
   size(600, 600);
   state = 0;
+  selectedShip = 0;
+  relics = 0;
+
   WHITE = color(255);
   GREY = color(155);
   LIGHTGREY = color(200);
@@ -105,25 +105,21 @@ void setup() {
   }
 
   saveGame = new JSONObject();
-  selectedShip = 0;
-  relics = 0;
 }
 
 void draw() {
   game.handleGameState();
-  //println(mouseX, mouseY);
 }
 
 void mouseClicked() {
   game.handleMouseClick();
 }
 
-void mouseDragged() {
-  game.handleMouseDrag();
-}
-
 void keyPressed() {
   game.handleKeyPress();
+
+  // Debug Key Commands
+
   //if (key == 'y') {
   //  ships[selectedShip].experience = ships[selectedShip].experience + 20;
   //}

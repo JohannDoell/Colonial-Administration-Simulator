@@ -647,12 +647,6 @@ class menu {
       } else {
         ships[selectedShip].displayReqInfo();
       }
-    } else if (menuType == "Notification") {
-      if (displayRandomEventNotification == true) {
-        randMan.displayNotification();
-      } else if (displayShipEventNotification == true) {
-        randMan.displayShipNotification();
-      }
     }
   }
 
@@ -670,8 +664,6 @@ class menu {
           for (int i = 0; i>3; i++) {
             saveGames[i].updateSave();
           }
-          //gameFileMan.loadSave();
-          //state = 1;
         }
         // Options
         if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
@@ -887,12 +879,6 @@ class menu {
           selectedMission = i;
         }
       }
-    } else if (menuType == "Notification") {
-      if (displayRandomEventNotification == true) {
-        randMan.clickRandomEventNotification();
-      } else if (displayShipEventNotification == true) {
-        randMan.clickShipNotification();
-      }
     }
   }
 
@@ -908,13 +894,6 @@ class menu {
         turMan.advanceTurn();
       }
     } else if (menuType == "Exploration") {
-    } else if (menuType == "Notification") {
-      if (displayShipEventNotification == true && displayRandomEventNotification == false) {
-        randMan.displayShipNotification();
-      }
-      if (displayRandomEventNotification == true) {
-        randMan.displayNotification();
-      }
     }
   }
 

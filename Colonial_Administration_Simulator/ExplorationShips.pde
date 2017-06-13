@@ -9,9 +9,7 @@ class explorationShips {
   String[] shipNames = {"JDS Yamato", "HIRMS Sputnik III", "USS Enterprise"};
   int[] percentChanceArray = {0, 10, 25, 50, 70, 80};
   int[] maxHealthArray = {5, 10, 25, 60, 80, 100};
-
   int roll;
-
   int resourceChance, buildingChance, relicChance, successChance, difficulty;
 
   explorationShips (int i) {
@@ -42,6 +40,7 @@ class explorationShips {
   }
 
   void levelUpShip() {
+    // Check for necessary experience for a levelup and levelup if the conditions are met.
     if (experience >= experienceNeeded) {
       shipLevel++; 
       experience = 0;
@@ -55,6 +54,7 @@ class explorationShips {
   }
 
   void checkMissionStatus() {
+    // Check if the mission has been completed.
     if (isHome == false) {
       missionProgress++;
       if (missionProgress >= totalMissionProgress) {
@@ -65,9 +65,13 @@ class explorationShips {
   }
 
   void makeSuccessRoll() {
+    /* 
+     Make rolls for mission outcomes.
+     Gives out experience depending on the mission's difficulty
+     and whether or not it was successful.
+     Also gives a relic on success.
+     */
     roll = int(random(1, 100.1));
-    //experience += ((100 - roll)/2)*(difficulty+1);
-    //println(roll, successChance);
     if (roll <= successChance) {
       roll = int(random(1, 100.1));
       println("Relic Roll: " + roll, "Target: " + relicChance);
@@ -84,12 +88,14 @@ class explorationShips {
   }
 
   void buyShip() {
+    // Sets up a ship when bought.
     energy = energy - reqPrice;
     isBought = true;
     health = maxHealth;
   }
 
   void beginShipMission() {
+    // Grab the variables for a mission.
     successChance = missions[selectedMission].successChance;
     relicChance = missions[selectedMission].relicChance;
     difficulty = missions[selectedMission].difficulty;
@@ -199,6 +205,7 @@ class explorationShips {
   }
 
   boolean getGate(int i) {
+    // Get the gate to check if an action is possible.
     if (i == 0) {
       return deployGate;
     } else if (i == 1) {
@@ -211,6 +218,7 @@ class explorationShips {
   }
 
   color getColor(int i) {
+    // Gets one of the... many colours.
     if (mouseX > (width*4/15)+(i*width*9/40) && mouseY > width*2/3 && mouseX < (width*4/15)+(i*width*9/40)+width/6 && mouseY < (width*2/3)+(width/15)) {
       if (getGate(i) == true) {
         return DARKGREEN;
@@ -236,6 +244,7 @@ class explorationShips {
   }
 
   void interpretAction(int i) {
+    // Interprets an action from the menu.
     if (i == 0) {
       if (canDeploy() == true) {
         deployShip();
@@ -252,6 +261,7 @@ class explorationShips {
   }
 
   void deployShip() {
+    // Sends a ship on a mission.
     if (health >= 1 && isHome == true) {
       if (deployGate == false) {
         gmf.resetGates();
@@ -264,6 +274,7 @@ class explorationShips {
   }
 
   void repairShip() {
+    // Repairs a ship if possible.
     if (repairGate == false) {
       if (energy >= getRepairCost()) {
         gmf.resetGates();
@@ -277,6 +288,7 @@ class explorationShips {
   }
 
   void upgradeShip() {
+    // Upgrades a ship if possible.
     if (shipUpgradeGate == false) {
       if (energy >= getUpgradeCost()) {
         gmf.resetGates();
@@ -289,6 +301,7 @@ class explorationShips {
     }
   }
 
+  // These functions check if an action is possible.
   boolean canDeploy() {
     if (health > 0 || isHome == true) {
       return true;
@@ -327,6 +340,7 @@ class explorationShips {
     }
   }
 
+  // These functions get the costs for actions.
   int getCost(int i) {
     if (i == 1) {
       return getRepairCost();

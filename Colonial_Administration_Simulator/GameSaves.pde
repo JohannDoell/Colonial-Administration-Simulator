@@ -1,4 +1,5 @@
 class gameSaves {
+  // An object that displays one of the game saves for the save/load menu.
   int sTurn, sPops, sFood, sMinerals, sEnergy, sResearch;
   JSONObject thisSaveGame;
   String gameToLoad;

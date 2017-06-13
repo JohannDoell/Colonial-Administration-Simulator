@@ -4,6 +4,7 @@ class gameFileManager {
 
   void loadSaveGame(String fileToLoad) {
     saveGame = loadJSONObject(fileToLoad);
+    
     turn = saveGame.getInt("turn");
     pops = saveGame.getInt("pops");
     food = saveGame.getInt("food");
@@ -14,6 +15,7 @@ class gameFileManager {
     foodIncrease = saveGame.getInt("foodIncrease");
     mineralIncrease = saveGame.getInt("mineralIncrease");
     energyIncrease = saveGame.getInt("energyIncrease");
+    
     for (int i = 0; i<7; i++ ) {
       researchTracks[i].progress = saveGame.getInt("researchTracks[" + i + "].progress");
       researchTracks[i].researchTime = saveGame.getInt("researchTracks[" + i + "].researchTime");
@@ -31,11 +33,13 @@ class gameFileManager {
         buildingGrid[i][j].tileLevel = saveGame.getInt("buildingGrid[" + i + "][" + j + "].tileLevel");
       }
     }
+    
     println("File:'" + fileToLoad + "'Loaded");
   }
 
   void saveSaveGame(String fileToSave) {
     saveGame = new JSONObject();
+    
     saveGame.setInt("turn", turn);
     saveGame.setInt("pops", pops);
     saveGame.setInt("food", food);
@@ -46,6 +50,7 @@ class gameFileManager {
     saveGame.setInt("foodIncrease", foodIncrease);
     saveGame.setInt("mineralIncrease", mineralIncrease);
     saveGame.setInt("energyIncrease", energyIncrease);
+    
     for (int i = 0; i<7; i++) {
       saveGame.setInt("researchTracks[" + i + "].progress", researchTracks[i].progress);
       saveGame.setInt("researchTracks[" + i + "].researchTime", researchTracks[i].researchTime);
@@ -63,6 +68,7 @@ class gameFileManager {
         saveGame.setInt("buildingGrid[" + i + "][" + j + "].tileLevel", buildingGrid[i][j].tileLevel);
       }
     }
+    
     saveJSONObject(saveGame, "data/" + fileToSave);
     println("Game:'"+ fileToSave +"'Saved");
   }
@@ -77,10 +83,10 @@ class gameFileManager {
 
   void loadBaseFile() {    
     loadSaveGame("baseGame.json");
-    reseMan.setupBaseResearch();
   }
 
   void displaySaveMenu() {
+    // Displays information on the save/load screen.
     for (int i = 0; i < 3; i++) {
       saveGames[i].updateSave();
     }

@@ -13,24 +13,14 @@ class researchManager {
   }
 
   void selectResearch(int researchChoice) {
+    // Interprets mouse click information and selects a research track.
     if (researchChoice != -1) {
       selection = researchChoice;
       println(selection);
     }
   }
 
-  void setupBaseResearch () {
-    farmingProgress = 0;
-    buildTimeProgress = 0;
-    buildCostProgress = 0;
-    miningProgress = 0;
-    powerProgress = 0;
-    popProgress = 0;
-    for (int i=0; i<7; i++) {
-      researchTracks[i].setResearchMenuVariables();
-    }
-  }
-
+  // Returns a PImage to reduce clutter.
   PImage getResearchIcon(int i) {
     if (i == 0) {
       return pFood;
@@ -56,6 +46,7 @@ class researchManager {
     return pNil;
   }
 
+  // Also reduces clutter.
   String getResearchFlavourText(int i) {
     return researchTracks[i].flavourText;
   }
@@ -74,7 +65,6 @@ class researchManager {
       textSize(width*2/75);
       textAlign(CENTER, CENTER);
 
-      //textSize(16);
       for (int i = 0; i<7; i++) {
         fill(WHITE);          
         rect(width/20, width*8/60+width*6/64*i, width/6, width*1/12); 
@@ -89,6 +79,7 @@ class researchManager {
         fill(BLACK);
         imageMode(CENTER);
         textAlign(LEFT);
+        // Display not finished research track information.
         image(reseMan.getResearchIcon(i), width*21/160, width*21/120+width*6/64*i, width*1/20, width*1/20); 
         if (researchTracks[i].progress != 4) {
           text(reseMan.getResearchFlavourText(i) + " : " + researchTracks[i].researchTime + " / " + researchTracks[i].totalResearchTime, width*160/600, (width*1/12)/2+width*17/120+width*6/64*i);
@@ -96,14 +87,12 @@ class researchManager {
           text("Finished", width*160/600, (width*1/12)/2+width*17/120+width*6/64*i);
         }
 
-
+        // Display finished research track information.
         if (i == 5) {
           text("-" + researchTracks[i].getBonus(0) + "%⇨-" + researchTracks[i].getBonus(1) + "%", width*440/600, (width*1/12)/2+width*17/120+width*6/64*i);
         } else {
           text("+" + researchTracks[i].getBonus(0) + "%⇨+" + researchTracks[i].getBonus(1) + "%", width*440/600, (width*1/12)/2+width*17/120+width*6/64*i);
         }
-
-
         imageMode(CORNER);
         textAlign(CENTER, CENTER);
       }
@@ -116,6 +105,7 @@ class researchManager {
     }
   }
 
+  // Interprets a mouse click and sends it to be interpreted into an action.
   int getResearchChoice() {
     for (int i = 0; i<7; i++) {
       if (mouseX > width/4 && mouseX < width*11/12 && mouseY > width*8/60+width*6/64*i && mouseY < width*8/60+width*1/12+width*6/64*i && gmf.displayResearchMenu == true) {
@@ -129,6 +119,7 @@ class researchManager {
     return -1;
   }
 
+  // Hover Text for research tracks.
   void displayResearchInfo(int i) {
     fill(WHITE);
     int[] rectWidths = {width*23/80, width*23/80, width*23/80, width*25/80, width*25/80, width*29/80, width*27/80};

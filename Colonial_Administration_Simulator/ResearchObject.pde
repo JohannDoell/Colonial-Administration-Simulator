@@ -136,12 +136,14 @@ class researchObjects {
   }
 
   void setResearchMenuVariables() {
+    // Constant update function.
     totalResearchTime = researchTimeList[progress];
     flavourText = researchNameList[progress];
     bonus = bonusList[progress];
   }
 
   int getBonus(int i) {
+    // Returns the bonus to the resource manager.
     if (progress == 4) {
      i = 0;
     }
@@ -159,6 +161,7 @@ class researchObjects {
 
 
   void research() {
+    // Adds the research value to the research track.
     if (reseMan.selection == this.researchType) {
       if (this.progress != 4) {
         researchTime += research;

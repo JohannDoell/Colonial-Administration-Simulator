@@ -94,7 +94,7 @@ class tiles {
       isBuilding = false;
       this.totalBuildTime = 0;
     }
-    // Insurance Clause
+    // Debug
     if (this.tileLevel > 3) {
       tileLevel = 3;
     }

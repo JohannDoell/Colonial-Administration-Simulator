@@ -35,7 +35,6 @@ class turnManager { //<>//
   }
 
   void advanceTurn() {
-    // Self explanatory.
     turn++;
     resoMan.updateResources();
     processConstruction();

@@ -22,9 +22,7 @@ class gameManager {
       }
       gmf.displayMenu();
       resoMan.updateResourceIncreases();
-      notification.displayMenu();
     } 
-    // Loss Screen
     else if (state == 2) {
       gmf.loseScreen();
     } else if (state == 3) {
@@ -44,12 +42,6 @@ class gameManager {
       } else if (gmf.displayExplorationMenu == true) {
         explorationMenu.menuClick();
       }
-    }
-  }
-
-  void handleMouseDrag() {
-    if (state == 0) {
-    } else if (state == 1) {
     }
   }
 
