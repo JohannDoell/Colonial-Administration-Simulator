@@ -50,20 +50,6 @@ class menu {
         textSize(width/24);
         text("Load", width*1/2, height*3/5);
 
-        // Options 
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
-          fill(BLACK);
-        } else {
-          fill(GREY);
-        }
-        rectMode(CENTER);
-        rect(width*1/2, height*4/5, width/2, width*2/15);
-        fill(WHITE);
-        textAlign(CENTER, CENTER);
-        textSize(width/24);
-        text("Options", width*1/2, height*4/5);
-
-
         // Exit
         rectMode(CENTER);
         if (mouseX > ((width*95/100)-width/40) && mouseX < ((width*95/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
@@ -77,26 +63,8 @@ class menu {
         imageMode(CORNER);
         //line((width*95/100)-10, (height*5/100)-width/60, (width*95/100)+width/60, (height*5/100)+width/60);
       } else if (menuState == 1) {
-        // Options Menu
-        fill(BLACK);
-        text("Options Coming Soon", width/2, height/2);
-
-        // Back Button
-        stroke(BLACK);
-        rectMode(CENTER);
-        if (mouseX > ((width*5/100)-width/40) && mouseX < ((width*5/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
-          fill(BLACK);
-        } else {
-          fill(WHITE);
-        }
-        rect(width*5/100, height*5/100, width/20, width/20);
-        if (mouseX > ((width*5/100)-width/40) && mouseX < ((width*5/100)+width/40) && mouseY > (height*5/100)-width/40 && mouseY < (height*5/100)+width/40) {
-          stroke(WHITE);
-        } else {
-          stroke(BLACK);
-        }
-        line((width*5/100)-width/120, height*5/100, (width*5/100)+10, height*5/100);
-        triangle((width*5/100)-width/120, (height*5/100)-width/120, (width*5/100)-width/60, (height*5/100), (width*5/100)-width/120, (height*5/100)+width/120);
+        // Was the location of the options menu.
+        // Options were never actually required.
       } else if (menuState == 2) {
         // Load Menu
         gameFileMan.displaySaveMenu();
@@ -410,7 +378,7 @@ class menu {
         text("clicking the turn button also works.", width/20, width*325/600);
       }
 
-      // InGame Option Menu
+      // In Game Option Menu
       rectMode(CENTER);
       stroke(BLACK); 
       fill(BLACK);
@@ -429,7 +397,7 @@ class menu {
       textAlign(CENTER, CENTER);
 
       if (displayInGameMenu == true) {
-        // Options
+        // Save
         stroke(BLACK); 
         fill(BLACK);
         textAlign(CENTER, CENTER);
@@ -441,8 +409,8 @@ class menu {
         }
         rect((width)-((width*1/8)/2), (height*1/8)-height*1/32, width*1/4, height*1/16);
         fill(WHITE);
-        text("Options", (width)-((width*1/8)/2), (height*1/8)-height*1/32);
-        // Save
+        text("Save", (width)-((width*1/8)/2), (height*1/8)-height*1/32);
+        // Quit
         stroke(BLACK); 
         fill(BLACK);
         textAlign(CENTER, CENTER);
@@ -454,20 +422,7 @@ class menu {
         }
         rect((width)-((width*1/8)/2), (height*1/8)+height*1/32, width*1/4, height*1/16);
         fill(WHITE);
-        text("Save", (width)-((width*1/8)/2), (height*1/8)+height*1/32);
-        // Quit
-        stroke(BLACK); 
-        fill(BLACK);
-        textAlign(CENTER, CENTER);
-        textSize(width*2/75);
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
-          fill(BLACK);
-        } else {
-          fill(GREY);
-        }
-        rect((width)-((width*1/8)/2), (height*1/8)+height*3/32, width*1/4, height*1/16);
-        fill(WHITE);
-        text("Quit", (width)-((width*1/8)/2), (height*1/8)+height*3/32);
+        text("Quit", (width)-((width*1/8)/2), (height*1/8)+height*1/32);
       }
       //Tabs
       line(0, height*14/16, width, height*14/16);
@@ -669,10 +624,6 @@ class menu {
             saveGames[i].updateSave();
           }
         }
-        // Options
-        if (mouseX > ((width*1/2)-width/4) && mouseX < ((width*1/2)+width/4) && mouseY > (height*4/5)-width/15 && mouseY < (height*4/5)+width/15) {
-          menuState = 1;
-        }
         // Exit
         rectMode(CENTER);
         if (mouseX > ((width*95/100)-15) && mouseX < ((width*95/100)+15) && mouseY > (height*5/100)-15 && mouseY < (height*5/100)+15) {
@@ -807,20 +758,14 @@ class menu {
 
       if (displayInGameMenu == true) {
         // Save
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16 ) {
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8)) {
           titleMenu.menuState = 3;
           state = 0;
         }
         // Main Menu
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)+height*1/16 && mouseY < (height*1/8)+height*1/8 ) {
+        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)  && mouseY < (height*1/8)+height*1/16) {
           state = 0;
           titleMenu.menuState = 0;
-          displayInGameMenu = false;
-        }
-        // Options
-        if (mouseX > (width)-(width*1/4) && mouseX < width && mouseY > (height*1/8)-height*1/16  && mouseY < (height*1/8) ) {
-          state = 0;
-          titleMenu.menuState = 1;
           displayInGameMenu = false;
         }
       }
