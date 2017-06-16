@@ -366,7 +366,6 @@ class menu {
       if (gmf.displayConstructionMenu == false && gmf.displayExplorationMenu == false && gmf.displayResearchMenu == false) {
         textAlign(LEFT, CENTER);
         text("Tips and Tricks", width/20, width/8);
-        text("- Random Events occur every 50 turns.", width/20, width/6);
         text("- Population growth requires Food and Food income to grow.", width/20, width*5/24);
         text("- Colonists are a very powerful resource.", width/20, width/4);
         text("- Research requires Research, Construction requires Materials,", width/20, width*175/600);
@@ -375,7 +374,7 @@ class menu {
         text("- Higher level buildings have higher taxes.", width/20, width*5/12);
         text("- Exploration is the key to victory.", width/20, width*11/24);
         text("- Pressing the space button advances the turn.", width/20, width/2);
-        text("clicking the turn button also works.", width/20, width*325/600);
+        text("Clicking the turn button also works.", width/20, width*325/600);
       }
 
       // In Game Option Menu
